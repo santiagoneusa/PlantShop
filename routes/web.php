@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Auth::routes();
+
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
+Route::get('/plants', 'App\Http\Controllers\PlantController@index')->name('plant.index');
+Route::get('/plants/create', 'App\Http\Controllers\PlantController@create')->name('plant.create');
+Route::post('/plants/save', 'App\Http\Controllers\PlantController@save')->name('plant.save');
+Route::get('/plants/{id}', 'App\Http\Controllers\PlantController@show')->name('plant.show');
+Route::delete('/plants/{id}', 'App\Http\Controllers\PlantController@delete')->name('plant.delete');
