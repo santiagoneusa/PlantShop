@@ -62,4 +62,20 @@ class PlantController extends Controller
 
         return redirect()->route('plant.index');
     }
+
+    public function search(Request $request): View
+    {
+        $search = $request->input('search');
+
+        $plants = Plant::where('name', 'like', '%' . $search . '%')
+                        ->orWhere('description', 'like', '%' . $search . '%')
+                        ->get();
+
+        $viewData = [];
+        $viewData['title'] = 'Search Results';
+        $viewData['subtitle'] = 'Search results for: ' . $search;
+        $viewData['plants'] = $plants;
+
+        return view('plant.index')->with('viewData', $viewData);
+    }
 }
