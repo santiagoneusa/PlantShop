@@ -11,12 +11,32 @@ use Illuminate\View\View;
 
 class PlantController extends Controller
 {
-    public function index(): View
-    {
+    public function index(Request $request): View
+    {   
+        $sortBy = $request->input('sort_by');
+
+        $plants = Plant::query();
+
+        switch ($sortBy) {
+            case 'newest':
+                $plants->orderByDesc('created_at');
+                break;
+            case 'oldest':
+                $plants->orderBy('created_at');
+                break;
+            case 'price_high':
+                $plants->orderByDesc('price');
+                break;
+            case 'price_low':
+                $plants->orderBy('price');
+                break;
+            default:
+                break;
+        }
         $viewData = [];
         $viewData['title'] = 'Plants - Online Store';
         $viewData['subtitle'] = 'List of plants';
-        $viewData['plants'] = Plant::all();
+        $viewData['plants'] = $plants->get();
 
         return view('plant.index')->with('viewData', $viewData);
     }

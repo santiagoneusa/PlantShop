@@ -16,6 +16,18 @@
         </div>
     </form>
 
+    <form action="{{ route('plant.index') }}" method="GET" class="mb-3">
+        <div class="input-group">
+            <select name="sort_by" class="form-select">
+                <option value="newest">Newest to oldest</option>
+                <option value="oldest">Oldest to newest</option>
+                <option value="price_high">Price: higher to lower</option>
+                <option value="price_low">Price: lower to higher</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Apply Filter</button>
+        </div>
+    </form>
+
     <div class="row">
         @foreach ($viewData["plants"] as $plant)
         <div class="col-md-4 col-lg-3 mb-2">

@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PlantFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,10 +14,6 @@ class PlantFactory extends Factory
         return [
             'name' => $this->faker->company,
             'description' => $this->faker->sentence,
-            'imageUrl' => $this->faker->imageUrl(),
-            'price' => $this->faker->numberBetween($min = 200, $max = 9000),
-            'stock' => $this->faker->numberBetween($min = 0, $max = 100),
-            'categoryId' => $this->faker->numberBetween($min = 1, $max = 5),
         ];
     }
 }
