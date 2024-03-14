@@ -8,6 +8,26 @@
         {{ Session::get('success') }}
     </div>
     @endif
+
+    <form action={{ route('plant.search') }} method="GET" class="mb-3">
+        <div class="input-group">
+            <input type="text" name="search" class="form-control" placeholder="Search plants...">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+
+    <form action="{{ route('plant.index') }}" method="GET" class="mb-3">
+        <div class="input-group">
+            <select name="sort_by" class="form-select">
+                <option value="newest">Newest to oldest</option>
+                <option value="oldest">Oldest to newest</option>
+                <option value="price_high">Price: higher to lower</option>
+                <option value="price_low">Price: lower to higher</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Apply Filter</button>
+        </div>
+    </form>
+
     <div class="row">
         @foreach ($viewData["plants"] as $plant)
         <div class="col-md-4 col-lg-3 mb-2">

@@ -25,6 +25,7 @@
               <input type="text" class="form-control mb-2" placeholder="Enter the image url of the plant" name="imageUrl" value="{{ old('imageUrl') }}" />
               <input type="number" class="form-control mb-2" placeholder="Enter the price of the plant" name="price" value="{{ old('price') }}" />
               <input type="number" class="form-control mb-2" placeholder="Enter the stock of the plant" name="stock" value="{{ old('stock') }}" />
+              <input type="number" class="form-control mb-2" placeholder="Enter the id of the category of the plant" name="categoryId" value="{{ old('categoryId') }}" />
               <input type="submit" class="btn btn-primary" value="Send" />
             </form>
           </div>
