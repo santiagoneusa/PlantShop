@@ -17,10 +17,11 @@ class Plant extends Model
      * $this->attributes['imageUrl'] - string - contains the url of the plant image
      * $this->attributes['price'] - int - contains the plant price
      * $this->attributes['stock'] - int - contains the remain stock units of the plant
+     * $this->attributes['categoryId'] - int - Contains the ID of the category to which the plant belongs
      * $this->attributes['created_at'] - timestamp - timestamp indicating plant creation
      * $this->attributes['updated_at'] - timestamp - timestamp indicating last plant update
      */
-    protected $fillable = ['name', 'description', 'imageUrl', 'price', 'stock'];
+    protected $fillable = ['name', 'description', 'imageUrl', 'price', 'stock', 'categoryId'];
 
     public function getId(): int
     {
@@ -85,5 +86,15 @@ class Plant extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function getCategoryId(): int
+    {
+        return $this->attributes['categoryId'];
+    }
+
+    public function setCategoryId(int $categoryId): void
+    {
+        $this->attributes['categoryId'] = $categoryId;
     }
 }
