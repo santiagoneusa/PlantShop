@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
@@ -16,8 +15,7 @@ class Order extends Model
      * $this->attributes['status'] - string - contains the state of the order (Complete, Sent, Delivered)
      * $this->attributes['created_at'] - timestamp - contains the order creation date
      * $this->attributes['updated_at'] - timestamp - contains the order update date
-    */
-
+     */
     public static function validate(): void
     {
 
@@ -52,5 +50,4 @@ class Order extends Model
     {
         return $this->attributes['created_at'];
     }
-
 }

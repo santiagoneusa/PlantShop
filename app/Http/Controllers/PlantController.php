@@ -12,7 +12,7 @@ use Illuminate\View\View;
 class PlantController extends Controller
 {
     public function index(Request $request): View
-    {   
+    {
         $sortBy = $request->input('sort_by');
 
         $plants = Plant::query();
@@ -87,13 +87,13 @@ class PlantController extends Controller
     {
         $search = $request->input('search');
 
-        $plants = Plant::where('name', 'like', '%' . $search . '%')
-                        ->orWhere('description', 'like', '%' . $search . '%')
-                        ->get();
+        $plants = Plant::where('name', 'like', '%'.$search.'%')
+            ->orWhere('description', 'like', '%'.$search.'%')
+            ->get();
 
         $viewData = [];
         $viewData['title'] = 'Search Results';
-        $viewData['subtitle'] = 'Search results for: ' . $search;
+        $viewData['subtitle'] = 'Search results for: '.$search;
         $viewData['plants'] = $plants;
 
         return view('plant.index')->with('viewData', $viewData);
