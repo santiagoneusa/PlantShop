@@ -12,7 +12,7 @@ class Guide extends Model
      * $this->attributes['id'] - int - contains the guide primary key (id)
      * $this->attributes['title'] - string - contains the title of the guide
      * $this->attributes['content'] - text - contains the content of the guide
-     * $this->attributes['image_url'] - string - contains the direction where the image of the guide is stored
+     * $this->attributes['image'] - string - contains the direction where the image of the guide is stored
      * $this->attributes['created_at'] - timestamp - contains the order creation date
      * $this->attributes['updated_at'] - timestamp - contains the order update date
      */
@@ -46,9 +46,9 @@ class Guide extends Model
         return $this->attributes['content'];
     }
 
-    public function getImageUrl(): string
+    public function getImage(): string
     {
-        return $this->attributes['image_url'];
+        return $this->attributes['image'];
     }
 
     public function getCreatedAt(): string

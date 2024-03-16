@@ -8,7 +8,7 @@
         <div class="card-body">
             <h5 class="card-title">Plants</h5>
             <p class="card-text">Visualize all plants available</p>
-            <a href="#" class="btn btn-success">View Plants</a>
+            <a href="{{ route('plant.index') }}" class="btn btn-success">View Plants</a>
         </div>
     </div>
 
@@ -17,7 +17,7 @@
         <div class="card-body">
             <h5 class="card-title">Category</h5>
             <p class="card-text">Visualize plants organized by differents light, function and enviroment</p>
-            <a href="#" class="btn btn-success">View Category</a>
+            <a href="{{ route('category.index') }}" class="btn btn-success">View Category</a>
         </div>
     </div>
 
@@ -26,7 +26,7 @@
         <div class="card-body">
             <h5 class="card-title">Guides</h5>
             <p class="card-text">How to water my plants? Which plants are better to me? All those questions answered here</p>
-            <a href="#" class="btn btn-success">View Guides</a>
+            <a href="{{ route('guide.index') }}" class="btn btn-success">View Guides</a>
         </div>
     </div>
 </div>

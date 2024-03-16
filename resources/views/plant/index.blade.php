@@ -12,7 +12,7 @@
     <form action={{ route('plant.search') }} method="GET" class="mb-3">
         <div class="input-group">
             <input type="text" name="search" class="form-control" placeholder="Search plants...">
-            <button type="submit" class="btn btn-primary">Search</button>
+            <button type="submit" class="btn btn-success">Search</button>
         </div>
     </form>
 
@@ -24,7 +24,7 @@
                 <option value="price_high">Price: higher to lower</option>
                 <option value="price_low">Price: lower to higher</option>
             </select>
-            <button type="submit" class="btn btn-primary">Apply Filter</button>
+            <button type="submit" class="btn btn-success">Apply Filter</button>
         </div>
     </form>
 

@@ -2,17 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 Auth::routes();
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
@@ -24,6 +13,14 @@ Route::post('/plants/save', 'App\Http\Controllers\PlantController@save')->name('
 Route::get('/plants/{id}', 'App\Http\Controllers\PlantController@show')->name('plant.show');
 Route::delete('/plants/{id}', 'App\Http\Controllers\PlantController@delete')->name('plant.delete');
 
+Route::get('/categories', 'App\Http\Controllers\CategoryController@index')->name('category.index');
+Route::get('/categories/{id}', 'App\Http\Controllers\CategoryController@show')->name('category.show');
+
+Route::get('/guides', 'App\Http\Controllers\GuideController@index')->name('guide.index');
+Route::get('/guides/{id}', 'App\Http\Controllers\GuideController@show')->name('guide.show');
+
 Route::post('/reviews/save', 'App\Http\Controllers\ReviewController@save')->name('review.save');
+
+Route::post('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
 
 Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name('admin.home.index');

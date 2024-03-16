@@ -11,6 +11,7 @@ class Category extends Model
      * $this->attributes['id'] - int - contains the category primary key (id)
      * $this->attributes['name'] - string - contains the category name
      * $this->attributes['description'] - text - contains the category description
+     * $this->attributes['image'] - text - contains the category image cover
      * $this->attributes['created_at'] - timestamp - timestamp indicating category creation
      * $this->attributes['updated_at'] - timestamp - timestamp indicating last category update
      */
@@ -39,6 +40,11 @@ class Category extends Model
     public function setDescription(string $description): void
     {
         $this->attributes['description'] = $description;
+    }
+
+    public function getImage(): string
+    {
+        return $this->attributes['image'];
     }
 
     public function getCreated_at(): string

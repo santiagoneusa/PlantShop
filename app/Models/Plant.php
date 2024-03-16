@@ -14,7 +14,7 @@ class Plant extends Model
      * $this->attributes['id'] - int - contains the plant primary key (id)
      * $this->attributes['name'] - string - contains the plant name
      * $this->attributes['description'] - text - contains the plant description
-     * $this->attributes['image_url'] - string - contains the url of the plant image
+     * $this->attributes['image'] - string - contains the url of the plant image
      * $this->attributes['price'] - int - contains the plant price
      * $this->attributes['stock'] - int - contains the remain stock units of the plant
      * $this->attributes['created_at'] - timestamp - timestamp indicating plant creation
@@ -70,9 +70,9 @@ class Plant extends Model
         $this->attributes['description'] = $description;
     }
 
-    public function getImageUrl(): string
+    public function getImage(): string
     {
-        return $this->attributes['image_url'];
+        return $this->attributes['image'];
     }
 
     public function setImageUrl(string $imageUrl): void

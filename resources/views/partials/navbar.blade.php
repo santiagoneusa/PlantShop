@@ -13,16 +13,15 @@
                 <a class="nav-link active" href="{{ route('home.index') }}">Home</a>
                 <a class="nav-link" href="{{ route('plant.index') }}">Plants</a>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">Categorías</a>
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Interior</a></li>
-                        <li><a class="dropdown-item" href="#">Exterior</a></li>
-                        <li><a class="dropdown-item" href="#">Ornamentales</a></li>
-                        <li><a class="dropdown-item" href="#">Aromáticas</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> 1]) }}">Interior</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> 2]) }}">Exterior</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> 3]) }}">Ornamental</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> 4]) }}">Aromatic</a></li>
                     </ul>
-                </li>
-                <a class="nav-link" href="{{ route('plant.index') }}">Guides</a>
+                </li>   
+                <a class="nav-link" href="{{ route('guide.index') }}">Guides</a>
             </ul>
 
             @guest
@@ -32,14 +31,14 @@
             </div>
             @else
             <div class="d-flex align-items-center">
-                <span class="material-symbols-outlined">shopping_cart</span>
+                <span class="material-symbols-outlined" href="{{ route('cart.index') }}">shopping_cart</span>
                 
                 <div class="dropdown-center">
                     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="material-symbols-outlined" style="margin-top: 3px;">account_circle</span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="user.index">Profile</a></li>
                         <li class="dropdown-item">
                             <form id="logout" action="{{ route('logout') }}" method="POST">
                                 <a role="button" class="nav-link active"

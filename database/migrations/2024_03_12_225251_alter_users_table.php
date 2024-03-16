@@ -9,7 +9,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('image_url')->default('user0.jpg');
+            $table->string('image')->default('user0.jpg');
             $table->string('role')->default('client');
             $table->integer('balance')->default(100);
         });
@@ -18,7 +18,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['image_url']);
+            $table->dropColumn(['image']);
             $table->dropColumn(['role']);
             $table->dropColumn(['balance']);
         });
