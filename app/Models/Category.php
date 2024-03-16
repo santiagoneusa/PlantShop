@@ -11,11 +11,11 @@ class Category extends Model
 
     /**
      * CATEGORY ATTRIBUTES
-     * $this->attributes['id'] - int - contiene la clave primaria de la categoría (id)
-     * $this->attributes['name'] - string - contiene el nombre de la categoría
-     * $this->attributes['description'] - text - contiene la descripción de la categoría
-     * $this->attributes['created_at'] - timestamp - marca de tiempo que indica la creación de la categoría
-     * $this->attributes['updated_at'] - timestamp - marca de tiempo que indica la última actualización de la categoría
+     * $this->attributes['id'] - int - contains the category primary key (id)
+     * $this->attributes['name'] - string - contains the category name
+     * $this->attributes['description'] - text - contains the category description
+     * $this->attributes['created_at'] - timestamp - timestamp indicating category creation
+     * $this->attributes['updated_at'] - timestamp - timestamp indicating last category update
      */
     protected $fillable = ['name', 'description'];
 
