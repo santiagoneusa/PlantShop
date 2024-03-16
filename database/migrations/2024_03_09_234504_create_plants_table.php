@@ -12,9 +12,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->string('imageUrl');
-            $table->integer('price');
-            $table->integer('stock');
+            $table->string('image_url');
+            $table->unsignedInteger('price');
+            $table->unsignedInteger('stock');
             $table->timestamps();
         });
     }

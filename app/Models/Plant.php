@@ -4,8 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use App\Models\Category;
-use App\Models\Item;
+
 // use App\Models\Review;
 
 class Plant extends Model
@@ -20,18 +19,17 @@ class Plant extends Model
      * $this->attributes['stock'] - int - contains the remain stock units of the plant
      * $this->attributes['created_at'] - timestamp - timestamp indicating plant creation
      * $this->attributes['updated_at'] - timestamp - timestamp indicating last plant update
-    
+
      * $this->attributes['category_id'] - int - Contains the ID of the category to which the plant belongs
      * $this->attributes['items'] - int - Contains the ID of the category to which the plant belongs
      * $this->attributes['reviews'] - int - Contains the ID of the category to which the plant belongs
      */
-
     protected $fillable = [
-        'name', 
-        'description', 
-        'image_url', 
-        'price', 
-        'stock', 
+        'name',
+        'description',
+        'image_url',
+        'price',
+        'stock',
         'category_id',
     ];
 

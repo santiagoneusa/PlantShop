@@ -11,7 +11,6 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <a class="nav-link active" href="{{ route('home.index') }}">Home</a>
-                <a class="nav-link" href="{{ route('plant.create') }}">Create plant</a>
                 <a class="nav-link" href="{{ route('plant.index') }}">Plants</a>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"

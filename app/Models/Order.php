@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Item;
 
 class Order extends Model
 {
@@ -21,22 +21,21 @@ class Order extends Model
      * $this->attributes['user_id'] - string - contains as a foreign key the id of the user that made the order
      * $this->user - User - contains the associated user
      * $this->items - Item[] - contains the associated items
-    */
-
+     */
     protected $fillable = [
-        'address', 
-        'user_id', 
-        'total',  
+        'address',
+        'user_id',
+        'total',
     ];
 
     public static function validate(request $request): void
-    {  
+    {
         $request->validate([
             'total' => 'required|numeric',
             'user_id' => 'required|exists:users,id',
         ]);
     }
-    
+
     public function getId(): int
     {
         return $this->attributes['id'];
@@ -46,7 +45,6 @@ class Order extends Model
     {
         return $this->attributes['address'];
     }
-
 
     public function getUserId(): int
     {
@@ -73,9 +71,18 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
     public function items(): HasMany
     {
         return $this->hasMany(Item::class);
     }
 
+    public function getItems()
+    {
+        return $this->items;
+    }
 }

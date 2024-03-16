@@ -2,6 +2,6 @@
 
 namespace App\Http\Controllers;
 
-class GuideController extends Controller
+class CategoryController extends Controller
 {
 }

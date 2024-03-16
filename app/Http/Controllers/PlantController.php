@@ -35,6 +35,7 @@ class PlantController extends Controller
             default:
                 break;
         }
+
         $viewData = [];
         $viewData['title'] = 'Plants - Online Store';
         $viewData['subtitle'] = 'List of plants';

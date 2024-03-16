@@ -9,16 +9,16 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('imageUrl');
+            $table->string('image_url')->default('user0.jpg');
             $table->string('role')->default('client');
-            $table->integer('balance');
+            $table->integer('balance')->default(100);
         });
     }
 
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['imageUrl']);
+            $table->dropColumn(['image_url']);
             $table->dropColumn(['role']);
             $table->dropColumn(['balance']);
         });

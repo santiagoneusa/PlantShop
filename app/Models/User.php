@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Http\Request;
 
 class User extends Authenticatable
 {
@@ -19,8 +18,9 @@ class User extends Authenticatable
      * $this->attributes['balance'] - int - contains the user balance
      * $this->attributes['created_at'] - timestamp - contains the user creation date
      * $this->attributes['updated_at'] - timestamp - contains the user update date
-     */
 
+     * $this->orders
+     */
     protected $fillable = [
         'name',
         'email',
@@ -62,9 +62,9 @@ class User extends Authenticatable
         return $this->attributes['balance'];
     }
 
-    public function setBalance(): void
+    public function setBalance(int $balance): void
     {
-        return $this->attributes['balance'];
+        $this->attributes['balance'] = $balance;
     }
 
     public function getCreatedAt(): string

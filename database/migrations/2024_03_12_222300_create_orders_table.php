@@ -11,8 +11,10 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('address');
-            $table->integer('total');
+            $table->unsignedInteger('total');
             $table->enum('status', (['Completed', 'Sent', 'Delivered']))->default('Completed');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
