@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\Request;
 
 class User extends Authenticatable
 {
@@ -19,11 +20,11 @@ class User extends Authenticatable
      * $this->attributes['created_at'] - timestamp - contains the user creation date
      * $this->attributes['updated_at'] - timestamp - contains the user update date
      */
+
     protected $fillable = [
         'name',
         'email',
         'password',
-        'balance',
     ];
 
     protected $hidden = [
@@ -35,11 +36,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-
-    public static function validate(): void
-    {
-
-    }
 
     public function getId(): int
     {

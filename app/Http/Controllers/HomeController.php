@@ -9,6 +9,7 @@ class HomeController extends Controller
         $viewData = [];
         $viewData['title'] = 'Home - Eden of Eden';
         $viewData['subtitle'] = 'Welcome to the Eden of Garden!';
+
         return view('home.index')->with('viewData', $viewData);
     }
 }
