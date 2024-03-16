@@ -35,7 +35,7 @@
     </div>
 
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-        © 2020 Copyright: Antonio Carbonó, Jhonnathan Ocampo y Santiago Neusa
+        © 2024 Copyright: Antonio Carbonó, Jhonnathan Ocampo y Santiago Neusa
     </div>
 
 </footer>

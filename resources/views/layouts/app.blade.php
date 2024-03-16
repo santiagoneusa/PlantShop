@@ -13,6 +13,7 @@
 
 
 <body>
+  
     <div id='container'>
         @include('partials/navbar')
 
@@ -22,7 +23,9 @@
             </div>
         </header>
 
-        <div id='content' class="p-4">@yield('content')</div>
+        <div id='content' class="p-4">
+            @yield('content')
+        </div>
 
     </div>
 
