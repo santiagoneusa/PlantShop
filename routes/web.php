@@ -24,5 +24,6 @@ Route::post('/plants/save', 'App\Http\Controllers\PlantController@save')->name('
 Route::get('/plants/{id}', 'App\Http\Controllers\PlantController@show')->name('plant.show');
 Route::delete('/plants/{id}', 'App\Http\Controllers\PlantController@delete')->name('plant.delete');
 
-Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
+Route::post('/reviews/save', 'App\Http\Controllers\ReviewController@save')->name('review.save');
 
+Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name('admin.home.index');

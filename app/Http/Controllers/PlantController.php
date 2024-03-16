@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Plant;
+use App\Models\Review;
 use App\Util\UserDataValidation;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -12,7 +14,7 @@ use Illuminate\View\View;
 class PlantController extends Controller
 {
     public function index(Request $request): View
-    {   
+    {
         $sortBy = $request->input('sort_by');
 
         $plants = Plant::query();
@@ -37,6 +39,7 @@ class PlantController extends Controller
         $viewData['title'] = 'Plants - Online Store';
         $viewData['subtitle'] = 'List of plants';
         $viewData['plants'] = $plants->get();
+        $viewData['categories'] = Category::all();
 
         return view('plant.index')->with('viewData', $viewData);
     }
@@ -48,6 +51,7 @@ class PlantController extends Controller
         $viewData['title'] = $plant->getName().' - Online Store';
         $viewData['subtitle'] = $plant->getName().' - Plant information';
         $viewData['plant'] = $plant;
+        $viewData['reviews'] = Review::where('plant_id', $id)->get();
 
         return view('plant.show')->with('viewData', $viewData);
     }
@@ -56,6 +60,7 @@ class PlantController extends Controller
     {
         $viewData = [];
         $viewData['title'] = 'Create plant';
+        $viewData['categories'] = Category::all();
 
         return view('plant.create')->with('viewData', $viewData);
     }
@@ -87,13 +92,13 @@ class PlantController extends Controller
     {
         $search = $request->input('search');
 
-        $plants = Plant::where('name', 'like', '%' . $search . '%')
-                        ->orWhere('description', 'like', '%' . $search . '%')
-                        ->get();
+        $plants = Plant::where('name', 'like', '%'.$search.'%')
+            ->orWhere('description', 'like', '%'.$search.'%')
+            ->get();
 
         $viewData = [];
         $viewData['title'] = 'Search Results';
-        $viewData['subtitle'] = 'Search results for: ' . $search;
+        $viewData['subtitle'] = 'Search results for: '.$search;
         $viewData['plants'] = $plants;
 
         return view('plant.index')->with('viewData', $viewData);
