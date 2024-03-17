@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
 @extends('layouts.admin')
 @section('title', $viewData['title'])
@@ -25,14 +26,23 @@
             <tbody>
                 @foreach ($viewData['plants'] as $plant)
                 <tr>
-                    <td><a href="{{ route('admin.plant.show', ['id' => $plant->getId()]) }}">{{ $plant->getId() }}</a></td>
+                    <td><a href="{{ route('admin.plant.show', ['id' => $plant->getId()]) }}">{{ $plant->getId() }}</a>
+                    </td>
                     <td>{{ $plant->getName() }}</td>
                     <td>{{ $plant->getStock() }}</td>
                     <td>
-                        
-                        <a href="{{ route('admin.plant.edit', ['id' => $plant->getId()]) }}">Edit <span class="material-symbols-outlined">edit</span></a>
+                        <form action="{{ route('admin.plant.edit', ['id' => $plant->getId()]) }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <button type="submit" class="btn btn-primary"><span class="material-symbols-outlined">edit</span></button>
+                        </form>
                     </td>
-                    <td><a href="{{ route('admin.plant.delete', ['id' => $plant->getId()]) }}">Delete <span class="material-symbols-outlined">delete</span></a></td>
+                    <td><a href="{{ route('admin.plant.delete', ['id' => $plant->getId()]) }}"></a>
+                        <form action="{{ route('admin.plant.delete', $plant->getId())}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger"><span class="material-symbols-outlined">delete</span></button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

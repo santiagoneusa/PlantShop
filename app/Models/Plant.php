@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 
-// use App\Models\Review;
 
 class Plant extends Model
 {
@@ -40,7 +40,6 @@ class Plant extends Model
             'description' => ['required'],
             'price' => ['required', 'numeric', 'gt:0'],
             'stock' => ['required', 'numeric', 'gt:0'],
-            // 'image_url' => ['required'],
             'category_id' => ['required'],
         ]);
     }
@@ -108,6 +107,16 @@ class Plant extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function getCategory(): Category
+    {
+        return $this->category;
     }
 
     public function getCategoryId(): int
