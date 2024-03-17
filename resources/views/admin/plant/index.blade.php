@@ -28,7 +28,10 @@
                     <td><a href="{{ route('admin.plant.show', ['id' => $plant->getId()]) }}">{{ $plant->getId() }}</a></td>
                     <td>{{ $plant->getName() }}</td>
                     <td>{{ $plant->getStock() }}</td>
-                    <td><a href="{{ route('admin.plant.edit', ['id' => $plant->getId()]) }}">Edit <span class="material-symbols-outlined">edit</span></a></td>
+                    <td>
+                        
+                        <a href="{{ route('admin.plant.edit', ['id' => $plant->getId()]) }}">Edit <span class="material-symbols-outlined">edit</span></a>
+                    </td>
                     <td><a href="{{ route('admin.plant.delete', ['id' => $plant->getId()]) }}">Delete <span class="material-symbols-outlined">delete</span></a></td>
                 </tr>
                 @endforeach

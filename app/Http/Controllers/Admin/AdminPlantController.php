@@ -29,8 +29,7 @@ class AdminPlantController extends Controller
     {
         $plant = Plant::findOrFail($id);
         $viewData = [];
-        $viewData['title'] = $plant->getName().' - Online Store';
-        $viewData['subtitle'] = $plant->getName().' - Plant information';
+        $viewData['title'] = $plant->getName().' - Garden of Eden';
         $viewData['plant'] = $plant;
         $viewData['reviews'] = Review::where('plant_id', $id)->get();
 
@@ -59,7 +58,7 @@ class AdminPlantController extends Controller
         $plant->save();
 
         if ($request->hasFile('image')) {
-            $imageName = $plant->getId().".".$request->file('image')->extension();
+            $imageName = 'plant'.$plant->getId().".".$request->file('image')->extension();
             Storage::disk('public')->put(
                 $imageName,
                 file_get_contents($request->file('image')->getRealPath())
@@ -80,5 +79,18 @@ class AdminPlantController extends Controller
         Session::flash('success', 'Plant deleted successfully.');
 
         return redirect()->route('admin.plant.index');
+    }
+
+    public function edit(string $id): View
+    {
+        $viewData = [];
+        $plant = Plant::findOrFail($id);
+
+        $viewData['title'] = '';
+        $viewData['plant'] = $plant;
+
+        Session::flash('success', 'Plant deleted successfully.');
+
+        return view('admin.plant.create')->with('viewData', $viewData);
     }
 }
