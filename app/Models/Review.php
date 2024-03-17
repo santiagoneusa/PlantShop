@@ -2,22 +2,21 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
-    use HasFactory;
-
     /**
      * REVIEW ATTRIBUTES
      * $this->attributes['id'] - int - contains the review primary key (id)
      * $this->attributes['content'] - text - contains the content of the review
      * $this->attributes['stars'] - int - contains the number of stars given to the plant (0 to 5)
      * $this->attributes['status'] - string - contains the status of the review (unchecked, approved, rejected)
-     * $this->attributes['plant_id'] - int - contains the ID of the plant to which the review belongs
      * $this->attributes['created_at'] - timestamp - timestamp indicating review creation
      * $this->attributes['updated_at'] - timestamp - timestamp indicating last review update
+
+     * $this->attributes['plant_id'] - int - contains the ID of the plant to which the review belongs
+     * $this->attributes['user_id'] - int - contains the ID of the plant to which the review belongs
      */
     protected $fillable = ['content', 'stars', 'status', 'plant_id'];
 

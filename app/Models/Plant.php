@@ -2,26 +2,48 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+
+// use App\Models\Review;
 
 class Plant extends Model
 {
-    use HasFactory;
-
     /**
      * PLANT ATTRIBUTES
      * $this->attributes['id'] - int - contains the plant primary key (id)
      * $this->attributes['name'] - string - contains the plant name
      * $this->attributes['description'] - text - contains the plant description
-     * $this->attributes['imageUrl'] - string - contains the url of the plant image
+     * $this->attributes['image'] - string - contains the url of the plant image
      * $this->attributes['price'] - int - contains the plant price
      * $this->attributes['stock'] - int - contains the remain stock units of the plant
-     * $this->attributes['categoryId'] - int - Contains the ID of the category to which the plant belongs
      * $this->attributes['created_at'] - timestamp - timestamp indicating plant creation
      * $this->attributes['updated_at'] - timestamp - timestamp indicating last plant update
+
+     * $this->attributes['category_id'] - int - Contains the ID of the category to which the plant belongs
+     * $this->attributes['items'] - int - Contains the ID of the category to which the plant belongs
+     * $this->attributes['reviews'] - int - Contains the ID of the category to which the plant belongs
      */
-    protected $fillable = ['name', 'description', 'imageUrl', 'price', 'stock', 'categoryId'];
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+        'stock',
+        'image_url',
+        'category_id',
+    ];
+
+    public static function validate(request $request): void
+    {
+        $request->validate([
+            'name' => ['required'],
+            'description' => ['required'],
+            'price' => ['required', 'numeric', 'gt:0'],
+            'stock' => ['required', 'numeric', 'gt:0'],
+            // 'image_url' => ['required'],
+            'category_id' => ['required'],
+        ]);
+    }
 
     public function getId(): int
     {
@@ -48,14 +70,14 @@ class Plant extends Model
         $this->attributes['description'] = $description;
     }
 
-    public function getImageUrl(): string
+    public function getImage(): string
     {
-        return $this->attributes['imageUrl'];
+        return $this->attributes['image'];
     }
 
-    public function setImageUrl(string $imageUrl): void
+    public function setImage(string $image): void
     {
-        $this->attributes['imageUrl'] = $imageUrl;
+        $this->attributes['image'] = $image;
     }
 
     public function getPrice(): int
@@ -90,11 +112,11 @@ class Plant extends Model
 
     public function getCategoryId(): int
     {
-        return $this->attributes['categoryId'];
+        return $this->attributes['category_id'];
     }
 
     public function setCategoryId(int $categoryId): void
     {
-        $this->attributes['categoryId'] = $categoryId;
+        $this->attributes['category_id'] = $categoryId;
     }
 }

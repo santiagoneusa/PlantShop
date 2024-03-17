@@ -6,43 +6,27 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->text('description');
+            $table->text('image');
 
             $table->timestamps();
         });
 
         DB::table('categories')->insert([
-            ['name' => 'Ornamental Plants', 'description' => 'Description of Ornamental Plants'],
-            ['name' => 'Indoor Plants', 'description' => 'Description of Indoor Plants'],
-            ['name' => 'Edible Plants', 'description' => 'Description of Edible Plants'],
-            ['name' => 'Medicinal Plants', 'description' => 'Description of Medicinal Plants'],
-            ['name' => 'Succulent Plants', 'description' => 'Description of Succulent Plants'],
-            ['name' => 'Aromatic Plants', 'description' => 'Description of Aromatic Plants'],
+            ['name' => 'Ornamental', 'description' => 'Plants grown for decorative purposes, often for their flowers, foliage, or overall appearance.', 'image' => '1.jpg'],
+            ['name' => 'Indoor', 'description' => 'Plants that require a low amount of light and water to thrive. They are found in places like residences and offices.', 'image' => '2.jpg'],
+            ['name' => 'Outdoor', 'description' => 'Plants that need low maintenance and grow up easily on the outside. Intended to be part of a garden.', 'image' => '3.jpg'],
+            ['name' => 'Aromatic', 'description' => 'Plants valued for their pleasant fragrance, often used in cooking, aromatherapy, or medicinal purposes.', 'image' => '4.jpg'],
         ]);
-
-        Schema::table('plants', function (Blueprint $table) {
-            $table->unsignedBigInteger('categoryId');
-            $table->foreign('categoryId')->references('id')->on('categories');
-        });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::table('plants', function (Blueprint $table) {
-            $table->dropForeign(['categoryId']);
-        });
-
         Schema::dropIfExists('categories');
     }
 };
