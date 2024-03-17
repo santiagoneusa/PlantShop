@@ -1,5 +1,4 @@
-<link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
 <nav class="navbar navbar-expand-lg .bg-success-subtle">
     <div class="container-fluid">
@@ -15,8 +14,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> 1]) }}">Interior</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> 2]) }}">Exterior</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> 1]) }}">Indoor</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> 2]) }}">Outdoor</a></li>
                         <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> 3]) }}">Ornamental</a></li>
                         <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> 4]) }}">Aromatic</a></li>
                     </ul>

@@ -8,11 +8,8 @@
         <div class="card">
             <img src="{{ $plant->getImage() }}" class="card-img-top img-card">
             <div class="card-body text-center">
-                <h5>Product id: {{ $plant->getId() }}</h4>
-                    <h6>{{ $plant->getName() }}
-                </h5>
-                <a href="{{ route('plant.show', ['id'=> $plant->getId()]) }}" class="btn bg-primary text-white">More
-                    details</a>
+                <h5>{{ $plant->getName() }}</h5>
+                <a href="{{ route('plant.show', ['id'=> $plant->getId()]) }}" class="btn bg-primary text-white">More details</a>
             </div>
         </div>
     </div>

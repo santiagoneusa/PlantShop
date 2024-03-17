@@ -27,9 +27,9 @@ class Plant extends Model
     protected $fillable = [
         'name',
         'description',
-        'image_url',
         'price',
         'stock',
+        'image_url',
         'category_id',
     ];
 
@@ -38,9 +38,9 @@ class Plant extends Model
         $request->validate([
             'name' => ['required'],
             'description' => ['required'],
-            'image_url' => ['required'],
             'price' => ['required', 'numeric', 'gt:0'],
             'stock' => ['required', 'numeric', 'gt:0'],
+            'image_url' => ['required'],
             'category_id' => ['required'],
         ]);
     }

@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
