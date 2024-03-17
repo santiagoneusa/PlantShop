@@ -8,10 +8,10 @@
             <a href="{{ route('admin.home.index') }}" class="nav-link text-white">Home</a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white">Manage Plants</a>
+            <a href="{{ route('admin.plant.index') }}" class="nav-link text-white">Manage Plants</a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white">Manage Guides</a>
+            <a href="{{ route('admin.guide.index') }}" class="nav-link text-white">Manage Guides</a>
         </li>
         <li>
             <div class="mx-auto d-flex justify-content-center mt-4">

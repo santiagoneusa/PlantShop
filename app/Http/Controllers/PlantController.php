@@ -5,10 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Plant;
 use App\Models\Review;
-use App\Util\UserDataValidation;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
 
 class PlantController extends Controller
@@ -76,38 +73,6 @@ class PlantController extends Controller
         $viewData['reviews'] = $reviewsQuery->get();
 
         return view('plant.show')->with('viewData', $viewData);
-    }
-
-    public function create(): View
-    {
-        $viewData = [];
-        $viewData['title'] = 'Create plant';
-        $viewData['categories'] = Category::all();
-
-        return view('plant.create')->with('viewData', $viewData);
-    }
-
-    public function save(Request $request): RedirectResponse
-    {
-        $validator = new UserDataValidation();
-
-        $validatedData = $validator->validatePlantRequest($request);
-
-        Plant::create($validatedData);
-
-        Session::flash('success', 'Element created successfully.');
-
-        return redirect()->back();
-
-    }
-
-    public function delete(string $id): RedirectResponse
-    {
-        Plant::destroy($id);
-
-        Session::flash('success', 'Plant deleted successfully.');
-
-        return redirect()->route('plant.index');
     }
 
     public function search(Request $request): View

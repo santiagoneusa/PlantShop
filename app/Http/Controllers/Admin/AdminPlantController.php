@@ -31,7 +31,7 @@ class AdminPlantController extends Controller
         $viewData = [];
         $viewData['title'] = $plant->getName().' - Garden of Eden';
         $viewData['plant'] = $plant;
-        $viewData['reviews'] = Review::where('plant_id', $id)->get();
+        $viewData['category_name'] = $plant->getCategory()->getName();
 
         return view('admin.plant.show')->with('viewData', $viewData);
     }
@@ -74,11 +74,20 @@ class AdminPlantController extends Controller
 
     public function delete(string $id): RedirectResponse
     {
+        Storage::disk('public')->delete(Plant::findOrFail($id)->getImage());
         Plant::destroy($id);
 
         Session::flash('success', 'Plant deleted successfully.');
 
-        return redirect()->route('admin.plant.index');
+        $plants = Plant::all();
+
+        $viewData = [];
+        $viewData['title'] = 'Manage Plants - Garden of Eden';
+        $viewData['plants'] = $plants;
+
+        Session::flash('danger', 'Plant deleted successfully.');
+
+        return redirect()->route('admin.plant.index')->with('viewData', $viewData);
     }
 
     public function edit(string $id): View
@@ -88,9 +97,38 @@ class AdminPlantController extends Controller
 
         $viewData['title'] = '';
         $viewData['plant'] = $plant;
+        $viewData['category_name'] = $plant->getCategory()->getName();
 
-        Session::flash('success', 'Plant deleted successfully.');
+        return view('admin.plant.edit')->with('viewData', $viewData);
+    }
 
-        return view('admin.plant.create')->with('viewData', $viewData);
+    public function update(Request $request, string $id): RedirectResponse
+    {
+        Plant::validate($request);
+
+        $plant = Plant::findOrFail($id);
+        $plant->setName(request()->input('name'));
+        $plant->setDescription(request()->input('description'));
+        $plant->setPrice(request()->input('price'));
+        $plant->setStock(request()->input('stock'));
+        $plant->setCategoryId(request()->input('category_id'));
+
+        if ($request->hasFile('image')) {
+            $imageName = 'plant'.$plant->getId().'.'.$request->file('image')->extension();
+
+            Storage::disk('public')->delete($plant->getImage());
+            
+            Storage::disk('public')->put(
+                $imageName,
+                file_get_contents($request->file('image')->getRealPath())
+            );
+            
+            $plant->setImage($imageName);
+        }
+        
+        $plant->save();
+
+        Session::flash('message', 'Plant edited successfully.');
+        return redirect()->route('admin.plant.index');
     }
 }

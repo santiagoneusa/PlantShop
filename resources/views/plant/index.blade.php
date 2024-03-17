@@ -8,8 +8,13 @@
         {{ Session::get('success') }}
     </div>
     @endif
+    @if (Session::has('danger'))
+    <div class="alert alert-danger" role="alert">
+        {{ Session::get('danger') }}
+    </div>
+    @endif
 
-    <form action={{ route('plant.search') }} method="GET" class="mb-3">
+    <form action="{{ route('plant.search') }}" method="GET" class="mb-3">
         <div class="input-group">
             <input type="text" name="search" class="form-control" placeholder="Search plants...">
             <button type="submit" class="btn btn-success">Search</button>
