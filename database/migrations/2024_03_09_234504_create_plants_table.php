@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->string('image');
+            $table->string('image')->default('plant0.png');
             $table->unsignedInteger('price');
             $table->unsignedInteger('stock');
             $table->timestamps();

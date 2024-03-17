@@ -46,29 +46,27 @@ class AdminPlantController extends Controller
 
     public function save(Request $request): RedirectResponse
     {
-        // Plant::validate($request);
-
-        $request->validate([
-            'name' => ['required'],
-            'description' => ['required'],
-            'price' => ['required', 'numeric', 'gt:0'],
-            'stock' => ['required', 'numeric', 'gt:0'],
-            'image_url' => ['required'],
-            'category_id' => ['required'],
-        ]);
-
-        $plant = Plant::create($request->only(['name', 'description', 'price', 'stock', 'category']));
-        $imageName = $plant->getId().'.'.$request->file('image')->extension();
+        Plant::validate($request);     
         
-        Storage::disk('public\plants')->put(
-            $imageName,
-            file_get_contents($request->file('image')->getRealPath())
-        );
-        
-        $plant->setImage($imageName);
+        $plant = new Plant();
+        $plant->setName($request->input('name'));
+        $plant->setDescription($request->input('description'));
+        $plant->setPrice($request->input('price'));
+        $plant->setStock($request->input('stock'));
+        $plant->setCategoryId($request->input('category_id'));
         $plant->save();
 
-        Session::flash('success', 'Order '.$plant->getId().' created successfully.');
+        if ($request->hasFile('image')) {
+            $imageName = $plant->getId().".".$request->file('image')->extension();
+            Storage::disk('public')->put(
+                $imageName,
+                file_get_contents($request->file('image')->getRealPath())
+            );
+            $plant->setImage($imageName);
+            $plant->save();
+        }
+
+        Session::flash('success', 'Plant '.$plant->getId().' created successfully.');
 
         return redirect()->route('admin.plant.index');
     }

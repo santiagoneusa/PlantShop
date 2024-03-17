@@ -1,13 +1,26 @@
 @extends('layouts.admin')
 @section('title', $viewData["title"])
 @section('content')
+<div class="mb-1 m-5">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+</div>
+
 <div class='card m-5'>
+
     <div class='card-header d-flex justify-content-between align-items-center'>
         <h3 class='ms-3'>Manage Plants</h3>
     </div>
 
     <div class='card-body'>
-        <form action="{{ route('admin.plant.save') }}" method="POST">
+        <form action="{{ route('admin.plant.save') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label class="form-label">Name</label>
@@ -26,13 +39,11 @@
                 <input name="stock" value="{{ old('stock') }}" class="form-control">
             </div>
             <div class="mb-3">
-                <label class="form-label">Image</label>
                 <input type="file" name="image" value="{{ old('image') }}" class="form-control">
             </div>
             <div class="mb-3">
-                <label class="form-label">Category</label>
-                <select name="category" value="{{ old('category') }}" class="form-select">
-                    <option selected></option>
+                <select value="{{ old('category_id') }}" class="form-select" name="category_id">
+                    <option selected>Select Category</option>
                     <option value="1">Indoor</option>
                     <option value="2">Outdoor</option>
                     <option value="3">Ornamental</option>

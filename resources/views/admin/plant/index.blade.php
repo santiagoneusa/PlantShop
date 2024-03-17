@@ -17,7 +17,6 @@
                 <tr>
                     <th scope='col'>ID</th>
                     <th scope='col'>Name</th>
-                    <th scope='col'>Price</th>
                     <th scope='col'>Stock</th>
                     <th scope='col'>Edit</th>
                     <th scope='col'>Delete</th>
@@ -26,12 +25,11 @@
             <tbody>
                 @foreach ($viewData['plants'] as $plant)
                 <tr>
-                    <td>{{ $plant->getId() }}</td>
+                    <td><a href="{{ route('admin.plant.show', ['id' => $plant->getId()]) }}">{{ $plant->getId() }}</a></td>
                     <td>{{ $plant->getName() }}</td>
-                    <td>{{ $plant->getPrice() }}</td>
                     <td>{{ $plant->getStock() }}</td>
-                    <td>Edit <span class="material-symbols-outlined">edit</span></td>
-                    <td>Delete <span class="material-symbols-outlined">delete</span></td>
+                    <td><a href="{{ route('admin.plant.edit', ['id' => $plant->getId()]) }}">Edit <span class="material-symbols-outlined">edit</span></a></td>
+                    <td><a href="{{ route('admin.plant.delete', ['id' => $plant->getId()]) }}">Delete <span class="material-symbols-outlined">delete</span></a></td>
                 </tr>
                 @endforeach
             </tbody>

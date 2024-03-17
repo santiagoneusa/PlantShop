@@ -40,7 +40,7 @@ class Plant extends Model
             'description' => ['required'],
             'price' => ['required', 'numeric', 'gt:0'],
             'stock' => ['required', 'numeric', 'gt:0'],
-            'image_url' => ['required'],
+            // 'image_url' => ['required'],
             'category_id' => ['required'],
         ]);
     }
@@ -75,9 +75,9 @@ class Plant extends Model
         return $this->attributes['image'];
     }
 
-    public function setImageUrl(string $imageUrl): void
+    public function setImage(string $image): void
     {
-        $this->attributes['image_url'] = $imageUrl;
+        $this->attributes['image'] = $image;
     }
 
     public function getPrice(): int
