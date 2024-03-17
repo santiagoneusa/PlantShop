@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Plant;
 use App\Models\Category;
+use App\Models\Plant;
 use App\Models\Review;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
 class AdminPlantController extends Controller
 {
@@ -47,8 +47,8 @@ class AdminPlantController extends Controller
 
     public function save(Request $request): RedirectResponse
     {
-        Plant::validate($request);     
-        
+        Plant::validate($request);
+
         $plant = new Plant();
         $plant->setName($request->input('name'));
         $plant->setDescription($request->input('description'));
@@ -58,7 +58,7 @@ class AdminPlantController extends Controller
         $plant->save();
 
         if ($request->hasFile('image')) {
-            $imageName = 'plant'.$plant->getId().".".$request->file('image')->extension();
+            $imageName = 'plant'.$plant->getId().'.'.$request->file('image')->extension();
             Storage::disk('public')->put(
                 $imageName,
                 file_get_contents($request->file('image')->getRealPath())

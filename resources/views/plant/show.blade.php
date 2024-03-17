@@ -5,7 +5,7 @@
 <div class="card mb-3">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="{{ $viewData["plant"]->getImage() }}" class="img-fluid rounded-start">
+      <img src="{{ asset('/storage/' .$viewData["plant"]->getImage()) }}" class="img-fluid rounded-start">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -25,16 +25,31 @@
         </div>
 
         @else
-        <h5 class="mt-4">Comments</h5>
-        @foreach ($viewData["reviews"] as $review)
-        <div class="card mb-3">
-          <div class="card-body">
-            <p>{{ $review->getContent() }}</p>
-            <p>{{ $review->getStars() }}</p>
+        <form action="{{ route('plant.show', ['id'=> $viewData["plant"]->getId()]) }}" method="GET" class="mb-3">
+          <div class="input-group">
+            <select name="sort_by" class="form-select">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="highest_rated">Highest rated first</option>
+              <option value="lowest_rated">Lowest rated first</option>
+            </select>
+            <button type="submit" class="btn btn-success">Sort Comments</button>
           </div>
-        </div>
-        @endforeach
-        <br>
+        </form>
+
+        <h5 class="mt-4">Comments</h5>
+        @if ($viewData["reviews"]->isEmpty())
+          <p>No comments yet.</p>
+        @else  
+          @foreach ($viewData["reviews"] as $review)
+          <div class="card mb-3">
+            <div class="card-body">
+              <p>{{ $review->getContent() }}</p>
+              <p>Calificación: {{ $review->getStars() }}/5</p>
+            </div>
+          </div>
+          @endforeach
+        @endif
 
         @if (Session::has('success'))
         <div class="alert alert-success" role="alert">
