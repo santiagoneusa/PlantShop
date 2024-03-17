@@ -53,6 +53,7 @@ class PlantController extends Controller
         $viewData['subtitle'] = $plant->getName().' - Plant information';
         $viewData['plant'] = $plant;
         $viewData['reviews'] = Review::where('plant_id', $id)->get();
+        $viewData['categories'] = Category::all();
 
         return view('plant.show')->with('viewData', $viewData);
     }

@@ -21,12 +21,13 @@ class CategoryController extends Controller
     public function show(string $id): View
     {
         $category = Category::findOrFail($id);
-        $plants = Plant::where('category_id', '=', '%'.$id.'%')->get();
+        $plants = Plant::where('category_id', '=', $id)->get();
 
         $viewData = [];
         $viewData['title'] = 'Category: '.$category->getName().' - Garden of Eden';
         $viewData['subtitle'] = $category->getName().' Plants';
         $viewData['plants'] = $plants;
+        $viewData['categories'] = Category::all();
 
         return view('category.show')->with('viewData', $viewData);
     }

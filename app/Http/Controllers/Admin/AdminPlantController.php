@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Plant;
+use App\Models\Category;
 use App\Models\Review;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -40,6 +41,7 @@ class AdminPlantController extends Controller
     {
         $viewData = [];
         $viewData['title'] = 'Create plant';
+        $viewData['categories'] = Category::All();
 
         return view('admin.plant.create')->with('viewData', $viewData);
     }

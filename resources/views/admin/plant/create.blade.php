@@ -44,10 +44,9 @@
             <div class="mb-3">
                 <select value="{{ old('category_id') }}" class="form-select" name="category_id">
                     <option selected>Select Category</option>
-                    <option value="1">Indoor</option>
-                    <option value="2">Outdoor</option>
-                    <option value="3">Ornamental</option>
-                    <option value="3">Aromatic</option>
+                    @foreach($viewData["categories"] as $category)
+                        <option value="{{ $category->getId() }}">{{ $category->getName() }}</option>
+                    @endforeach
                 </select>
             </div>
             <button type="submit" class="btn btn-primary ms-3">Create</button>
