@@ -30,8 +30,7 @@
             </div>
             @else
             <div class="d-flex align-items-center">
-                <span class="material-symbols-outlined" href="{{ route('cart.index') }}">shopping_cart</span>
-                
+                <a href="{{ route('cart.index') }}" class="mt-1 color-black" style="color: black;"><span class="material-symbols-outlined">shopping_cart</span></a>            
                 <div class="dropdown-center">
                     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="material-symbols-outlined" style="margin-top: 3px;">account_circle</span>

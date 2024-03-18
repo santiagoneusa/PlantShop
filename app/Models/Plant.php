@@ -45,6 +45,16 @@ class Plant extends Model
         ]);
     }
 
+    public static function sumPricesByQuantities($plants, $plantsInSession)
+    {
+        $total = 0;
+        foreach ($plants as $plant) {
+            $total = $total + ($plant->getPrice() * $plantsInSession[$plant->getId()]);
+        }
+
+        return $total;
+    }
+
     public function getId(): int
     {
         return $this->attributes['id'];
