@@ -27,7 +27,7 @@ class AdminGuideController extends Controller
     {
         $guide = Guide::findOrFail($id);
         $viewData = [];
-        $viewData['title'] = $guide->getName().' - Garden of Eden';
+        $viewData['title'] = $guide->getTitle().' - Garden of Eden';
         $viewData['guide'] = $guide;
 
         return view('admin.guide.show')->with('viewData', $viewData);

@@ -38,7 +38,7 @@
         @foreach ($viewData["plants"] as $plant)
         <div class="col-md-4 col-lg-3 mb-2">
             <div class="card">
-                <img src="{{ asset('/storage/plants' . $plant->getImage()) }}" class="card-img-top img-card">
+                <img src="{{ asset('/storage/plants/' . $plant->getImage()) }}" class="card-img-top img-card">
                 <div class="card-body text-center">
                     <h5>Product id: {{ $plant->getId() }}</h4>
                     <h6>{{ $plant->getName() }}</h5>
