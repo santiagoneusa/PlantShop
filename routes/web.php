@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
-Route::get('/profile', 'App\Http\Controllers\UserController@index')->name('user.index');
 
 Route::get('/plants', 'App\Http\Controllers\PlantController@index')->name('plant.index');
 Route::get('/plants/search', 'App\Http\Controllers\PlantController@search')->name('plant.search');
@@ -17,13 +16,15 @@ Route::get('/categories/{id}', 'App\Http\Controllers\CategoryController@show')->
 Route::get('/guides', 'App\Http\Controllers\GuideController@index')->name('guide.index');
 Route::get('/guides/{id}', 'App\Http\Controllers\GuideController@show')->name('guide.show');
 
-Route::post('/reviews/save', 'App\Http\Controllers\ReviewController@save')->name('review.save');
-
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
 Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name('cart.delete');
 Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/profile', 'App\Http\Controllers\UserController@index')->name('user.index');
+
+    Route::post('/reviews/save', 'App\Http\Controllers\ReviewController@save')->name('review.save');
+
     Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
 });
 

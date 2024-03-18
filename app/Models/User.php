@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -55,6 +56,16 @@ class User extends Authenticatable
         $this->attributes['name'] = $name;
     }
 
+    public function getImage(): string
+    {
+        return $this->attributes['image'];
+    }
+
+    public function setImage(string $image): void
+    {
+        $this->attributes['image'] = $image;
+    }
+
     public function getEmail(): string
     {
         return $this->attributes['email'];
@@ -95,7 +106,7 @@ class User extends Authenticatable
         return $this->hasMany(Item::class);
     }
 
-    public function getOrders(): array
+    public function getOrders(): Collection
     {
         return $this->items;
     }
@@ -105,7 +116,7 @@ class User extends Authenticatable
         return $this->hasMany(Review::class);
     }
 
-    public function getReviews(): array
+    public function getReviews(): Collection
     {
         return $this->reviews;
     }

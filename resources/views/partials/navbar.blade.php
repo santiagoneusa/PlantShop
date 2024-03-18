@@ -36,7 +36,7 @@
                         <span class="material-symbols-outlined" style="margin-top: 3px;">account_circle</span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="user.index">Profile</a></li>
+                        <li><a class="dropdown-item" href="{{ route('user.index') }}">Profile</a></li>
                         <li class="dropdown-item">
                             <form id="logout" action="{{ route('logout') }}" method="POST">
                                 <a role="button" class="nav-link active"

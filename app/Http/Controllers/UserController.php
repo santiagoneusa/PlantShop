@@ -2,34 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Models\Order;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
-class HomeController extends Controller
+class UserController extends Controller
 {
-    public function index()
+    public function index(): View
     {
+        $user_id = Auth::user()->getId();
+
         $viewData = [];
         $viewData['title'] = 'Profile - Eden of Eden';
         $viewData['subtitle'] = 'Profile Information';
+        $viewData['user'] = User::findOrFail($user_id);
+        $viewData['orders'] = Order::where('user_id', $user_id)->get();
 
         return view('user.index')->with('viewData', $viewData);
     }
-
-    // public function updateImage(Request $request)
-    // {
-    //     if ($request->hasFile('image')) {
-    //         $imageName = $request->$user->getId().'.'.$request->file('image')->extension();
-
-    //         Storage::disk('public')->put(
-    //             $imageName,
-    //             file_get_contents($request->file('image')->getRealPath())
-    //         );
-
-    //         $newProduct->setImage($imageName);
-    //         $newProduct->save();
-    //     }
-
-    //     return back();
-    // }
 }

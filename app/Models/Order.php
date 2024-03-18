@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -31,8 +32,7 @@ class Order extends Model
     public static function validate(Request $request): void
     {
         $request->validate([
-            'total' => 'required|numeric',
-            'user_id' => 'required|exists:users,id',
+            'address' => 'required',
         ]);
     }
 
@@ -96,12 +96,17 @@ class Order extends Model
         return $this->attributes['user_id'];
     }
 
+    public function setUserId(int $userId): void
+    {
+        $this->attributes['user_id'] = $userId;
+    }
+
     public function items(): HasMany
     {
         return $this->hasMany(Item::class);
     }
 
-    public function getItems(): array
+    public function getItems(): Collection
     {
         return $this->items;
     }

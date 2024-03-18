@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\Order;
 use App\Models\Plant;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class CartController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request): View
     {
         $total = 0;
         $plantsInCart = [];
@@ -26,11 +29,18 @@ class CartController extends Controller
         $viewData['subtitle'] = 'Shopping Cart';
         $viewData['total'] = $total;
         $viewData['plants'] = $plantsInCart;
+        
+        $userBalance = User::findOrFail(Auth::user()->getId())->getBalance();
+        if ($total != 0 && $userBalance < $total) {
+            $viewData['notEnoughBalance'] = True;
+        } else {
+            $viewData['notEnoughBalance'] = False;
+        }
 
         return view('cart.index')->with('viewData', $viewData);
     }
 
-    public function add(Request $request, $id)
+    public function add(Request $request, $id): RedirectResponse
     {
         $plants = $request->session()->get('plants');
         $plants[$id] = $request->input('quantity');
@@ -39,15 +49,17 @@ class CartController extends Controller
         return redirect()->route('cart.index');
     }
 
-    public function delete(Request $request)
+    public function delete(Request $request): RedirectResponse
     {
         $request->session()->forget('plants');
 
-        return back();
+        return redirect()->route('cart.index');
     }
 
-    public function purchase(Request $request)
+    public function purchase(Request $request): View | RedirectResponse
     {
+        Order::validate($request);
+
         $plantsInSession = $request->session()->get('plants');
 
         if ($plantsInSession) {
@@ -57,6 +69,7 @@ class CartController extends Controller
             $order = new Order();
             $order->setUserId($userId);
             $order->setTotal(0);
+            $order->setAddress($request->input('address'));
             $order->save();
 
             $total = 0;
@@ -66,9 +79,9 @@ class CartController extends Controller
                 $quantity = $plantsInSession[$plant->getId()];
                 $item = new Item();
                 $item->setQuantity($quantity);
-                
+
                 $plant->setStock($plant->getStock() - $quantity);
-                
+
                 $item->setPrice($plant->getPrice());
                 $item->setPlantId($plant->getId());
                 $item->setOrderId($order->getId());

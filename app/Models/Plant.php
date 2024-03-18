@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -145,7 +146,7 @@ class Plant extends Model
         return $this->hasMany(Review::class);
     }
 
-    public function getReviews(): array
+    public function getReviews(): Collection
     {
         return $this->reviews;
     }
@@ -155,7 +156,7 @@ class Plant extends Model
         return $this->hasMany(Item::class);
     }
 
-    public function getItems(): array
+    public function getItems(): Collection
     {
         return $this->items;
     }
