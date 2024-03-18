@@ -1,5 +1,11 @@
 <h1 align="center">Garden of Eden</h1>
 
+<div align="center">
+   
+![logoWithText](https://github.com/santiagoneusa/PlantShop/assets/99107537/71c6a071-81c8-41d9-9a00-e71be0e7d379)
+
+</div>
+
 
 Antonio: Readme de cómo ejecutar el programa
 
