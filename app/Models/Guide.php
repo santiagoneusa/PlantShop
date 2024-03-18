@@ -19,7 +19,7 @@ class Guide extends Model
     protected $fillable = [
         'title',
         'content',
-        'image_url',
+        'image',
     ];
 
     public static function validate(request $request): void
@@ -27,7 +27,7 @@ class Guide extends Model
         $request->validate([
             'title' => ['required'],
             'content' => ['required'],
-            'image_url' => ['required'],
+            'image' => ['required'],
         ]);
     }
 
@@ -74,5 +74,20 @@ class Guide extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function setTitle(string $title): void
+    {
+        $this->attributes['title'] = $title;
+    }
+
+    public function setContent(string $content): void
+    {
+        $this->attributes['content'] = $content;
+    }
+
+    public function setImage(string $image): void
+    {
+        $this->attributes['image'] = $image;
     }
 }

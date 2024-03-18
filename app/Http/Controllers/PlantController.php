@@ -42,7 +42,7 @@ class PlantController extends Controller
         return view('plant.index')->with('viewData', $viewData);
     }
 
-    public function show(string $id): View
+    public function show(string $id, Request $request): View
     {
         $plant = Plant::findOrFail($id);
         $viewData = [];
@@ -50,6 +50,27 @@ class PlantController extends Controller
         $viewData['subtitle'] = $plant->getName().' - Plant information';
         $viewData['plant'] = $plant;
         $viewData['reviews'] = Review::where('plant_id', $id)->get();
+        $viewData['categories'] = Category::all();
+
+        $reviewsQuery = Review::where('plant_id', $id);
+
+        $sortBy = $request->input('sort_by', 'newest');
+        switch ($sortBy) {
+            case 'oldest':
+                $reviewsQuery->orderBy('created_at');
+                break;
+            case 'lowest_rated':
+                $reviewsQuery->orderBy('stars');
+                break;
+            case 'highest_rated':
+                $reviewsQuery->orderByDesc('stars');
+                break;
+            default:
+                $reviewsQuery->orderByDesc('created_at');
+                break;
+        }
+
+        $viewData['reviews'] = $reviewsQuery->get();
 
         return view('plant.show')->with('viewData', $viewData);
     }
@@ -66,6 +87,7 @@ class PlantController extends Controller
         $viewData['title'] = 'Search Results';
         $viewData['subtitle'] = 'Search results for: '.$search;
         $viewData['plants'] = $plants;
+        $viewData['categories'] = Category::all();
 
         return view('plant.index')->with('viewData', $viewData);
     }
