@@ -87,6 +87,7 @@ class PlantController extends Controller
         $viewData['title'] = 'Search Results';
         $viewData['subtitle'] = 'Search results for: '.$search;
         $viewData['plants'] = $plants;
+        $viewData['categories'] = Category::all();
 
         return view('plant.index')->with('viewData', $viewData);
     }

@@ -124,7 +124,7 @@ class Plant extends Model
         return $this->attributes['category_id'];
     }
 
-    public function setCategoryId(int $categoryId): void
+    public function setCategoryId(string $categoryId): void
     {
         $this->attributes['category_id'] = $categoryId;
     }

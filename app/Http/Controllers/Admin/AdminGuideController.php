@@ -14,55 +14,55 @@ class AdminGuideController extends Controller
 {
     public function index()
     {
+        $guides = Guide::all();
+
         $viewData = [];
-        $viewData['title'] = 'Admin - Garden of Eden';
+        $viewData['title'] = 'Manage guides - Garden of Eden';
+        $viewData['guides'] = $guides;
 
         return view('admin.guide.index')->with('viewData', $viewData);
     }
 
     public function show(string $id): View
     {
-        $plant = Guide::findOrFail($id);
+        $guide = Guide::findOrFail($id);
         $viewData = [];
-        $viewData['title'] = $plant->getName().' - Garden of Eden';
-        $viewData['plant'] = $plant;
+        $viewData['title'] = $guide->getName().' - Garden of Eden';
+        $viewData['guide'] = $guide;
 
-        return view('admin.plant.show')->with('viewData', $viewData);
+        return view('admin.guide.show')->with('viewData', $viewData);
     }
 
     public function create(): View
     {
         $viewData = [];
-        $viewData['title'] = 'Create plant';
+        $viewData['title'] = 'Create guide';
 
-        return view('admin.plant.create')->with('viewData', $viewData);
+        return view('admin.guide.create')->with('viewData', $viewData);
     }
 
     public function save(Request $request): RedirectResponse
     {
         Guide::validate($request);
 
-        $plant = new Guide();
-        $plant->setName($request->input('name'));
-        $plant->setDescription($request->input('description'));
-        $plant->setPrice($request->input('price'));
-        $plant->setStock($request->input('stock'));
-        $plant->setCategoryId($request->input('category_id'));
-        $plant->save();
+        $guide = new Guide();
+        $guide->setTitle($request->input('title'));
+        $guide->setContent($request->input('content'));
+        $guide->save();
 
         if ($request->hasFile('image')) {
-            $imageName = 'plant'.$plant->getId().'.'.$request->file('image')->extension();
-            Storage::disk('public')->put(
+            $imageName = 'guide'.$guide->getId().'.'.$request->file('image')->extension();
+            Storage::disk('publicGuides')->put(
                 $imageName,
                 file_get_contents($request->file('image')->getRealPath())
             );
-            $plant->setImage($imageName);
-            $plant->save();
+            $guide->setImage($imageName);
+            $guide->save();
         }
 
-        Session::flash('success', 'Guide '.$plant->getId().' created successfully.');
+        Session::flash('success', 'Guide '.$guide->getId().' created successfully.');
 
-        return redirect()->route('admin.plant.index');
+        return redirect()->route('admin.guide.index');
     }
 
     public function delete(string $id): RedirectResponse
@@ -71,25 +71,53 @@ class AdminGuideController extends Controller
 
         Session::flash('success', 'Guide deleted successfully.');
 
-        $plants = Guide::all();
+        $guides = Guide::all();
 
         $viewData = [];
-        $viewData['title'] = 'Manage Plants - Garden of Eden';
-        $viewData['plants'] = $plants;
+        $viewData['title'] = 'Manage Guides - Garden of Eden';
+        $viewData['guides'] = $guides;
 
         Session::flash('danger', 'Guide deleted successfully.');
 
-        return redirect()->route('admin.plant.index')->with('viewData', $viewData);
+        return redirect()->route('admin.guide.index')->with('viewData', $viewData);
     }
 
     public function edit(string $id): View
     {
         $viewData = [];
-        $plant = Guide::findOrFail($id);
+        $guide = Guide::findOrFail($id);
 
         $viewData['title'] = '';
-        $viewData['plant'] = $plant;
+        $viewData['guide'] = $guide;
 
-        return view('admin.plant.edit')->with('viewData', $viewData);
+        return view('admin.guide.edit')->with('viewData', $viewData);
+    }
+
+    public function update(Request $request, string $id): RedirectResponse
+    {
+        Guide::validate($request);
+
+        $guide = Guide::findOrFail($id);
+        $guide->setTitle($request->input('title'));
+        $guide->setContent($request->input('content'));
+        $guide->save();
+
+        if ($request->hasFile('image')) {
+            $imageName = 'guide'.$guide->getId().'.'.$request->file('image')->extension();
+
+            Storage::disk('publicGuide')->delete($guide->getImage());
+            
+            Storage::disk('publicGuide')->put(
+                $imageName,
+                file_get_contents($request->file('image')->getRealPath())
+            );
+            
+            $guide->setImage($imageName);
+        }
+        
+        $guide->save();
+
+        Session::flash('message', 'guide edited successfully.');
+        return redirect()->route('admin.guide.index');
     }
 }
