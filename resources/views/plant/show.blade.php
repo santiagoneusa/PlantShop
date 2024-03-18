@@ -5,7 +5,7 @@
 <div class="card mb-3">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="{{ $viewData["plant"]->getImage() }}" class="img-fluid rounded-start">
+      <img src="{{ asset('/storage/'.$viewData["plant"]->getImage()) }}" class="img-fluid rounded-start">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -15,6 +15,20 @@
         <p class="card-text">Price: ${{ $viewData["plant"]->getPrice() }}</p>
         <p class="card-text">Remaining Stock: {{ $viewData["plant"]->getStock() }} units</p>
         
+        @auth
+        <form method="POST" action="{{ route('review.save') }}">
+          @csrf
+          <input type="hidden" name="plant_id" value="{{ $viewData["plant"]->getId() }}">
+          <div class="form-group">
+            <label for="content">Add Comment</label>
+            <textarea class="form-control" name="content" rows="3"></textarea>
+            <input type="number" class="form-control mb-2 mt-2" name="stars" placeholder="How would you rate this product on a scale of one to five?">
+          <br>
+          </div>
+          <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+        @endauth
+
         @guest
         <div class="alert alert-info">
             You must log in to comment and view comments.
@@ -62,12 +76,6 @@
           <button type="submit" class="btn btn-primary">Send</button>
         </form>
         @endguest
-        <br>
-        <form method="POST" action="{{ route('plant.delete', ['id' => $viewData["plant"]->getId()]) }}" onsubmit="return confirm('Are you sure you want to delete this plant?')">
-          @csrf
-          @method('DELETE')
-          <button type="submit" class="btn btn-danger">Delete Plant</button>
-        </form>
       </div>
     </div>
   </div>

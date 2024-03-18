@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('image')->default('user0.jpg');
-            $table->string('role')->default('client');
+            $table->enum('role', (['client', 'admin']))->default('client');
             $table->integer('balance')->default(100);
         });
     }

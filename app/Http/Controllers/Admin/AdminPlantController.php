@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Plant;
-use App\Models\Review;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -115,18 +114,19 @@ class AdminPlantController extends Controller
             $imageName = 'plant'.$plant->getId().'.'.$request->file('image')->extension();
 
             Storage::disk('public')->delete($plant->getImage());
-            
+
             Storage::disk('public')->put(
                 $imageName,
                 file_get_contents($request->file('image')->getRealPath())
             );
-            
+
             $plant->setImage($imageName);
         }
-        
+
         $plant->save();
 
         Session::flash('message', 'Plant edited successfully.');
+
         return redirect()->route('admin.plant.index');
     }
 }

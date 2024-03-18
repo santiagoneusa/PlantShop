@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Http\Request;
 
 class Review extends Model
 {
@@ -16,9 +18,25 @@ class Review extends Model
      * $this->attributes['updated_at'] - timestamp - timestamp indicating last review update
 
      * $this->attributes['plant_id'] - int - contains the ID of the plant to which the review belongs
+     * $this->plant - Plant - contains the ID of the plant to which the review belongs
      * $this->attributes['user_id'] - int - contains the ID of the plant to which the review belongs
+     * $this->user - User - contains the ID of the plant to which the review belongs
      */
-    protected $fillable = ['content', 'stars', 'status', 'plant_id'];
+    protected $fillable = [
+        'content',
+        'stars',
+        'status',
+        'plant_id',
+    ];
+
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'content' => ['required'],
+            'stars' => ['required', 'integer', 'between:1,5'],
+            'plant_id' => ['required', 'exists:plants,id'],
+        ]);
+    }
 
     public function getId(): int
     {
@@ -55,16 +73,6 @@ class Review extends Model
         $this->attributes['status'] = $status;
     }
 
-    public function getPlantId(): int
-    {
-        return $this->attributes['plant_id'];
-    }
-
-    public function setPlantId(int $plantId): void
-    {
-        $this->attributes['plant_id'] = $plantId;
-    }
-
     public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
@@ -73,5 +81,35 @@ class Review extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function plant(): BelongsTo
+    {
+        return $this->belongsTo(Plant::class);
+    }
+
+    public function getPlant(): Plant
+    {
+        return $this->plant;
+    }
+
+    public function getPlantId(): int
+    {
+        return $this->attributes['plant_id'];
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    public function getUserId(): int
+    {
+        return $this->attributes['user_id'];
     }
 }
