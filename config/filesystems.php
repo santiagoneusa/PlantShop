@@ -44,6 +44,22 @@ return [
             'throw' => false,
         ],
 
+        'publicGuides' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/guides'),
+            'url' => env('APP_URL').'/storage/guides',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+        'publicPlants' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/plants'),
+            'url' => env('APP_URL').'/storage/plants',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

@@ -17,6 +17,7 @@ class PlantFactory extends Factory
             'imageUrl' => $this->faker->imageUrl(),
             'price' => $this->faker->numberBetween($min = 200, $max = 9000),
             'stock' => $this->faker->numberBetween($min = 0, $max = 100),
+            'categoryId' => $this->faker->numberBetween($min = 1, $max = 5),
         ];
     }
 }

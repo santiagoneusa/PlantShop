@@ -14,6 +14,7 @@ class UserDataValidation
             'imageUrl' => 'required',
             'price' => 'required|numeric|gt:0',
             'stock' => 'required|numeric|gte:0',
+            'categoryId' => 'required|numeric|gt:0',
         ]);
     }
 }

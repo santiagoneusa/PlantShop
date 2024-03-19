@@ -2,25 +2,59 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Http\Request;
 
 class Plant extends Model
 {
-    use HasFactory;
-
     /**
      * PLANT ATTRIBUTES
      * $this->attributes['id'] - int - contains the plant primary key (id)
      * $this->attributes['name'] - string - contains the plant name
      * $this->attributes['description'] - text - contains the plant description
-     * $this->attributes['imageUrl'] - string - contains the url of the plant image
+     * $this->attributes['image'] - string - contains the url of the plant image
      * $this->attributes['price'] - int - contains the plant price
      * $this->attributes['stock'] - int - contains the remain stock units of the plant
      * $this->attributes['created_at'] - timestamp - timestamp indicating plant creation
      * $this->attributes['updated_at'] - timestamp - timestamp indicating last plant update
+
+     * $this->attributes['category_id'] - int - contains the ID of the category to which the plant belongs
+     * $this->category - Category - contains the associated category
+     * $this->items - Item[] - contains the associated items
+     * $this->reviews- Review[] - contains the associated reviews
      */
-    protected $fillable = ['name', 'description', 'imageUrl', 'price', 'stock'];
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+        'stock',
+        'image_url',
+        'category_id',
+    ];
+
+    public static function validate(request $request): void
+    {
+        $request->validate([
+            'name' => ['required'],
+            'description' => ['required'],
+            'price' => ['required', 'numeric', 'gt:0'],
+            'stock' => ['required', 'numeric', 'gt:0'],
+            'category_id' => ['required'],
+        ]);
+    }
+
+    public static function sumPricesByQuantities($plants, $plantsInSession)
+    {
+        $total = 0;
+        foreach ($plants as $plant) {
+            $total = $total + ($plant->getPrice() * $plantsInSession[$plant->getId()]);
+        }
+
+        return $total;
+    }
 
     public function getId(): int
     {
@@ -47,14 +81,14 @@ class Plant extends Model
         $this->attributes['description'] = $description;
     }
 
-    public function getImageUrl(): string
+    public function getImage(): string
     {
-        return $this->attributes['imageUrl'];
+        return $this->attributes['image'];
     }
 
-    public function setImageUrl(string $imageUrl): void
+    public function setImage(string $image): void
     {
-        $this->attributes['imageUrl'] = $imageUrl;
+        $this->attributes['image'] = $image;
     }
 
     public function getPrice(): int
@@ -85,5 +119,45 @@ class Plant extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function getCategory(): Category
+    {
+        return $this->category;
+    }
+
+    public function getCategoryId(): int
+    {
+        return $this->attributes['category_id'];
+    }
+
+    public function setCategoryId(string $categoryId): void
+    {
+        $this->attributes['category_id'] = $categoryId;
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function items(): HasMany
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function getItems(): Collection
+    {
+        return $this->items;
     }
 }

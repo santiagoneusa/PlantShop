@@ -2,25 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use Illuminate\View\View;
+
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function index(): View
     {
-        $this->middleware('auth');
-    }
+        $viewData = [];
+        $viewData['title'] = 'Home - Eden of Eden';
+        $viewData['subtitle'] = 'Welcome to the Eden of Garden!';
+        $viewData['categories'] = Category::all();
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        return view('home.index');
+        return view('home.index')->with('viewData', $viewData);
     }
 }
