@@ -36,5 +36,5 @@ Route::get('/admin/guides/create', 'App\Http\Controllers\Admin\AdminGuideControl
 Route::post('/admin/guides/save', 'App\Http\Controllers\Admin\AdminGuideController@save')->name('admin.guide.save');
 Route::delete('/admin/guides/{id}/delete', 'App\Http\Controllers\Admin\AdminGuideController@delete')->name('admin.guide.delete');
 Route::post('/admin/guides/{id}/edit', 'App\Http\Controllers\Admin\AdminGuideController@edit')->name('admin.guide.edit');
-Route::put('/admin/guides/{id}/update', 'App\Http\Controllers\Admin\AdminGuideController@update')->name('admin.guide.update');
+Route::get('/admin/guides/{id}/update', 'App\Http\Controllers\Admin\AdminGuideController@update')->name('admin.guide.update');
 Route::get('/admin/guides/{id}', 'App\Http\Controllers\Admin\AdminGuideController@show')->name('admin.guide.show');

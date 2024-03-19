@@ -98,8 +98,8 @@ class AdminGuideController extends Controller
         Guide::validate($request);
 
         $guide = Guide::findOrFail($id);
-        $guide->setTitle($request->input('title'));
-        $guide->setContent($request->input('content'));
+        $guide->setTitle(request()->input('title'));
+        $guide->setContent(request()->input('content'));
         $guide->save();
 
         if ($request->hasFile('image')) {
