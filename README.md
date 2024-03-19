@@ -6,9 +6,6 @@
 
 </div>
 
-
-Antonio: Readme de cómo ejecutar el programa
-
 Especificar:
 - Dependencias
 - Migraciones
