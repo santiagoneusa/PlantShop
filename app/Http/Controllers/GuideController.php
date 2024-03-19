@@ -28,6 +28,6 @@ class GuideController extends Controller
         $viewData['subtitle'] = $guide->getTitle();
         $viewData['guide'] = $guide;
 
-        return view('category.show')->with('viewData', $viewData);
+        return view('guide.show')->with('viewData', $viewData);
     }
 }
