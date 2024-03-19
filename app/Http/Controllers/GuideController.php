@@ -12,7 +12,7 @@ class GuideController extends Controller
         $viewData = [];
         $viewData['title'] = 'Guides - Eden of Eden';
         $viewData['subtitle'] = 'Guides';
-        $viewData['categories'] = Guide::all();
+        $viewData['guides'] = Guide::all();
 
         return view('guide.index')->with('viewData', $viewData);
     }
