@@ -24,8 +24,8 @@ class GuideController extends Controller
         $guide = Guide::findOrFail($id);
 
         $viewData = [];
-        $viewData['title'] = 'Category: '.$guide->getName().' - Garden of Eden';
-        $viewData['subtitle'] = $guide->getName().' Plants';
+        $viewData['title'] = 'Category: '.$guide->getGuide().' - Garden of Eden';
+        $viewData['subtitle'] = $guide->getGuide();
         $viewData['guide'] = $guide;
 
         return view('category.show')->with('viewData', $viewData);
