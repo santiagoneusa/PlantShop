@@ -15,10 +15,19 @@
 <div class='card m-5'>
 
     <div class='card-header d-flex justify-content-between align-items-center'>
-        <h3 class='ms-3'>Edting {{ $viewData['plant']->getName() }}</h3>
+        <h3 class='ms-3'>Editing {{ $viewData['plant']->getName() }}</h3>
     </div>
 
     <div class='card-body'>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form action="{{ route('admin.plant.update', ['id' => $viewData["plant"]->getId()]) }}" method="get" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
@@ -42,11 +51,10 @@
             </div>
             <div class="mb-3">
                 <select class="form-select" name="category_id">
-                    <option selected>Select Category</option>
-                    <option value="1">Indoor</option>
-                    <option value="2">Outdoor</option>
-                    <option value="3">Ornamental</option>
-                    <option value="3">Aromatic</option>
+                <option value="{{ $viewData['category_id'] }}" selected disabled>{{ $viewData['category_name'] }}</option>
+                    @foreach($viewData["categories"] as $category)
+                        <option value="{{ $category->getId() }}">{{ $category->getName() }}</option>
+                    @endforeach
                 </select>
                 <div class="form-text ms-2" id="basic-addon4">Current value: {{ $viewData['category_name'] }}</div>
             </div>
