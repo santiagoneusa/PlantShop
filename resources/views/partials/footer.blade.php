@@ -1,3 +1,5 @@
+<!-- Made by: Santiago Neusa Ruiz -->
+
 <footer class="text-center text-white" style="background-color: #25a55f">
 
     <div class="container">

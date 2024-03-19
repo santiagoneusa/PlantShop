@@ -1,5 +1,7 @@
 <?php
 
+// Made by: Santiago Neusa Ruiz
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;

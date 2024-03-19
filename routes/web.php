@@ -1,5 +1,7 @@
 <?php
 
+// Made by: Santiago Neusa Ruiz & Jhonnathan Stiven Ocampo Díaz
+
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
