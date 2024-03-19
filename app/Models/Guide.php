@@ -75,19 +75,4 @@ class Guide extends Model
     {
         return $this->attributes['updated_at'];
     }
-
-    public function setTitle(string $title): void
-    {
-        $this->attributes['title'] = $title;
-    }
-
-    public function setContent(string $content): void
-    {
-        $this->attributes['content'] = $content;
-    }
-
-    public function setImage(string $image): void
-    {
-        $this->attributes['image'] = $image;
-    }
 }

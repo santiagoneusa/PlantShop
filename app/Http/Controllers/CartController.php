@@ -6,10 +6,10 @@ use App\Models\Item;
 use App\Models\Order;
 use App\Models\Plant;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use Illuminate\Http\RedirectResponse;
 
 class CartController extends Controller
 {
@@ -29,12 +29,12 @@ class CartController extends Controller
         $viewData['subtitle'] = 'Shopping Cart';
         $viewData['total'] = $total;
         $viewData['plants'] = $plantsInCart;
-        
+
         $userBalance = User::findOrFail(Auth::user()->getId())->getBalance();
         if ($total != 0 && $userBalance < $total) {
-            $viewData['notEnoughBalance'] = True;
+            $viewData['notEnoughBalance'] = true;
         } else {
-            $viewData['notEnoughBalance'] = False;
+            $viewData['notEnoughBalance'] = false;
         }
 
         return view('cart.index')->with('viewData', $viewData);
@@ -56,7 +56,7 @@ class CartController extends Controller
         return redirect()->route('cart.index');
     }
 
-    public function purchase(Request $request): View | RedirectResponse
+    public function purchase(Request $request): View|RedirectResponse
     {
         Order::validate($request);
 

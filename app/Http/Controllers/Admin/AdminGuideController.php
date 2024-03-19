@@ -51,7 +51,7 @@ class AdminGuideController extends Controller
         $guide->save();
 
         if ($request->hasFile('image')) {
-            $imageName = 'guide'.$guide->getId().'.'.$request->file('image')->extension();
+            $imageName = $guide->getId().'.'.$request->file('image')->extension();
             Storage::disk('publicGuides')->put(
                 $imageName,
                 file_get_contents($request->file('image')->getRealPath())
@@ -106,18 +106,19 @@ class AdminGuideController extends Controller
             $imageName = 'guide'.$guide->getId().'.'.$request->file('image')->extension();
 
             Storage::disk('publicGuide')->delete($guide->getImage());
-            
+
             Storage::disk('publicGuide')->put(
                 $imageName,
                 file_get_contents($request->file('image')->getRealPath())
             );
-            
+
             $guide->setImage($imageName);
         }
-        
+
         $guide->save();
 
         Session::flash('message', 'guide edited successfully.');
+
         return redirect()->route('admin.guide.index');
     }
 }

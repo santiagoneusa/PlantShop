@@ -16,8 +16,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-center mt-4">
-        <form action="{{ route('admin.guide.edit', ['id' => $viewData["guide"]->getId()]) }}" method="post"
-            enctype="multipart/form-data">
+        <form action="{{ route('admin.guide.edit', ['id' => $viewData["guide"]->getId()]) }}" method="post" enctype="multipart/form-data">
             @csrf
             <button type="submit" class="btn btn-primary me-2">Edit</button>
         </form>

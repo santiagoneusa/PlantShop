@@ -116,7 +116,7 @@ class AdminPlantController extends Controller
             $imageName = 'plant'.$plant->getId().'.'.$request->file('image')->extension();
 
             Storage::disk('publicPlant')->delete($plant->getImage());
-            
+
             Storage::disk('publicPlant')->put(
                 $imageName,
                 file_get_contents($request->file('image')->getRealPath())
