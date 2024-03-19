@@ -6,14 +6,12 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CategoryFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     */
     public function definition(): array
     {
         return [
-            'name' => $this->faker->company,
+            'name' => 'Category '.$this->faker->numberBetween(1, 10),
             'description' => $this->faker->sentence,
+            'image' => $this->faker->numberBetween(1, 4).'.jpg',
         ];
     }
 }
