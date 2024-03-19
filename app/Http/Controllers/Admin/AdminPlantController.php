@@ -57,7 +57,7 @@ class AdminPlantController extends Controller
         $plant->save();
 
         if ($request->hasFile('image')) {
-            $imageName = 'plant'.$plant->getId().'.'.$request->file('image')->extension();
+            $imageName = $plant->getId().'.'.$request->file('image')->extension();
             Storage::disk('publicPlants')->put(
                 $imageName,
                 file_get_contents($request->file('image')->getRealPath())
@@ -113,7 +113,7 @@ class AdminPlantController extends Controller
         $plant->setCategoryId(request()->input('category_id'));
 
         if ($request->hasFile('image')) {
-            $imageName = 'plant'.$plant->getId().'.'.$request->file('image')->extension();
+            $imageName = $plant->getId().'.'.$request->file('image')->extension();
 
             Storage::disk('publicPlant')->delete($plant->getImage());
 
