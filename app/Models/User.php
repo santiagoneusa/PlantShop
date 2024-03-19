@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -20,7 +22,8 @@ class User extends Authenticatable
      * $this->attributes['created_at'] - timestamp - contains the user creation date
      * $this->attributes['updated_at'] - timestamp - contains the user update date
 
-     * $this->orders
+     * $this-> orders - Order[] - contains the associated orders
+     * $this-> reviews - Review[] - contains the associated reviews
      */
     protected $fillable = [
         'name',
@@ -48,6 +51,21 @@ class User extends Authenticatable
         return $this->attributes['name'];
     }
 
+    public function setName(string $name): void
+    {
+        $this->attributes['name'] = $name;
+    }
+
+    public function getImage(): string
+    {
+        return $this->attributes['image'];
+    }
+
+    public function setImage(string $image): void
+    {
+        $this->attributes['image'] = $image;
+    }
+
     public function getEmail(): string
     {
         return $this->attributes['email'];
@@ -56,6 +74,11 @@ class User extends Authenticatable
     public function getRole(): string
     {
         return $this->attributes['role'];
+    }
+
+    public function setRole(string $role): void
+    {
+        $this->attributes['role'] = $role;
     }
 
     public function getBalance(): int
@@ -71,5 +94,30 @@ class User extends Authenticatable
     public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
+    }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function getOrders(): Collection
+    {
+        return $this->items;
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
     }
 }

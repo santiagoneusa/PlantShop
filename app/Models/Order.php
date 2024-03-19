@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -28,11 +29,10 @@ class Order extends Model
         'total',
     ];
 
-    public static function validate(request $request): void
+    public static function validate(Request $request): void
     {
         $request->validate([
-            'total' => 'required|numeric',
-            'user_id' => 'required|exists:users,id',
+            'address' => 'required',
         ]);
     }
 
@@ -41,14 +41,14 @@ class Order extends Model
         return $this->attributes['id'];
     }
 
-    public function getAddress(): void
+    public function getAddress(): string
     {
         return $this->attributes['address'];
     }
 
-    public function getUserId(): int
+    public function setAddress(string $address): void
     {
-        return $this->attributes['user_id'];
+        $this->attributes['address'] = $address;
     }
 
     public function getTotal(): int
@@ -56,14 +56,29 @@ class Order extends Model
         return $this->attributes['total'];
     }
 
-    public function getStatus(): void
+    public function setTotal(int $total): void
+    {
+        $this->attributes['total'] = $total;
+    }
+
+    public function getStatus(): string
     {
         return $this->attributes['status'];
     }
 
-    public function getCreatedAt(): void
+    public function setStatus(string $status): void
+    {
+        $this->attributes['status'] = $status;
+    }
+
+    public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
+    }
+
+    public function getCreatedUp(): string
+    {
+        return $this->attributes['updated_at'];
     }
 
     public function user(): BelongsTo
@@ -76,12 +91,22 @@ class Order extends Model
         return $this->user;
     }
 
+    public function getUserId(): int
+    {
+        return $this->attributes['user_id'];
+    }
+
+    public function setUserId(int $userId): void
+    {
+        $this->attributes['user_id'] = $userId;
+    }
+
     public function items(): HasMany
     {
         return $this->hasMany(Item::class);
     }
 
-    public function getItems()
+    public function getItems(): Collection
     {
         return $this->items;
     }

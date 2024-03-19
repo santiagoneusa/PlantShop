@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
-
 
 class Plant extends Model
 {
@@ -20,9 +21,10 @@ class Plant extends Model
      * $this->attributes['created_at'] - timestamp - timestamp indicating plant creation
      * $this->attributes['updated_at'] - timestamp - timestamp indicating last plant update
 
-     * $this->attributes['category_id'] - int - Contains the ID of the category to which the plant belongs
-     * $this->attributes['items'] - int - Contains the ID of the category to which the plant belongs
-     * $this->attributes['reviews'] - int - Contains the ID of the category to which the plant belongs
+     * $this->attributes['category_id'] - int - contains the ID of the category to which the plant belongs
+     * $this->category - Category - contains the associated category
+     * $this->items - Item[] - contains the associated items
+     * $this->reviews- Review[] - contains the associated reviews
      */
     protected $fillable = [
         'name',
@@ -42,6 +44,16 @@ class Plant extends Model
             'stock' => ['required', 'numeric', 'gt:0'],
             'category_id' => ['required'],
         ], );
+    }
+
+    public static function sumPricesByQuantities($plants, $plantsInSession)
+    {
+        $total = 0;
+        foreach ($plants as $plant) {
+            $total = $total + ($plant->getPrice() * $plantsInSession[$plant->getId()]);
+        }
+
+        return $total;
     }
 
     public function getId(): int
@@ -127,5 +139,25 @@ class Plant extends Model
     public function setCategoryId(string $categoryId): void
     {
         $this->attributes['category_id'] = $categoryId;
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function items(): HasMany
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function getItems(): Collection
+    {
+        return $this->items;
     }
 }

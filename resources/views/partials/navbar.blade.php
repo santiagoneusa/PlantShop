@@ -14,9 +14,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                     <ul class="dropdown-menu">
-                        @foreach($viewData["categories"] as $category)
-                            <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> $category->getId()]) }}">{{ $category->getName() }}</a></li>
-                        @endforeach
+
                     </ul>
                 </li>   
                 <a class="nav-link" href="{{ route('guide.index') }}">Guides</a>
@@ -29,14 +27,13 @@
             </div>
             @else
             <div class="d-flex align-items-center">
-                <span class="material-symbols-outlined" href="{{ route('cart.index') }}">shopping_cart</span>
-                
+                <a href="{{ route('cart.index') }}" class="mt-1 color-black" style="color: black;"><span class="material-symbols-outlined">shopping_cart</span></a>            
                 <div class="dropdown-center">
                     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="material-symbols-outlined" style="margin-top: 3px;">account_circle</span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="user.index">Profile</a></li>
+                        <li><a class="dropdown-item" href="{{ route('user.index') }}">Profile</a></li>
                         <li class="dropdown-item">
                             <form id="logout" action="{{ route('logout') }}" method="POST">
                                 <a role="button" class="nav-link active"

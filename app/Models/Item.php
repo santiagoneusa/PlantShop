@@ -42,9 +42,19 @@ class Item extends Model
         return $this->attributes['quantity'];
     }
 
+    public function setQuantity(int $quantity): void
+    {
+        $this->attributes['quantity'] = $quantity;
+    }
+
     public function getPrice(): int
     {
         return $this->attributes['price'];
+    }
+
+    public function setPrice(int $price): void
+    {
+        $this->attributes['price'] = $price;
     }
 
     public function getCreatedAt(): string
@@ -67,11 +77,6 @@ class Item extends Model
         return $this->plant;
     }
 
-    public function setPlant(): void
-    {
-        return $this->plant;
-    }
-
     public function getPlantId(): int
     {
         return $this->attributes['plant_id'];
@@ -88,11 +93,6 @@ class Item extends Model
     }
 
     public function getOrder(): Order
-    {
-        return $this->order;
-    }
-
-    public function setOrder(): void
     {
         return $this->order;
     }

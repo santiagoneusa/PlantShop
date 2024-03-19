@@ -25,37 +25,22 @@
         </div>
 
         @else
-        <form action="{{ route('plant.show', ['id'=> $viewData["plant"]->getId()]) }}" method="GET" class="mb-3">
-          <div class="input-group">
-            <select name="sort_by" class="form-select">
-              <option value="newest">Newest first</option>
-              <option value="oldest">Oldest first</option>
-              <option value="highest_rated">Highest rated first</option>
-              <option value="lowest_rated">Lowest rated first</option>
-            </select>
-            <button type="submit" class="btn btn-success">Sort Comments</button>
-          </div>
-        </form>
-
         <h5 class="mt-4">Comments</h5>
-        @if ($viewData["reviews"]->isEmpty())
-          <p>No comments yet.</p>
-        @else  
-          @foreach ($viewData["reviews"] as $review)
-          <div class="card mb-3">
-            <div class="card-body">
-              <p>{{ $review->getContent() }}</p>
-              <p>Calificación: {{ $review->getStars() }}/5</p>
-            </div>
+        @foreach ($viewData["reviews"] as $review)
+        <div class="card mb-3">
+          <div class="card-body">
+            <p>{{ $review->getContent() }}</p>
+            <p>{{ $review->getStars() }}</p>
           </div>
-          @endforeach
-        @endif
-
-        @if (Session::has('success'))
-        <div class="alert alert-success" role="alert">
-            {{ Session::get('success') }}
         </div>
-        @endif
+        @endforeach
+        <br>
+
+                @if (Session::has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ Session::get('success') }}
+                </div>
+                @endif
 
         @if($errors->any())
           <ul id="errors" class="alert alert-danger list-unstyled">
@@ -78,7 +63,11 @@
         </form>
         @endguest
         <br>
-
+        <form method="POST" action="{{ route('plant.delete', ['id' => $viewData["plant"]->getId()]) }}" onsubmit="return confirm('Are you sure you want to delete this plant?')">
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="btn btn-danger">Delete Plant</button>
+        </form>
       </div>
     </div>
   </div>

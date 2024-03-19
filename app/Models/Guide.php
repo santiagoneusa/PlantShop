@@ -41,14 +41,29 @@ class Guide extends Model
         return $this->attributes['title'];
     }
 
+    public function setTitle(string $title): void
+    {
+        $this->attributes['title'] = $title;
+    }
+
     public function getContent(): string
     {
         return $this->attributes['content'];
     }
 
+    public function setContent(string $content): void
+    {
+        $this->attributes['content'] = $content;
+    }
+
     public function getImage(): string
     {
         return $this->attributes['image'];
+    }
+
+    public function setImage(string $image): void
+    {
+        $this->attributes['image'] = $image;
     }
 
     public function getCreatedAt(): string
@@ -59,20 +74,5 @@ class Guide extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
-    }
-
-    public function setTitle(string $title): void
-    {
-        $this->attributes['title'] = $title;
-    }
-
-    public function setContent(string $content): void
-    {
-        $this->attributes['content'] = $content;
-    }
-
-    public function setImage(string $image): void
-    {
-        $this->attributes['image'] = $image;
     }
 }
