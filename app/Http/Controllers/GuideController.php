@@ -1,5 +1,7 @@
 <?php
 
+// Made by: Jhonnathan Stiven Ocampo Díaz
+
 namespace App\Http\Controllers;
 
 use App\Models\Guide;
@@ -22,10 +24,10 @@ class GuideController extends Controller
         $guide = Guide::findOrFail($id);
 
         $viewData = [];
-        $viewData['title'] = 'Category: '.$guide->getName().' - Garden of Eden';
-        $viewData['subtitle'] = $guide->getName().' Plants';
+        $viewData['title'] = 'Guides - Garden of Eden';
+        $viewData['subtitle'] = $guide->getTitle();
         $viewData['guide'] = $guide;
 
-        return view('category.show')->with('viewData', $viewData);
+        return view('guide.show')->with('viewData', $viewData);
     }
 }

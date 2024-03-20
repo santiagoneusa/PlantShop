@@ -1,3 +1,5 @@
+<!-- Made by: Santiago Neusa Ruiz -->
+
 <div class="p-3 col fixed text-white bg-dark">
     <a href="{{ route('admin.home.index') }}" class="text-white text-decoration-none">
         <h2 class="fs-5 text-center"><b>Admin Panel</b></h2>

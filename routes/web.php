@@ -1,5 +1,7 @@
 <?php
 
+// Made by: Santiago Neusa Ruiz & Jhonnathan Stiven Ocampo Díaz
+
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
@@ -10,11 +12,11 @@ Route::get('/plants', 'App\Http\Controllers\PlantController@index')->name('plant
 Route::get('/plants/search', 'App\Http\Controllers\PlantController@search')->name('plant.search');
 Route::get('/plants/{id}', 'App\Http\Controllers\PlantController@show')->name('plant.show');
 
-Route::get('/categories', 'App\Http\Controllers\CategoryController@index')->name('category.index');
-Route::get('/categories/{id}', 'App\Http\Controllers\CategoryController@show')->name('category.show');
-
 Route::get('/guides', 'App\Http\Controllers\GuideController@index')->name('guide.index');
 Route::get('/guides/{id}', 'App\Http\Controllers\GuideController@show')->name('guide.show');
+
+Route::get('/categories', 'App\Http\Controllers\CategoryController@index')->name('category.index');
+Route::get('/categories/{id}', 'App\Http\Controllers\CategoryController@show')->name('category.show');
 
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
 Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name('cart.delete');

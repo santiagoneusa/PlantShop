@@ -1,3 +1,5 @@
+<!-- Made by: Jhonnathan Stiven Ocampo Díaz -->
+
 @extends('layouts.admin')
 @section('title', $viewData["title"])
 @section('content')
