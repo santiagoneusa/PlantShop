@@ -29,7 +29,7 @@ class Review extends Model
         'stars',
         'status',
         'plant_id',
-        'user_id'
+        'user_id',
     ];
 
     public static function validate(Request $request): void
