@@ -19,15 +19,6 @@
     </div>
 
     <div class='card-body'>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         <form action="{{ route('admin.plant.update', ['id' => $viewData["plant"]->getId()]) }}" method="get" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
@@ -40,18 +31,18 @@
             </div>
             <div class="mb-3" type="number" >
                 <label class="form-label">Price</label>
-                <input name="price" type="number" min="1" max="10" class="form-control quantity-input" value="{{ $viewData["plant"]->getPrice() }}">
+                <input name="price" type="number"  class="form-control quantity-input" value="{{ $viewData["plant"]->getPrice() }}">
             </div>
             <div class="mb-3" type="number" >
                 <label class="form-label">Stock</label>
-                <input name="stock" type="number" min="1" max="10" class="form-control quantity-input" value="{{ $viewData["plant"]->getStock() }}">
+                <input name="stock" type="number" class="form-control quantity-input" value="{{ $viewData["plant"]->getStock() }}">
             </div>
             <div class="mb-3">
                 <input type="file" name="image" class="form-control">
             </div>
             <div class="mb-3">
                 <select class="form-select" name="category_id">
-                <option value="{{ $viewData['category_id'] }}" selected disabled>{{ $viewData['category_name'] }}</option>
+                <option value="{{ $viewData['category_id'] }}" selected>{{ $viewData['category_name'] }}</option>
                     @foreach($viewData["categories"] as $category)
                         <option value="{{ $category->getId() }}">{{ $category->getName() }}</option>
                     @endforeach

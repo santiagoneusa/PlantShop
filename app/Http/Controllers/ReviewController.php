@@ -13,13 +13,14 @@ class ReviewController extends Controller
 {
     public function save(Request $request): RedirectResponse
     {
+        Review::validate($request);
+
         $user = Auth::user();
-
-        $validator = new ReviewDataValidation();
-        $validatedData = $validator->validateReviewRequest($request, $user->id);
-
-        $review = new Review($validatedData);
-        $review->user_id = $user->id;
+        $review = new Review();
+        $review->setContent($request->input('content'));
+        $review->setStars($request->input('stars'));
+        $review->setPlantId($request->input('plant_id'));
+        $review->setUserId($user->id);
         $review->save();
 
         Session::flash('success', 'Comment created successfully.');

@@ -27,6 +27,7 @@ class Review extends Model
         'stars',
         'status',
         'plant_id',
+        'user_id'
     ];
 
     public static function validate(Request $request): void
@@ -81,6 +82,16 @@ class Review extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function setUserId(int $userId): void
+    {
+        $this->attributes['user_id'] = $userId;
+    }
+
+    public function setPlantId(int $plantId): void
+    {
+        $this->attributes['plant_id'] = $plantId;
     }
 
     public function plant(): BelongsTo

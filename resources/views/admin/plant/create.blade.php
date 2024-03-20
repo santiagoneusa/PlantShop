@@ -32,11 +32,11 @@
             </div>
             <div class="mb-3" type="number" >
                 <label class="form-label">Price</label>
-                <input name="price" type="number" min="1" max="10" value="1" class="form-control quantity-input">
+                <input name="price" type="number" class="form-control quantity-input">
             </div>
             <div class="mb-3" type="number" >
                 <label class="form-label">Stock</label>
-                <input name="stock" type="number" min="1" max="10" value="1" class="form-control quantity-input">
+                <input name="stock" type="number" class="form-control quantity-input">
             </div>
             <div class="mb-3">
                 <input type="file" name="image" value="{{ old('image') }}" class="form-control">
