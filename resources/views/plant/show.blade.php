@@ -65,11 +65,7 @@
         </form>
         @endguest
         <br>
-        <form method="POST" action="{{ route('plant.delete', ['id' => $viewData["plant"]->getId()]) }}" onsubmit="return confirm('Are you sure you want to delete this plant?')">
-          @csrf
-          @method('DELETE')
-          <button type="submit" class="btn btn-danger">Delete Plant</button>
-        </form>
+        
       </div>
     </div>
   </div>

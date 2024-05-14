@@ -99,6 +99,8 @@ class AdminPlantController extends Controller
         $viewData['title'] = '';
         $viewData['plant'] = $plant;
         $viewData['category_name'] = $plant->getCategory()->getName();
+        $viewData['category_id'] = $plant->getCategory()->getId();
+        $viewData['categories'] = Category::all();
 
         return view('admin.plant.edit')->with('viewData', $viewData);
     }

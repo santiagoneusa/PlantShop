@@ -17,7 +17,7 @@
 <div class='card m-5'>
 
     <div class='card-header d-flex justify-content-between align-items-center'>
-        <h3 class='ms-3'>Edting {{ $viewData['plant']->getName() }}</h3>
+        <h3 class='ms-3'>Editing {{ $viewData['plant']->getName() }}</h3>
     </div>
 
     <div class='card-body'>
@@ -33,22 +33,21 @@
             </div>
             <div class="mb-3" type="number" >
                 <label class="form-label">Price</label>
-                <input name="price" type="number" min="1" max="10" class="form-control quantity-input" value="{{ $viewData["plant"]->getPrice() }}">
+                <input name="price" type="number"  class="form-control quantity-input" value="{{ $viewData["plant"]->getPrice() }}">
             </div>
             <div class="mb-3" type="number" >
                 <label class="form-label">Stock</label>
-                <input name="stock" type="number" min="1" max="10" class="form-control quantity-input" value="{{ $viewData["plant"]->getStock() }}">
+                <input name="stock" type="number" class="form-control quantity-input" value="{{ $viewData["plant"]->getStock() }}">
             </div>
             <div class="mb-3">
                 <input type="file" name="image" class="form-control">
             </div>
             <div class="mb-3">
                 <select class="form-select" name="category_id">
-                    <option selected>Select Category</option>
-                    <option value="1">Indoor</option>
-                    <option value="2">Outdoor</option>
-                    <option value="3">Ornamental</option>
-                    <option value="3">Aromatic</option>
+                <option value="{{ $viewData['category_id'] }}" selected>{{ $viewData['category_name'] }}</option>
+                    @foreach($viewData["categories"] as $category)
+                        <option value="{{ $category->getId() }}">{{ $category->getName() }}</option>
+                    @endforeach
                 </select>
                 <div class="form-text ms-2" id="basic-addon4">Current value: {{ $viewData['category_name'] }}</div>
             </div>

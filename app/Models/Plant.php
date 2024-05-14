@@ -45,7 +45,7 @@ class Plant extends Model
             'price' => ['required', 'numeric', 'gt:0'],
             'stock' => ['required', 'numeric', 'gt:0'],
             'category_id' => ['required'],
-        ]);
+        ], );
     }
 
     public static function sumPricesByQuantities($plants, $plantsInSession)
