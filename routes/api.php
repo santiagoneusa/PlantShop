@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/plants', 'App\Http\Controllers\Api\PlantApiController@index')->name('api.plant.index');
+Route::get('/plants/{id}', 'App\Http\Controllers\Api\PlantApiController@show')->name('api.plant.show');
