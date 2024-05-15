@@ -3,6 +3,7 @@
 ## Dependencies
 This project relies on several dependencies that need to be installed before running. Make sure you have the following dependencies installed:
 
+
 PHP (8.2.12)
 Composer (2.6.6)
 MySQL or another compatible database
