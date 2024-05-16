@@ -10,6 +10,8 @@ class SuperUserSeeder extends Seeder
 {
     public function run()
     {
+        User::where('email', 'superusuario@gmail.com')->delete();
+
         User::create([
             'name' => 'Admin',
             'email' => 'superusuario@gmail.com',
