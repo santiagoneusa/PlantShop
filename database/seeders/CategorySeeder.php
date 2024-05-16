@@ -9,6 +9,8 @@ class CategorySeeder extends Seeder
 {
     public function run()
     {
+        Category::whereIn('name', ['Ornamental', 'Indoor', 'Outdoor', 'Aromatic'])->delete();
+
         $categories = [
             [
                 'id' => 1,
