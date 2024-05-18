@@ -18,7 +18,7 @@ class SuperUserSeeder extends Seeder
             'password' => Hash::make('123456789'),
             'image' => 'user0.jpg',
             'role' => 'admin',
-            'balance' => 100, 
+            'balance' => 100,
         ]);
     }
 }

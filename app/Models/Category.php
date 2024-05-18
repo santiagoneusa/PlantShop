@@ -4,7 +4,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -31,34 +30,14 @@ class Category extends Model
         return $this->attributes['id'];
     }
 
+    public function setId(int $id): void
+    {
+        $this->attributes['id'] = $id;
+    }
+
     public function getName(): string
     {
         return $this->attributes['name'];
-    }
-
-    public function getDescription(): string
-    {
-        return $this->attributes['description'];
-    }
-
-    public function getImage(): string
-    {
-        return $this->attributes['image'];
-    }
-
-    public function getCreated_at(): string
-    {
-        return $this->attributes['created_at'];
-    }
-
-    public function getUpdatedAt(): string
-    {
-        return $this->attributes['updated_at'];
-    }
-
-    public function getReviews(): Collection
-    {
-        return $this->reviews;
     }
 
     public function setName(string $name): void
@@ -66,9 +45,19 @@ class Category extends Model
         $this->attributes['name'] = $name;
     }
 
+    public function getDescription(): string
+    {
+        return $this->attributes['description'];
+    }
+
     public function setDescription(string $description): void
     {
         $this->attributes['description'] = $description;
+    }
+
+    public function getImage(): string
+    {
+        return $this->attributes['image'];
     }
 
     public function setImage(string $image): void
@@ -76,8 +65,38 @@ class Category extends Model
         $this->attributes['image'] = $image;
     }
 
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function setCreatedAt(string $createdAt): void
+    {
+        $this->attributes['created_at'] = $createdAt;
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
+    }
+
+    public function setUpdatedAt(string $updated_at): void
+    {
+        $this->attributes['updated_at'] = $updated_at;
+    }
+
     public function plants(): HasMany
     {
         return $this->hasMany(Plant::class);
+    }
+
+    public function getPlants(): HasMany
+    {
+        return $this->plants;
+    }
+
+    public function setPlants($plants): void
+    {
+        $this->plants = $plants;
     }
 }
