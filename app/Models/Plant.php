@@ -22,7 +22,7 @@ class Plant extends Model
      * $this->attributes['stock'] - int - contains the remain stock units of the plant
      * $this->attributes['created_at'] - timestamp - timestamp indicating plant creation
      * $this->attributes['updated_at'] - timestamp - timestamp indicating last plant update
-
+     *
      * $this->attributes['category_id'] - int - contains the ID of the category to which the plant belongs
      * $this->category - Category - contains the associated category
      * $this->items - Item[] - contains the associated items

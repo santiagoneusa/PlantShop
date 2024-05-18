@@ -18,7 +18,7 @@ class Item extends Model
      * $this->attributes['price'] - int - contains
      * $this->attributes['created_at'] - timestamp - contains the order creation date
      * $this->attributes['updated_at'] - timestamp - contains the order update date
-
+     *
      * $this->attributes['plant_id'] - string - contains as a foreign key the id of the plant associated
      * $this->plant - Plant - contains the associated Plant
      * $this->attributes['order_id'] - string - contains as a foreign key the id of the order that contains the item

@@ -18,7 +18,7 @@ class Review extends Model
      * $this->attributes['status'] - string - contains the status of the review (unchecked, approved, rejected)
      * $this->attributes['created_at'] - timestamp - timestamp indicating review creation
      * $this->attributes['updated_at'] - timestamp - timestamp indicating last review update
-
+     *
      * $this->attributes['plant_id'] - int - contains the ID of the plant to which the review belongs
      * $this->plant - Plant - contains the ID of the plant to which the review belongs
      * $this->attributes['user_id'] - int - contains the ID of the plant to which the review belongs

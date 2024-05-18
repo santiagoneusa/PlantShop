@@ -23,7 +23,7 @@ class User extends Authenticatable
      * $this->attributes['remember_token'] - string - contains the user password
      * $this->attributes['created_at'] - timestamp - contains the user creation date
      * $this->attributes['updated_at'] - timestamp - contains the user update date
-
+     *
      * $this-> orders - Order[] - contains the associated orders
      * $this-> reviews - Review[] - contains the associated reviews
      */

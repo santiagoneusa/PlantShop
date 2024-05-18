@@ -21,7 +21,7 @@ class Category extends Model
      * $this->attributes['image'] - text - contains the category image cover
      * $this->attributes['created_at'] - timestamp - timestamp indicating category creation
      * $this->attributes['updated_at'] - timestamp - timestamp indicating last category update
-
+     *
      * $this->plants - Plant[] - contains the associated plants
      */
     protected $fillable = ['name', 'description'];
@@ -36,29 +36,14 @@ class Category extends Model
         return $this->attributes['name'];
     }
 
-    public function setName(string $name): void
-    {
-        $this->attributes['name'] = $name;
-    }
-
     public function getDescription(): string
     {
         return $this->attributes['description'];
     }
 
-    public function setDescription(string $description): void
-    {
-        $this->attributes['description'] = $description;
-    }
-
     public function getImage(): string
     {
         return $this->attributes['image'];
-    }
-
-    public function setImage(string $image): void
-    {
-        $this->attributes['image'] = $image;
     }
 
     public function getCreated_at(): string
@@ -71,13 +56,28 @@ class Category extends Model
         return $this->attributes['updated_at'];
     }
 
-    public function plants(): HasMany
-    {
-        return $this->hasMany(Plant::class);
-    }
-
     public function getReviews(): Collection
     {
         return $this->reviews;
+    }
+
+    public function setName(string $name): void
+    {
+        $this->attributes['name'] = $name;
+    }
+
+    public function setDescription(string $description): void
+    {
+        $this->attributes['description'] = $description;
+    }
+
+    public function setImage(string $image): void
+    {
+        $this->attributes['image'] = $image;
+    }
+
+    public function plants(): HasMany
+    {
+        return $this->hasMany(Plant::class);
     }
 }

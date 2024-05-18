@@ -20,7 +20,7 @@ class Order extends Model
      * $this->attributes['status'] - string - contains the state of the order (Complete, Sent, Delivered)
      * $this->attributes['created_at'] - timestamp - contains the order creation date
      * $this->attributes['updated_at'] - timestamp - contains the order update date
-
+     *
      * $this->attributes['user_id'] - string - contains as a foreign key the id of the user that made the order
      * $this->user - User - contains the associated user
      * $this->items - Item[] - contains the associated items
