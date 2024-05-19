@@ -48,6 +48,11 @@ class User extends Authenticatable
         return $this->attributes['id'];
     }
 
+    public function setId(int $id): void
+    {
+        $this->attributes['id'] = $id;
+    }
+
     public function getName(): string
     {
         return $this->attributes['name'];
@@ -113,6 +118,11 @@ class User extends Authenticatable
         return $this->items;
     }
 
+    public function setOrders(Collection $orders): void
+    {
+        $this->orders = $orders;
+    }
+
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
@@ -121,5 +131,10 @@ class User extends Authenticatable
     public function getReviews(): Collection
     {
         return $this->reviews;
+    }
+
+    public function setReviews(Collection $reviews): void
+    {
+        $this->reviews = $reviews;
     }
 }

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
+use SebastianBergmann\Type\VoidType;
 
 class Order extends Model
 {
@@ -21,8 +22,8 @@ class Order extends Model
      * $this->attributes['created_at'] - timestamp - contains the order creation date
      * $this->attributes['updated_at'] - timestamp - contains the order update date
      *
-     * $this->attributes['user_id'] - string - contains as a foreign key the id of the user that made the order
      * $this->user - User - contains the associated user
+     * $this->attributes['user_id'] - string - contains as a foreign key the id of the user that made the order
      * $this->items - Item[] - contains the associated items
      */
     protected $fillable = [
@@ -41,6 +42,11 @@ class Order extends Model
     public function getId(): int
     {
         return $this->attributes['id'];
+    }
+
+    public function setId(int $id): void
+    {
+        $this->attributes['id'] = $id;
     }
 
     public function getAddress(): string
@@ -78,9 +84,20 @@ class Order extends Model
         return $this->attributes['created_at'];
     }
 
-    public function getCreatedUp(): string
+    public function setCreatedAt(string $createdAt): void
+    {
+        $this->attributes['created_at'] = $createdAt;
+    }
+
+    public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+
+    public function setUpdatedAt(string $UpdatedAt): void
+    {
+        $this->attributes['created_at'] = $UpdatedAt;
     }
 
     public function user(): BelongsTo
@@ -91,6 +108,11 @@ class Order extends Model
     public function getUser(): User
     {
         return $this->user;
+    }
+
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
     }
 
     public function getUserId(): int
@@ -112,4 +134,10 @@ class Order extends Model
     {
         return $this->items;
     }
+
+    public function setItems(Collection $items): void
+    {
+        $this->items = $items;
+    }
+
 }

@@ -4,6 +4,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -90,12 +91,12 @@ class Category extends Model
         return $this->hasMany(Plant::class);
     }
 
-    public function getPlants(): HasMany
+    public function getPlants(): Collection
     {
         return $this->plants;
     }
 
-    public function setPlants($plants): void
+    public function setPlants(Collection $plants): void
     {
         $this->plants = $plants;
     }

@@ -109,9 +109,9 @@ class Item extends Model
         $this->attributes['plant_id'] = $plantId;
     }
 
-    public function order(): HasMany
+    public function order(): BelongsTo
     {
-        return $this->HasMany(Order::class);
+        return $this->belongsTo(Order::class);
     }
 
     public function getOrder(): Order

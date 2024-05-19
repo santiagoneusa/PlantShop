@@ -46,6 +46,11 @@ class Review extends Model
         return $this->attributes['id'];
     }
 
+    public function setId(int $id): void
+    {
+        $this->attributes['id'] = $id;
+    }
+
     public function getContent(): string
     {
         return $this->attributes['content'];
@@ -81,21 +86,21 @@ class Review extends Model
         return $this->attributes['created_at'];
     }
 
+    public function setCreatedAt(string $createdAt): void
+    {
+        $this->attributes['created_at'] = $createdAt;
+    }
+
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
     }
 
-    public function setUserId(int $userId): void
+    public function setUpdatedAt(string $updatedAt): void
     {
-        $this->attributes['user_id'] = $userId;
+        $this->attributes['updated_at'] = $updatedAt;
     }
-
-    public function setPlantId(int $plantId): void
-    {
-        $this->attributes['plant_id'] = $plantId;
-    }
-
+    
     public function plant(): BelongsTo
     {
         return $this->belongsTo(Plant::class);
@@ -121,8 +126,18 @@ class Review extends Model
         return $this->user;
     }
 
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
+    }
+
     public function getUserId(): int
     {
         return $this->attributes['user_id'];
+    }
+
+    public function setUserId(int $userId): void
+    {
+        $this->attributes['user_id'] = $userId;
     }
 }
