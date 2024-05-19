@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use App\Models\Plant;
 
 class DatabaseSeeder extends Seeder
 {
