@@ -23,6 +23,7 @@
                     </ul>
                 </li>   
                 <a class="nav-link" href="{{ route('guide.index') }}">Guides</a>
+                <a class="nav-link" href="{{ route('books.index') }}">Books</a>
             </ul>
 
             @guest
