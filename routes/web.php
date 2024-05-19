@@ -14,3 +14,4 @@ include __DIR__.'/cart/routes.php';
 include __DIR__.'/categories/routes.php';
 include __DIR__.'/guide/routes.php';
 include __DIR__.'/plant/routes.php';
+include __DIR__.'/books/routes.php';
