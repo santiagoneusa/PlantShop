@@ -4,11 +4,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use App\Models\Category;
 
 class UserController extends Controller
 {
@@ -26,7 +26,7 @@ class UserController extends Controller
             ['title' => 'Home', 'url' => route('home.index')],
             ['title' => 'Profile', 'url' => route('user.index')],
         ];
-        
+
         return view('user.index')->with('viewData', $viewData);
     }
 }

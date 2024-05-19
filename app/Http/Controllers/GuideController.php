@@ -4,9 +4,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Guide;
 use Illuminate\View\View;
-use App\Models\Category;
 
 class GuideController extends Controller
 {
