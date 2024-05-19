@@ -7,8 +7,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Interfaces\BookService;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\View\View;
 
 class OpenLibraryController extends Controller
 {

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class SuperUserSeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
         User::where('email', 'superusuario@gmail.com')->delete();
 
@@ -18,7 +18,7 @@ class SuperUserSeeder extends Seeder
             'password' => Hash::make('123456789'),
             'image' => 'user0.jpg',
             'role' => 'admin',
-            'balance' => 100, 
+            'balance' => 100,
         ]);
     }
 }
