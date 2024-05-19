@@ -15,6 +15,8 @@ class PlantResource extends JsonResource
             'price' => $this->getPrice(),
             'stock' => $this->getStock(),
             'description' => $this->getDescription(),
+            'category' => $this->getCategory()->getName(),
+            'category_description' => $this->getCategory()->getDescription(),
         ];
     }
 }
