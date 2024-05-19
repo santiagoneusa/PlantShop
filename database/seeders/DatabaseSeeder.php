@@ -9,6 +9,15 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // Category::factory(4)->create();
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        \App\Models\Plant::truncate();
+        \App\Models\Category::truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
+        $this->call([
+            CategorySeeder::class,
+            PlantSeeder::class,
+            SuperUserSeeder::class,
+        ]);
     }
 }
