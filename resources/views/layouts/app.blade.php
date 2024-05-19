@@ -22,6 +22,20 @@
         <header class='masthead bg-primary text-white text-center py-4'>
             <div class='container d-flex align-items-center flex-column'>
                 <h2><b><i>@yield('subtitle', 'Garden Of Eden')</i></b></h2>
+                
+                @if(isset($viewData['breadcrumbs']))
+                    <nav class="breadcrump" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            @foreach($viewData['breadcrumbs'] as $breadcrumb)
+                                <li class="breadcrumb-item">
+                                    <a href="{{ $breadcrumb['url'] }}">{{ $breadcrumb['title'] }}</a>
+                                </li>
+                            @endforeach
+                            <li class="breadcrumb-item active" aria-current="page">@yield('breadcrumb_current')</li>
+                        </ol>
+                    </nav>
+                @endif
+
             </div>
         </header>
 

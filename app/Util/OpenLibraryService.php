@@ -40,7 +40,7 @@ class OpenLibraryService implements BookService
                 'fields' => 'title,author_name,ebook_access,publish_year,language',
                 'page' => $currentPage,
                 'limit' => $perPage,
-            ]
+            ],
         ]);
     }
 
@@ -64,5 +64,4 @@ class OpenLibraryService implements BookService
             ['path' => url()->current()]
         );
     }
-
 }

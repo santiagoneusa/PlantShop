@@ -4,10 +4,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use App\Interfaces\BookService;
 use App\Util\OpenLibraryService;
 use GuzzleHttp\Client;
+use Illuminate\Support\ServiceProvider;
 
 class BookServiceProvider extends ServiceProvider
 {

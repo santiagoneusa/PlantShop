@@ -5,6 +5,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -12,6 +13,7 @@ use Illuminate\Http\Request;
 
 class Plant extends Model
 {
+    use HasFactory;
     /**
      * PLANT ATTRIBUTES
      * $this->attributes['id'] - int - contains the plant primary key (id)
@@ -28,6 +30,7 @@ class Plant extends Model
      * $this->items - Item[] - contains the associated items
      * $this->reviews- Review[] - contains the associated reviews
      */
+
     protected $fillable = [
         'name',
         'description',

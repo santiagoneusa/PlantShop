@@ -2,16 +2,21 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CategoryFactory extends Factory
 {
+    protected $model = Category::class;
+
     public function definition(): array
     {
         return [
-            'name' => 'Category '.$this->faker->numberBetween(1, 10),
+            'name' => $this->faker->word,
             'description' => $this->faker->sentence,
-            'image' => $this->faker->numberBetween(1, 4).'.jpg',
+            'image' => 'category_default.png',
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class SuperUserSeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
         User::where('email', 'superusuario@gmail.com')->delete();
 

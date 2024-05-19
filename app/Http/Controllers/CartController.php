@@ -8,6 +8,7 @@ use App\Models\Item;
 use App\Models\Order;
 use App\Models\Plant;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,6 +32,7 @@ class CartController extends Controller
         $viewData['subtitle'] = 'Shopping Cart';
         $viewData['total'] = $total;
         $viewData['plants'] = $plantsInCart;
+        $viewData['categories'] = Category::all();
 
         $userBalance = User::findOrFail(Auth::user()->getId())->getBalance();
         if ($total != 0 && $userBalance < $total) {
@@ -38,7 +40,10 @@ class CartController extends Controller
         } else {
             $viewData['notEnoughBalance'] = false;
         }
-
+        $viewData['breadcrumbs'] = [
+            ['title' => 'Home', 'url' => route('home.index')],
+            ['title' => 'Shopping Cart', 'url' => route('cart.index')],
+        ];
         return view('cart.index')->with('viewData', $viewData);
     }
 
@@ -104,6 +109,11 @@ class CartController extends Controller
             $viewData['title'] = 'Purchase - Online Store';
             $viewData['subtitle'] = 'Purchase Status';
             $viewData['order'] = $order;
+            $viewData['categories'] = Category::all();
+            $viewData['breadcrumbs'] = [
+                ['title' => 'Home', 'url' => route('home.index')],
+                ['title' => 'Shopping Cart', 'url' => route('cart.index')],
+            ];
 
             return view('cart.purchase')->with('viewData', $viewData);
 

@@ -16,14 +16,15 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> 1]) }}">Indoor</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> 2]) }}">Outdoor</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> 3]) }}">Ornamental</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> 4]) }}">Aromatic</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.show', 1) }}">Ornamental</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.show', 2) }}">Indoor</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.show', 3) }}">Outdoor</a></li>
+                        <li><a class="dropdown-item" href="{{ route('category.show', 4) }}">Aromatic</a></li>
                     </ul>
                 </li>   
                 <a class="nav-link" href="{{ route('guide.index') }}">Guides</a>
                 <a class="nav-link" href="{{ route('books.index') }}">Books</a>
+                <a class="nav-link" href="{{ route('product.index') }}">Allied store</a>
             </ul>
 
             @guest

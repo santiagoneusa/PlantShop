@@ -7,9 +7,15 @@ use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
-        Category::whereIn('name', ['Ornamental', 'Indoor', 'Outdoor', 'Aromatic'])->delete();
+        $categoryNames = ['Ornamental', 'Indoor', 'Outdoor', 'Aromatic'];
+        $categories = Category::whereIn('name', $categoryNames)->get();
+
+        foreach ($categories as $category) {
+            Plant::where('category_id', $category->id)->delete();
+            $category->delete();
+        }
 
         $categories = [
             [

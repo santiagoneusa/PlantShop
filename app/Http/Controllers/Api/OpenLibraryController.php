@@ -7,8 +7,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Interfaces\BookService;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\View\View;
+use App\Models\Category;
 
 class OpenLibraryController extends Controller
 {
@@ -29,6 +30,7 @@ class OpenLibraryController extends Controller
         $viewData = [];
         $viewData['title'] = 'Books - Garden of Eden';
         $viewData['subtitle'] = 'Books';
+        $viewData['categories'] = Category::all();
         $viewData['books'] = new LengthAwarePaginator(
             $booksData['books'],
             $booksData['total'],
@@ -36,6 +38,10 @@ class OpenLibraryController extends Controller
             $booksData['currentPage'],
             ['path' => url()->current()]
         );
+        $viewData['breadcrumbs'] = [
+            ['title' => 'Home', 'url' => route('home.index')],
+            ['title' => 'Books', 'url' => route('books.index')],
+        ];
 
         return view('books.index')->with('viewData', $viewData);
     }
