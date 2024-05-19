@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 
 class Plant extends Model
 {
+    use HasFactory;
     /**
      * PLANT ATTRIBUTES
      * $this->attributes['id'] - int - contains the plant primary key (id)
@@ -29,7 +30,6 @@ class Plant extends Model
      * $this->items - Item[] - contains the associated items
      * $this->reviews- Review[] - contains the associated reviews
      */
-    use HasFactory;
 
     protected $fillable = [
         'name',
