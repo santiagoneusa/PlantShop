@@ -15,7 +15,10 @@ class HomeController extends Controller
         $viewData['title'] = 'Home - Eden of Eden';
         $viewData['subtitle'] = 'Welcome to the Eden of Garden!';
         $viewData['categories'] = Category::all();
-
+        $viewData['breadcrumbs'] = [
+            ['title' => 'Home', 'url' => route('home.index')],
+        ];
+        
         return view('home.index')->with('viewData', $viewData);
     }
 }

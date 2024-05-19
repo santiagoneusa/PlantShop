@@ -40,6 +40,10 @@ class PlantController extends Controller
         $viewData['subtitle'] = 'List of plants';
         $viewData['plants'] = $plants->get();
         $viewData['categories'] = Category::all();
+        $viewData['breadcrumbs'] = [
+            ['title' => 'Home', 'url' => route('home.index')],
+            ['title' => 'Plants', 'url' => route('plant.index')],
+        ];
 
         return view('plant.index')->with('viewData', $viewData);
     }
@@ -53,6 +57,11 @@ class PlantController extends Controller
         $viewData['plant'] = $plant;
         $viewData['reviews'] = Review::where('plant_id', $id)->get();
         $viewData['categories'] = Category::all();
+        $viewData['breadcrumbs'] = [
+            ['title' => 'Home', 'url' => route('home.index')],
+            ['title' => 'Plants', 'url' => route('plant.index')],
+            ['title' => $plant->getName(), 'url' => route('plant.show', ['id' => $plant->getId()])],
+        ];
 
         $reviewsQuery = Review::where('plant_id', $id);
 
@@ -90,6 +99,11 @@ class PlantController extends Controller
         $viewData['subtitle'] = 'Search results for: '.$search;
         $viewData['plants'] = $plants;
         $viewData['categories'] = Category::all();
+        $viewData['breadcrumbs'] = [
+            ['title' => 'Home', 'url' => route('home.index')],
+            ['title' => 'Plants', 'url' => route('plant.index')],
+            ['title' => 'Search Results', 'url' => route('plant.search')],
+        ];
 
         return view('plant.index')->with('viewData', $viewData);
     }

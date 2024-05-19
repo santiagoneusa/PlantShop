@@ -9,6 +9,7 @@ use App\Interfaces\BookService;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\View\View;
+use App\Models\Category;
 
 class OpenLibraryController extends Controller
 {
@@ -29,6 +30,7 @@ class OpenLibraryController extends Controller
         $viewData = [];
         $viewData['title'] = 'Books - Garden of Eden';
         $viewData['subtitle'] = 'Books';
+        $viewData['categories'] = Category::all();
         $viewData['books'] = new LengthAwarePaginator(
             $booksData['books'],
             $booksData['total'],

@@ -16,10 +16,9 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> 1]) }}">Indoor</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> 2]) }}">Outdoor</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> 3]) }}">Ornamental</a></li>
-                        <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> 4]) }}">Aromatic</a></li>
+                    @foreach($viewData['categories'] as $category)
+                        <li><a class="dropdown-item" href="{{ route('category.show', ['id'=> $category->id]) }}">{{ $category->name }}</a></li>
+                    @endforeach
                     </ul>
                 </li>   
                 <a class="nav-link" href="{{ route('guide.index') }}">Guides</a>

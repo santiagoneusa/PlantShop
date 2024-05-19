@@ -16,7 +16,10 @@ class CategoryController extends Controller
         $viewData['title'] = 'Categories - Garden of Eden';
         $viewData['subtitle'] = 'Categories';
         $viewData['categories'] = Category::all();
-
+        $viewData['breadcrumbs'] = [
+            ['title' => 'Home', 'url' => route('home.index')],
+            ['title' => 'Categories', 'url' => route('category.index')],
+        ];
         return view('category.index')->with('viewData', $viewData);
     }
 
@@ -30,7 +33,12 @@ class CategoryController extends Controller
         $viewData['subtitle'] = $category->getName().' Plants';
         $viewData['plants'] = $plants;
         $viewData['categories'] = Category::all();
-
+        $viewData['breadcrumbs'] = [
+            ['title' => 'Home', 'url' => route('home.index')],
+            ['title' => 'Categories', 'url' => route('category.index')],
+            ['title' => $category->getName(), 'url' => route('category.show', ['id' => $category->getId()])],
+        ];
+        
         return view('category.show')->with('viewData', $viewData);
     }
 }

@@ -40,3 +40,13 @@ html, body {
   margin-top: -100px;
   clear: both;
 }
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.breadcrumb-item {
+  color: #333;
+  font-size: 18px; 
+}
