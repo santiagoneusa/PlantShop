@@ -5,7 +5,7 @@
 @section('title', $viewData["title"])
 @section('content')
 <div class="card-header">
-    <h1 class="ms-5">{{ $viewData["guide"]->getTitle() }} Information</h1>
+    <h1 class="ms-5">{{ __('admin.title_guide_formated', ['title' => $viewData["guide"]->getTitle()]) }}</h1>
 </div>
 <div class="m-3 row">
     <div class="col-md-4">

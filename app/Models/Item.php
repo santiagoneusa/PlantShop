@@ -1,7 +1,5 @@
 <?php
 
-// Made by: Santiago Neusa Ruiz
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -69,7 +67,7 @@ class Item extends Model
         return $this->attributes['created_at'];
     }
 
-    public function setCreatedAt(string $createdAt): void
+    public function setCreatedAt($createdAt): void
     {
         $this->attributes['created_at'] = $createdAt;
     }
@@ -79,7 +77,7 @@ class Item extends Model
         return $this->attributes['updated_at'];
     }
 
-    public function setUpdatedAt(string $updatedAt): void
+    public function setUpdatedAt($updatedAt): void
     {
         $this->attributes['updated_at'] = $updatedAt; 
     }

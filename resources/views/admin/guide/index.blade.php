@@ -18,10 +18,10 @@
         <table class='table table-bordered table-striped'>
             <thead>
                 <tr>
-                    <th scope='col'>ID</th>
-                    <th scope='col'>Title</th>
-                    <th scope='col'>Edit</th>
-                    <th scope='col'>Delete</th>
+                    <th scope='col'>{{ __('admin.table_header_guide_id') }}</th>
+                    <th scope='col'>{{ __('admin.table_header_guide_title') }}</th>
+                    <th scope='col'>{{ __('admin.table_header_guide_edit') }}</th>
+                    <th scope='col'>{{ __('admin.table_header_guide_delete') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,14 +33,14 @@
                     <td>
                         <form action="{{ route('admin.guide.edit', ['id' => $guide->getId()]) }}" method="get" enctype="multipart/form-data">
                             @csrf
-                            <button type="submit" class="btn btn-primary"><span class="material-symbols-outlined">edit</span></button>
+                            <button type="submit" class="btn btn-primary"><span class="material-symbols-outlined">{{ __('admin.button_edit_guide') }}</span></button>
                         </form>
                     </td>
                     <td><a href="{{ route('admin.guide.delete', ['id' => $guide->getId()]) }}"></a>
                         <form action="{{ route('admin.guide.delete', $guide->getId())}}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger"><span class="material-symbols-outlined">delete</span></button>
+                            <button class="btn btn-danger"><span class="material-symbols-outlined">{{ __('admin.button_delete_guide') }}</span></button>
                         </form>
                     </td>
                 </tr>
