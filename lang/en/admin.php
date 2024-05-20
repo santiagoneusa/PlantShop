@@ -2,8 +2,20 @@
 
 return [
 
-    // Guide messages
+    // General
+    'admin_panel' => 'Admin Panel',
+    
+    'card_title_plants' => 'Plants',
+    'card_title_guides' => 'Guides',
+    
+    'card_text_plants' => 'Create, delete or edit the plants of the database',
+    'card_text_guides' => 'Create, delete or edit the guides of the database',
+    
     'manage_guides' => 'Manage Guides',
+    'manage_plants' => 'Manage Plants',
+
+
+    // Guide messages
 
     'table_header_guide_id' => 'ID',
     'table_header_guide_title' => 'Title',
