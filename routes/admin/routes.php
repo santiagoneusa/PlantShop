@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('admin')->group(function () {
-    Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name('admin.home.index');
+    Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name('admin.index');
 
     Route::get('/admin/plants', 'App\Http\Controllers\Admin\AdminPlantController@index')->name('admin.plant.index');
     Route::get('/admin/plants/create', 'App\Http\Controllers\Admin\AdminPlantController@create')->name('admin.plant.create');

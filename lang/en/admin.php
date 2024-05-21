@@ -5,7 +5,10 @@ return [
     // General
 
     'admin_panel' => 'Admin Panel',
+    'admin' => 'Admin',
+    'go_to_store' => 'Go to Store',
     
+    'home' => 'Home',
     'plants' => 'Plants',
     'guides' => 'Guides',
     
@@ -61,5 +64,10 @@ return [
     'colon_formatted_plant_category' => 'Category: :category',
     
     'select_plant_category' => 'Select Category',
+
+    // Partials
+    
+    'copyright' => '© 2024 Copyright - ',
+    'names' => 'Jhonnathan Ocampo y Santiago Neusa',
 
 ];
