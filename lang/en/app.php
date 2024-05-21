@@ -34,4 +34,18 @@ return [
 
     'colon_formatted_guide_description' => 'Description: :description',
 
+    // Home
+
+    'plants' => 'Plants',
+    'category' => 'Category',
+    'guides' => 'Guides',
+
+    'view_plants' => 'View Plants',
+    'view_categories' => 'View Categories',
+    'view_guides' => 'View Guides',
+
+    'card_plants_available' => 'Visualize all plants available',
+    'card_categories_available' => 'Visualize plants organized by differents light, function and enviroment',
+    'card_guides_available' => 'Visualize all plants available',
+
 ];
