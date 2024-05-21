@@ -73,7 +73,7 @@
           <input type="hidden" name="plant_id" value="{{ $viewData['plant']->getId() }}">
           <div class="form-group">
             <label for="content">{{ __('app.add_comment') }}</label>
-            <textarea class="form-control" name="content" rows="3"></textarea>
+            <textarea class="form-control" name="content" rows="3">{{ old('content') }}</textarea>
             <input type="number" class="form-control mb-2 mt-2" name="stars" placeholder="{{ __('app.rating') }}">
           <br>
           </div>
