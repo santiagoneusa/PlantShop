@@ -1,5 +1,3 @@
-<!-- Made by: Jhonnathan Stiven Ocampo Díaz -->
-
 @extends('layouts.app')
 @section('title', $viewData["subtitle"])
 @section('subtitle', $viewData["subtitle"])
@@ -13,7 +11,7 @@
                 <h5>{{ $category->getName() }}</h4>
                 <p>{{ $category->getDescription() }}</p>
                 <br>
-                <a href="{{ route('category.show', ['id'=> $category->getId()]) }}" class="btn bg-primary text-white">More details</a>
+                <a href="{{ route('category.show', ['id'=> $category->getId()]) }}" class="btn bg-primary text-white">{{ __('app.more_details') }}</a>
             </div>
         </div>
     </div>

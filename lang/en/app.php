@@ -25,4 +25,10 @@ return [
     'table_header_cart_price' => 'Price',
     'table_header_cart_quantity' => 'Quantity',
     
+    // Categories
+
+    'more_details' => 'More details',
+    'no_plants_for_this_category' => 'No plants for this category',
+    
+
 ];
