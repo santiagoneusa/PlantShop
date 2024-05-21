@@ -2,8 +2,13 @@
 
 return [
 
-    'failed' => 'These credentials do not match our records.',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    // Book
+
+    'card_book_description' => 'Do you want to know more about how to care for your plants? We leave you a list of books that could be useful for this. Cheer up and look for more ways to take care of your plants',
+    'card_book_autor' => 'Author: ',
+    'card_book_year' => 'Year: ',
+    'card_book_language' => 'Language: ',
+    
+    'no_books_found' => 'No books found.',
 
 ];
