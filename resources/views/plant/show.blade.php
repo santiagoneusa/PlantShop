@@ -70,7 +70,7 @@
         
         <form method="POST" action="{{ route('review.save') }}">
           @csrf
-          <input type="hidden" name="plant_id" value="{{ $viewData["plant"]->getId() }}">
+          <input type="hidden" name="plant_id" value="{{ $viewData['plant']->getId() }}">
           <div class="form-group">
             <label for="content">{{ __('app.add_comment') }}</label>
             <textarea class="form-control" name="content" rows="3"></textarea>

@@ -20,6 +20,7 @@ class CategoryController extends Controller
             ['title' => 'Home', 'url' => route('home.index')],
             ['title' => 'Categories', 'url' => route('category.index')],
         ];
+
         return view('category.index')->with('viewData', $viewData);
     }
 
@@ -38,7 +39,7 @@ class CategoryController extends Controller
             ['title' => 'Categories', 'url' => route('category.index')],
             ['title' => $category->getName(), 'url' => route('category.show', ['id' => $category->getId()])],
         ];
-        
+
         return view('category.show')->with('viewData', $viewData);
     }
 }

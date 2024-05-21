@@ -19,7 +19,7 @@ class HomeController extends Controller
         $viewData['breadcrumbs'] = [
             ['title' => 'Home', 'url' => route('home.index')],
         ];
-        
+
         return view('home.index')->with('viewData', $viewData);
     }
 

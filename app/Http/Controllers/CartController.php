@@ -4,11 +4,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Item;
 use App\Models\Order;
 use App\Models\Plant;
 use App\Models\User;
-use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -44,6 +44,7 @@ class CartController extends Controller
             ['title' => 'Home', 'url' => route('home.index')],
             ['title' => 'Shopping Cart', 'url' => route('cart.index')],
         ];
+
         return view('cart.index')->with('viewData', $viewData);
     }
 
