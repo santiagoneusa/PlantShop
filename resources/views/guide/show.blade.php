@@ -10,7 +10,7 @@
       <div class="card-body m-3">
         <h5 class="card-title">{{ $viewData["guide"]->getTitle() }}</h5>
         <br>
-        <p class="card-text">Description: {{ $viewData["guide"]->getContent() }}</p>
+        <p class="card-text">{{ __('app.colon_formatted_guide_description', ['description' => $viewData["guide"]->getContent()]) }}</p>
     </div>
 </div>
 @endsection
