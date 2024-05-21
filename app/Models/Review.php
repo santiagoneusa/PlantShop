@@ -109,9 +109,19 @@ class Review extends Model
         return $this->plant;
     }
 
+    public function setPlant(Plant $plant): void
+    {
+        $this->plant = $plant;
+    }
+
     public function getPlantId(): int
     {
         return $this->attributes['plant_id'];
+    }
+
+    public function setPlantId(int $plantId): void
+    {
+        $this->attributes['plant_id'] = $plantId;
     }
 
     public function user(): BelongsTo

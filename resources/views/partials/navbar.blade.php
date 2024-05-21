@@ -53,7 +53,7 @@
             @endguest
 
             <form action="{{ route('plant.search') }}" method="GET" class="d-flex m-1" role="search">
-                <input class="form-control me-2" type="text" name="search" placeholder="Search" aria-label="Search">
+                <input class="form-control me-2" type="text" name="search" placeholder="{{ __('app.search') }}" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">{{ __('app.button_search') }}</button>
             </form>
         </div>

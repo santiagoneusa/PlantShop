@@ -21,6 +21,7 @@ return [
     'remove_all_plants_from_cart' => 'Remove all plants from cart',
     'purchase_completed' => 'Purchase Completed',
     'purchase_completed_message' => 'Congratulations, purchase completed. Order number is #',
+    'address' => 'Address',
 
     'table_header_cart_id' => 'ID',
     'table_header_cart_name' => 'Name',
@@ -51,9 +52,11 @@ return [
 
     // Home
 
-    'Home' => 'Home',
+    'home' => 'Home',
     'button_search' => 'Search',
     'allied_store' => 'Allied Store',
+    'search' => 'Search',
+    'search_plants' => 'Search plants...',
     
     // Plant
 
@@ -79,8 +82,19 @@ return [
 
     'comments' => 'Comments',
     'add_comment' => 'Add comment',
-    'send' => 'Send',
+    'button_comment_send' => 'Send comment',
     'comments_login' => 'You must log in to comment and view comments.',
     'rating' => 'How would you rate this product on a scale of one to five?',
+    'stars' => 'Stars: :stars',
+
+    // Products
+
+    'colon_formatted_product_id' => 'ID: :id',
+    'colon_formatted_product_description' => 'Description: :description',
+    'colon_formatted_product_price' => 'Price: $:price',
+    'colon_formatted_product_stock' => 'Remaining Stock: :stock units',
+    'colon_formatted_product_category' => 'Category: :category',
+
+    'product_link' => 'Product Link',
 
 ];

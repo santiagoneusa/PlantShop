@@ -16,7 +16,7 @@
 
     <form action="{{ route('plant.search') }}" method="GET" class="mb-3">
         <div class="input-group">
-            <input type="text" name="search" class="form-control" placeholder="Search plants...">
+            <input type="text" name="search" class="form-control" placeholder="{{ __('app.search_plants') }}">
             <button type="submit" class="btn btn-success">{{ __('app.button_search') }}</button>
         </div>
     </form>

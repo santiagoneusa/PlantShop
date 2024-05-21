@@ -20,7 +20,7 @@
             {{ __('app.comments_login') }}
             <br>
             <div class="d-grid gap-2 col-4 mt-1">
-              <a href="{{ route('login') }}" class="btn btn-primary btn-sm">Login</a>
+              <a href="{{ route('login') }}" class="btn btn-primary btn-sm">{{ __('auth.login') }}</a>
             </div>
         </div>
 
@@ -30,7 +30,7 @@
         <div class="card mb-3">
           <div class="card-body">
             <p>{{ $review->getContent() }}</p>
-            <p>{{ $review->getStars() }}</p>
+            <p>{{ __('app.stars', ['stars' => $review->getStars()]) }}</p>
           </div>
         </div>
         @endforeach
@@ -59,7 +59,7 @@
             <input type="number" class="form-control mb-2 mt-2" name="stars" placeholder="{{ __('app.rating') }}">
           <br>
           </div>
-          <button type="submit" class="btn btn-primary">{{ __('app.send') }}</button>
+          <button type="submit" class="btn btn-success">{{ __('app.button_comment_send') }}</button>
         </form>
         @endguest
         <br>
