@@ -9,23 +9,23 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">{{ $viewData["plant"]->getName() }}</h5>
-        <p class="card-text">ID: {{ $viewData["plant"]->getId() }}</p>
-        <p class="card-text">Description: {{ $viewData["plant"]->getDescription() }}</p>
-        <p class="card-text">Price: ${{ $viewData["plant"]->getPrice() }}</p>
-        <p class="card-text">Remaining Stock: {{ $viewData["plant"]->getStock() }} units</p>
+        <h5 class="card-title">{{ __('app.colon_formatted_plant_name', ['name' => $viewData["plant"]->getName()]) }}</h5>
+        <p class="card-text">{{ __('app.colon_formatted_plant_id', ['id' => $viewData["plant"]->getId()]) }}</p>
+        <p class="card-text">{{ __('app.colon_formatted_plant_description', ['description' => $viewData["plant"]->getDescription()]) }}</p>
+        <p class="card-text">{{ __('app.colon_formatted_plant_price', ['price' => $viewData["plant"]->getPrice()]) }}</p>
+        <p class="card-text">{{ __('app.colon_formatted_plant_stock', ['stock' => $viewData["plant"]->getStock()]) }}</p>
         
         @guest
         <div class="alert alert-info">
-            You must log in to comment and view comments.
+            {{ __('app.comments_login') }}
             <br>
             <div class="d-grid gap-2 col-4 mt-1">
-              <a href="{{ route('login') }}" class="btn btn-primary btn-sm">Log In</a>
+              <a href="{{ route('login') }}" class="btn btn-primary btn-sm">Login</a>
             </div>
         </div>
 
         @else
-        <h5 class="mt-4">Comments</h5>
+        <h5 class="mt-4">{{ __('app.comments') }}</h5>
         @foreach ($viewData["reviews"] as $review)
         <div class="card mb-3">
           <div class="card-body">
@@ -54,12 +54,12 @@
           @csrf
           <input type="hidden" name="plant_id" value="{{ $viewData["plant"]->getId() }}">
           <div class="form-group">
-            <label for="content">Add Comment</label>
+            <label for="content">{{ __('app.add_comment') }}</label>
             <textarea class="form-control" name="content" rows="3"></textarea>
-            <input type="number" class="form-control mb-2 mt-2" name="stars" placeholder="How would you rate this product on a scale of one to five?">
+            <input type="number" class="form-control mb-2 mt-2" name="stars" placeholder="{{ __('app.rating') }}">
           <br>
           </div>
-          <button type="submit" class="btn btn-primary">Send</button>
+          <button type="submit" class="btn btn-primary">{{ __('app.send') }}</button>
         </form>
         @endguest
         <br>

@@ -46,17 +46,41 @@ return [
     'guides' => 'Guides',
     'view_guides' => 'View Guides',
     
-    'card_guides_available' => 'Visualize all plants available',
+    'card_guides_available' => 'How to water my plants? Which plants are better to me? All those questions answered here',
     'colon_formatted_guide_description' => 'Description: :description',
 
     // Home
 
-    'plants' => 'Plants',
-    'view_plants' => 'View Plants',
-    'card_plants_available' => 'Visualize all plants available',
-    
     'Home' => 'Home',
     'button_search' => 'Search',
     'allied_store' => 'Allied Store',
+    
+    // Plant
+
+    'plants' => 'Plants',
+    'view_plants' => 'View Plants',
+    'card_plants_available' => 'Visualize all plants available',
+        
+    'select_plants_filter' => 'Select an option to filter the plants',
+    'select_newest_to_oldest' => 'Newest to oldest',
+    'select_oldest_to_newest' => 'Oldest to newest',
+    'select_price_higher_to_lower' => 'Price: higher to lower',
+    'select_price_lower_to_higher' => 'Price: lower to higher',
+    'apply_filter' => 'Apply filter',
+
+    'colon_formatted_plant_name' => 'Name: :name',
+    'colon_formatted_plant_id' => 'ID: :id',
+    'colon_formatted_plant_description' => 'Description: :description',
+    'colon_formatted_plant_price' => 'Price: $:price',
+    'colon_formatted_plant_stock' => 'Remaining Stock: :stock units',
+    'colon_formatted_plant_category' => 'Category: :category',
+
+    // Comments
+
+    'comments' => 'Comments',
+    'add_comment' => 'Add comment',
+    'send' => 'Send',
+    'comments_login' => 'You must log in to comment and view comments.',
+    'rating' => 'How would you rate this product on a scale of one to five?',
 
 ];

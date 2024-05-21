@@ -9,7 +9,7 @@
         <img class="card-img-top img-fluid" src="{{ asset('/img/cards/plant.jpg') }}">
         <div class="card-body">
             <h5 class="card-title">{{ __('app.plants') }}</h5>
-            <p class="card-text">{{ __('app.card_plants_description') }}</p>
+            <p class="card-text">{{ __('app.card_plants_available') }}</p>
             <a href="{{ route('plant.index') }}" class="btn btn-success">{{ __('app.view_plants') }}</a>
         </div>
     </div>
