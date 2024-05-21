@@ -48,6 +48,7 @@ return [
 
     'guides' => 'Guías',
     'view_guides' => 'Ver Guías',
+    'button_copy_link' => '¡Da clic aquí para copiar el enlace de la guía!',
 
     'card_guides_available' => '¿Cómo regar mis plantas? ¿Cuáles plantas son mejores para mí? Todas esas preguntas respondidas aquí',
     'colon_formatted_guide_description' => 'Descripción: :description',

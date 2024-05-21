@@ -48,6 +48,7 @@ return [
 
     'guides' => 'Guides',
     'view_guides' => 'View Guides',
+    'button_copy_link' => 'Click here to copy the guides link!',
 
     'card_guides_available' => 'How to water my plants? Which plants are better to me? All those questions answered here',
     'colon_formatted_guide_description' => 'Description: :description',
