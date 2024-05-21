@@ -4,6 +4,7 @@ use App\Http\Middleware\LocaleCookieMiddleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+Route::post('/locale/{locale}', 'App\Http\Controllers\HomeController@locale')->name('locale');
 Route::get('/locale/{locale}', 'App\Http\Controllers\HomeController@locale')->name('locale');
 
 Route::middleware(LocaleCookieMiddleware::class)->group(function () {

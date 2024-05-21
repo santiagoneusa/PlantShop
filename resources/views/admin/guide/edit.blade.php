@@ -1,5 +1,3 @@
-<!-- Made by: Jhonnathan Stiven Ocampo Díaz -->
-
 @extends('layouts.admin')
 @section('title', $viewData["title"])
 @section('content')
@@ -17,7 +15,7 @@
 <div class='card m-5'>
 
     <div class='card-header d-flex justify-content-between align-items-center'>
-        <h3 class='ms-3'>Edting {{ $viewData['guide']->getTitle() }}</h3>
+        <h3 class='ms-3'>{{ __('admin.hyphen_formatted_guide_editing', ['title' => $viewData['guide']->getTitle()]) }}</h3>
     </div>
 
     <div class='card-body'>

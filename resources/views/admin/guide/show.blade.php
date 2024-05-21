@@ -11,7 +11,8 @@
     <div class="col-md-8">
         <div class="card-body">
             <h5 class="card-title">{{ __('admin.colon_formatted_guide_title', ['title' => $viewData["guide"]->getTitle()]) }}</h5>
-            <p class="card-text">{{ __('admin.colon_formatted_guide_id', ['id' => $viewData["guide"]->getId()]) }}</p>
+            <p class="card-t
+            ext">{{ __('admin.colon_formatted_guide_id', ['id' => $viewData["guide"]->getId()]) }}</p>
             <p class="card-text">{{ __('admin.colon_formatted_guide_content', ['content' => $viewData["guide"]->getContent()]) }}</p>
         </div>
     </div>

@@ -31,7 +31,7 @@
                     </td>
                     <td>{{ $guide->getTitle() }}</td>
                     <td>
-                        <form action="{{ route('admin.guide.edit', ['id' => $guide->getId()]) }}" method="get" enctype="multipart/form-data">
+                        <form action="{{ route('admin.guide.edit', ['id' => $guide->getId()]) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <button type="submit" class="btn btn-primary"><span class="material-symbols-outlined">{{ __('admin.button_guide_edit') }}</span></button>
                         </form>

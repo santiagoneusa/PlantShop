@@ -1,7 +1,5 @@
 <?php
 
-// Made by: Jhonnathan Stiven Ocampo Díaz
-
 namespace App\Http\Controllers;
 
 use App\Models\Category;
@@ -36,13 +34,13 @@ class PlantController extends Controller
         }
 
         $viewData = [];
-        $viewData['title'] = 'Plants - Online Store';
-        $viewData['subtitle'] = 'List of plants';
+        $viewData['title'] = __('controller.titles.plants');
+        $viewData['subtitle'] = __('controller.list_of_plants');
         $viewData['plants'] = $plants->get();
         $viewData['categories'] = Category::all();
         $viewData['breadcrumbs'] = [
-            ['title' => 'Home', 'url' => route('home.index')],
-            ['title' => 'Plants', 'url' => route('plant.index')],
+            ['title' => __('controller.home'), 'url' => route('home.index')],
+            ['title' => __('controller._plants'), 'url' => route('plant.index')],
         ];
 
         return view('plant.index')->with('viewData', $viewData);
@@ -52,14 +50,14 @@ class PlantController extends Controller
     {
         $plant = Plant::findOrFail($id);
         $viewData = [];
-        $viewData['title'] = $plant->getName().' - Online Store';
-        $viewData['subtitle'] = $plant->getName().' - Plant information';
+        $viewData['title'] = __('controller_colon_formatted.title', ['title' => $plant->getName()]);
+        $viewData['subtitle'] = __('controller.colon_formatted.plant_information', ['plant' => $plant->getName()]);
         $viewData['plant'] = $plant;
         $viewData['reviews'] = Review::where('plant_id', $id)->get();
         $viewData['categories'] = Category::all();
         $viewData['breadcrumbs'] = [
-            ['title' => 'Home', 'url' => route('home.index')],
-            ['title' => 'Plants', 'url' => route('plant.index')],
+            ['title' => __('controller.home'), 'url' => route('home.index')],
+            ['title' => __('controller._plants'), 'url' => route('plant.index')],
             ['title' => $plant->getName(), 'url' => route('plant.show', ['id' => $plant->getId()])],
         ];
 
@@ -95,14 +93,14 @@ class PlantController extends Controller
             ->get();
 
         $viewData = [];
-        $viewData['title'] = 'Search Results';
-        $viewData['subtitle'] = 'Search results for: '.$search;
+        $viewData['title'] = __('controller.search_results');
+        $viewData['subtitle'] = __('controller.search_results_for', ['search' => $search]);
         $viewData['plants'] = $plants;
         $viewData['categories'] = Category::all();
         $viewData['breadcrumbs'] = [
-            ['title' => 'Home', 'url' => route('home.index')],
-            ['title' => 'Plants', 'url' => route('plant.index')],
-            ['title' => 'Search Results', 'url' => route('plant.search')],
+            ['title' => __('controller.home'), 'url' => route('home.index')],
+            ['title' => __('controller._plants'), 'url' => route('plant.index')],
+            ['title' => __('controller.search_results'), 'url' => route('plant.search')],
         ];
 
         return view('plant.index')->with('viewData', $viewData);

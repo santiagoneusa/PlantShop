@@ -27,6 +27,7 @@ return [
     'table_header_guide_delete' => 'Delete',
 
     'hyphen_formatted_guide_title' => '":title" - Information',
+    'hyphen_formatted_guide_editing' => 'Edditing ":title"',
     'colon_formatted_guide_title' => 'Title: :title',
     'colon_formatted_guide_id' => 'ID: :id',
     'colon_formatted_guide_content' => 'Content: :content',

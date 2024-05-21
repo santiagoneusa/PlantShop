@@ -1,7 +1,5 @@
 <?php
 
-// Made by: Jhonnathan Stiven Ocampo Díaz
-
 namespace App\Http\Controllers;
 
 use App\Models\Review;
@@ -24,7 +22,7 @@ class ReviewController extends Controller
         $review->setUserId($user->getId());
         $review->save();
 
-        Session::flash('success', 'Comment created successfully.');
+        Session::flash('success', __('controller.comments.created_successfully'));
 
         return redirect()->back();
     }

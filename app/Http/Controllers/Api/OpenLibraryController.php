@@ -1,7 +1,5 @@
 <?php
 
-// Made by: Jhonnathan Stiven Ocampo Díaz
-
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
@@ -28,8 +26,8 @@ class OpenLibraryController extends Controller
         $booksData = $this->bookService->fetchBooks($perPage, $currentPage);
 
         $viewData = [];
-        $viewData['title'] = 'Books - Garden of Eden';
-        $viewData['subtitle'] = 'Books';
+        $viewData['title'] = __('controller.colon_formatted.title', ['title' => 'Books']);
+        $viewData['subtitle'] = __('controller.books');
         $viewData['categories'] = Category::all();
         $viewData['books'] = new LengthAwarePaginator(
             $booksData['books'],
@@ -39,8 +37,8 @@ class OpenLibraryController extends Controller
             ['path' => url()->current()]
         );
         $viewData['breadcrumbs'] = [
-            ['title' => 'Home', 'url' => route('home.index')],
-            ['title' => 'Books', 'url' => route('books.index')],
+            ['title' => __('controller.home') , 'url' => route('home.index')],
+            ['title' => __('controller.books') , 'url' => route('books.index')],
         ];
 
         return view('books.index')->with('viewData', $viewData);

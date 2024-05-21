@@ -1,7 +1,5 @@
 <?php
 
-// Made by: Jhonnathan Stiven Ocampo Díaz
-
 namespace App\Http\Controllers;
 
 use App\Models\Category;
@@ -13,11 +11,11 @@ class HomeController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['title'] = 'Home - Eden of Eden';
-        $viewData['subtitle'] = 'Welcome to the Eden of Garden!';
+        $viewData['title'] = __('controller.titles.home');
+        $viewData['subtitle'] = __('controller.titles.welcome');
         $viewData['categories'] = Category::all();
         $viewData['breadcrumbs'] = [
-            ['title' => 'Home', 'url' => route('home.index')],
+            ['title' => __('controller.home'), 'url' => route('home.index')],
         ];
 
         return view('home.index')->with('viewData', $viewData);

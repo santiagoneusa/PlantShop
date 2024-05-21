@@ -9,7 +9,7 @@
         </div>
         <div class="col-md-6">
             <div class="card-body">
-                <h5 class="card-title">{{ __('app.colon_formatted_user_name', ['name' => $viewData['user']->getName()]) }}</h5>
+                <h5 class="card-title">{{ __('app.colon_formatted_user_name', ['id' => $viewData['user']->getName()]) }}</h5>
                 <p class="card-text">{{ __('app.colon_formatted_user_balance', ['balance' => $viewData['user']->getBalance()]) }}</p>
                 <p class="card-text">{{ __('app.colon_formatted_user_email', ['email' => $viewData['user']->getEmail()]) }}</p>
                 <p class="card-text">{{ __('app.colon_formatted_user_since', ['date' => $viewData['user']->getCreatedAt()]) }}</p>
