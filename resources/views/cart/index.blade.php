@@ -22,8 +22,8 @@
                 <tr>
                     <th scope="col">{{ __('app.table_header_cart_id') }}</th>
                     <th scope="col">{{ __('app.table_header_cart_name') }}</th>
-                    <th scope="col">{{ __('app.table_header_cart_price') }}<</th>
-                    <th scope="col">{{ __('app.table_header_cart_quantity') }}<</th>
+                    <th scope="col">{{ __('app.table_header_cart_price') }}</th>
+                    <th scope="col">{{ __('app.table_header_cart_quantity') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,7 +47,7 @@
                     @if (count($viewData["plants"]) > 0)
                     <form action="{{ route('cart.purchase') }}" class="d-flex" role="search">
                         <input name="address" class="form-control me-2" type="search" placeholder="{{ __('app.address') }}">
-                        <button type="submit" class="btn bg-primary text-white">Purchase</button>
+                        <button type="submit" class="btn bg-primary text-white">{{ __('app.purchase') }}</button>
                     </form>
                     <a href="{{ route('cart.delete') }}" class="btn bg-danger text-white mb-2">{{ __('app.remove_all_plants_from_cart') }}</a>
                     @endif

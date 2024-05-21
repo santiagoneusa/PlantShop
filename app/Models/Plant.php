@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
+use App\Models\Item;
 
 class Plant extends Model
 {
@@ -166,20 +167,20 @@ class Plant extends Model
         $this->attributes['category_id'] = $categoryId;
     }
     
-        public function items(): HasMany
-        {
-            return $this->hasMany(Item::class);
-        }
-    
-        public function getItems(): Collection
-        {
-            return $this->items;
-        }
-    
-        public function setItems(Collection $items): void
-        {
-            $this->items = $items;
-        }
+    public function items(): HasMany
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+
+    public function setItems(Collection $items): void
+    {
+        $this->items = $items;
+    }
 
     public function reviews(): HasMany
     {

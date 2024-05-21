@@ -19,9 +19,11 @@ return [
     'total_to_pay' => 'Total a pagar: $',
     'not_enough_balance' => 'Saldo insuficiente',
     'remove_all_plants_from_cart' => 'Eliminar todas las plantas del carrito',
+    'purchase' => 'Comprar',
     'purchase_completed' => 'Compra completada',
     'purchase_completed_message' => 'Felicidades, compra completada. El número de pedido es #',
     'address' => 'Dirección',
+    'add_to_cart' => 'Añadir al carrito',
 
     'table_header_cart_id' => 'ID',
     'table_header_cart_name' => 'Nombre',

@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Order;
+use App\Models\Review;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -118,12 +120,12 @@ class User extends Authenticatable
 
     public function orders(): HasMany
     {
-        return $this->hasMany(Item::class);
+        return $this->hasMany(Order::class);
     }
 
     public function getOrders(): Collection
     {
-        return $this->items;
+        return $this->orders;
     }
 
     public function setOrders(Collection $orders): void

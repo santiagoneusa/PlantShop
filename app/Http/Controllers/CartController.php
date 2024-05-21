@@ -20,8 +20,8 @@ class CartController extends Controller
     {
         $total = 0;
         $plantsInCart = [];
-        $plantsInSession = $request->session()->get('plants');
 
+        $plantsInSession = $request->session()->get('plants');
         if ($plantsInSession) {
             $plantsInCart = Plant::findMany(array_keys($plantsInSession));
             $total = Plant::sumPricesByQuantities($plantsInCart, $plantsInSession);
