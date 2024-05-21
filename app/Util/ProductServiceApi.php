@@ -11,7 +11,7 @@ class ProductServiceApi implements ProductService
     public function getProducts(): array
     {
         try {
-            $response = Http::timeout(60)->get('http://35.193.236.62/api/products');
+            $response = Http::timeout(60)->get('http://devsport.talentosenv.tech/api/products');
 
             if ($response->successful()) {
                 return $response->json();
