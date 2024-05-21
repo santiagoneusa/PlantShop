@@ -97,4 +97,24 @@ return [
 
     'product_link' => 'Product Link',
 
+    // User
+
+    'colon_formatted_user_name' => 'ID: :id',
+    'colon_formatted_user_balance' => 'Balance: $:balance',
+    'colon_formatted_user_email' => 'Email: :email',
+    'colon_formatted_user_since' => 'Since: :date',
+    
+    'not_purchase' => 'Seems to be that you have not purchased anything in our store.',
+
+    // Order
+
+    'hash_formatted_order_id' => 'Order #:id',
+    'colon_formatted_order_date' => 'Date: :date',
+    'colon_formatted_order_total' => 'Total: $:total',
+
+    'table_header_product_item_id' => 'Item ID',
+    'table_header_product_name' => 'Product Name',
+    'table_header_product_price' => 'Price',
+    'table_header_product_quantity' => 'Quantity',
+
 ];
