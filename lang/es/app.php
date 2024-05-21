@@ -120,4 +120,8 @@ return [
     'table_header_product_price' => 'Precio',
     'table_header_product_quantity' => 'Cantidad',
 
+    'download_report' => 'Descarga un reporte de tus órdenes',
+    'xlsx_report' => 'Descargar Reporte XLSX',
+    'json_report' => 'Descargar Reporte Json',
+    
 ];

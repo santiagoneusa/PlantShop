@@ -32,12 +32,12 @@
               @csrf
               <div class="col-auto">
                 <div class="input-group col-auto">
-                  <div class="input-group-text">Quantity</div>
+                  <div class="input-group-text">{{ __('app.table_header_product_quantity') }}</div>
                     <input type="number" min="1" max="10" class="form-control quantity-input" name="quantity" value="1">
                   </div>
                 </div>
                 <div class="col-auto">
-                <button class="btn bg-primary text-white" type="submit">Add to cart</button>
+                <button class="btn bg-primary text-white" type="submit">{{ __('app.add_to_cart') }}</button>
               </div>
             </div>
           </form>

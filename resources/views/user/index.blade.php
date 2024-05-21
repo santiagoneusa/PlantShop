@@ -18,18 +18,18 @@
     </div>
 </div>
 
-<div>
-    <h1>Descargar Reporte de Órdenes</h1>
+<div class="container text-center mt-5 mb-5">
+    <h3 class="mb-2">{{ __('app.download_report') }}</h3>
     <div>
         <a href="{{ route('user.reports', ['fileType' => 'xlsx']) }}" download>
-            <button>Descargar Reporte XLSX</button>
+            <button class="btn btn-success">{{ __('app.xlsx_report') }}</button>
         </a>
         <a href="{{ route('user.reports', ['fileType' => 'json']) }}" download>
-            <button>Descargar Reporte JSON</button>
+            <button class="btn btn-success">{{ __('app.json_report') }}</button>
         </a>
     </div>
 </div>
-    
+
 @forelse ($viewData["orders"] as $order)
 <div class="card mb-4">
     <div class="card-header">{{ __('app.hash_formatted_order_id', ['id' => $order->getId()]) }}</div>

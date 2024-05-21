@@ -30,6 +30,7 @@ return [
     ],
 
     'titles' => [
+        'garden_of_eden' => 'Jardín del Edén',
         'home' => 'Inicio - Jardín del Edén',
         'welcome' => '¡Bienvenido al Jardín del Edén!',
         'admin' => 'Administrador - Jardín del Edén',

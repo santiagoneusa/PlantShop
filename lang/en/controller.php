@@ -30,6 +30,7 @@ return [
     ],
 
     'titles' => [
+        'garden_of_eden' => 'Garden of Eden',
         'home' => 'Home - Garden of Eden',
         'welcome' => 'Welcome to the Eden of Garden!',
         'admin' => 'Admin - Garden of Eden',

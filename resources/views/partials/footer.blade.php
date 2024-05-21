@@ -5,19 +5,19 @@
             <div class="row text-center d-flex justify-content-center pt-5">
                 <div class="col-md-2">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!" class="text-white">{{ __('app.home') }}</a>
+                        <a href="{{ route('home.index') }}" class="text-white">{{ __('app.home') }}</a>
                     </h6>
                 </div>
 
                 <div class="col-md-2">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!" class="text-white">{{ __('app.plants') }}</a>
+                        <a href="{{ route('plant.index') }}" class="text-white">{{ __('app.plants') }}</a>
                     </h6>
                 </div>
 
                 <div class="col-md-2">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!" class="text-white">{{ __('app.guides') }}</a>
+                        <a href="{{ route('guide.index') }}" class="text-white">{{ __('app.guides') }}</a>
                     </h6>
                 </div>
         </section>
@@ -27,7 +27,7 @@
         <section class="mb-5">
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-8">
-                    <h1>Garden of Eden</h1>
+                    <h1>{{ __('controller.titles.garden_of_eden') }}</h1>
                 </div>
             </div>
         </section>
