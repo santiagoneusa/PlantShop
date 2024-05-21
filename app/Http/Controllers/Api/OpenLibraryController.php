@@ -37,8 +37,8 @@ class OpenLibraryController extends Controller
             ['path' => url()->current()]
         );
         $viewData['breadcrumbs'] = [
-            ['title' => __('controller.home') , 'url' => route('home.index')],
-            ['title' => __('controller.books') , 'url' => route('books.index')],
+            ['title' => __('controller.home'), 'url' => route('home.index')],
+            ['title' => __('controller.books'), 'url' => route('books.index')],
         ];
 
         return view('books.index')->with('viewData', $viewData);

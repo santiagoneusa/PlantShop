@@ -27,7 +27,7 @@ class AdminGuideController extends Controller
     {
         $guide = Guide::findOrFail($id);
         $viewData = [];
-        $viewData['title'] = __('controller.colon_formatted.title', ['title' =>  $guide->getTitle()]);
+        $viewData['title'] = __('controller.colon_formatted.title', ['title' => $guide->getTitle()]);
         $viewData['guide'] = $guide;
 
         return view('admin.guide.show')->with('viewData', $viewData);
@@ -60,7 +60,7 @@ class AdminGuideController extends Controller
             $guide->save();
         }
 
-        Session::flash('success', __('controller.guide.created_successfully', ['guide' => $guide->getId()]) );
+        Session::flash('success', __('controller.guide.created_successfully', ['guide' => $guide->getId()]));
 
         return redirect()->route('admin.guide.index');
     }
@@ -69,7 +69,7 @@ class AdminGuideController extends Controller
     {
         Guide::destroy($id);
 
-        Session::flash('success', __('controller.guide.deleted_successfully') );
+        Session::flash('success', __('controller.guide.deleted_successfully'));
 
         $guides = Guide::all();
 
@@ -77,7 +77,7 @@ class AdminGuideController extends Controller
         $viewData['title'] = __('controller.guides.manage');
         $viewData['guides'] = $guides;
 
-        Session::flash('danger', __('controller.guide.deleted_successfully') );
+        Session::flash('danger', __('controller.guide.deleted_successfully'));
 
         return redirect()->route('admin.guide.index')->with('viewData', $viewData);
     }
@@ -117,7 +117,7 @@ class AdminGuideController extends Controller
 
         $guide->save();
 
-        Session::flash('message', __('controller.guide.edited_successfully') );
+        Session::flash('message', __('controller.guide.edited_successfully'));
 
         return redirect()->route('admin.guide.index');
     }

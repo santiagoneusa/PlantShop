@@ -39,6 +39,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\BookServiceProvider::class,
         App\Providers\ProductServiceProvider::class,
+        App\Providers\ReportServiceProvider::class,
     ])->toArray(),
 
     'aliases' => Facade::defaultAliases()->merge([

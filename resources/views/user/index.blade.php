@@ -17,6 +17,18 @@
         </div>
     </div>
 </div>
+
+<div>
+    <h1>Descargar Reporte de Órdenes</h1>
+    <div>
+        <a href="{{ route('user.reports', ['fileType' => 'xlsx']) }}" download>
+            <button>Descargar Reporte XLSX</button>
+        </a>
+        <a href="{{ route('user.reports', ['fileType' => 'json']) }}" download>
+            <button>Descargar Reporte JSON</button>
+        </a>
+    </div>
+</div>
     
 @forelse ($viewData["orders"] as $order)
 <div class="card mb-4">

@@ -42,7 +42,7 @@ return [
         'guides' => 'Guides - Garden of Eden',
         'plants' => 'Plants - Garden of Eden',
     ],
-    
+
     'books' => 'Books',
     'home' => 'Home',
     'products' => 'Products',
