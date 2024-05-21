@@ -10,5 +10,19 @@ return [
     'card_book_language' => 'Language: ',
     
     'no_books_found' => 'No books found.',
+    
+    // Cart
 
+    'plants_in_cart' => 'Plants in cart',
+    'total_to_pay' => 'Total to pay: $',
+    'not_enough_balance' => 'Not enough balance',
+    'remove_all_plants_from_cart' => 'Remove all plants from cart',
+    'purchase_completed' => 'Purchase Completed',
+    'purchase_completed_message' => 'Congratulations, purchase completed. Order number is #',
+
+    'table_header_cart_id' => 'ID',
+    'table_header_cart_name' => 'Name',
+    'table_header_cart_price' => 'Price',
+    'table_header_cart_quantity' => 'Quantity',
+    
 ];
