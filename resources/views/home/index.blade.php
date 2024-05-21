@@ -8,27 +8,27 @@
     <div class="card m-2" style="width: 492px;">
         <img class="card-img-top img-fluid" src="{{ asset('/img/cards/plant.jpg') }}">
         <div class="card-body">
-            <h5 class="card-title">Plants</h5>
-            <p class="card-text">Visualize all plants available</p>
-            <a href="{{ route('plant.index') }}" class="btn btn-success">View Plants</a>
+            <h5 class="card-title">{{ __('app.plants') }}</h5>
+            <p class="card-text">{{ __('app.card_plants_available') }}</p>
+            <a href="{{ route('plant.index') }}" class="btn btn-success">{{ __('app.view_plants') }}</a>
         </div>
     </div>
 
     <div class="card m-2" style="width: 525px;">
         <img class="card-img-top img-fluid" src="{{ asset('/img/cards/category.jpg') }}">
         <div class="card-body">
-            <h5 class="card-title">Category</h5>
-            <p class="card-text">Visualize plants organized by differents light, function and enviroment</p>
-            <a href="{{ route('category.index') }}" class="btn btn-success">View Category</a>
+            <h5 class="card-title">{{ __('app.category') }}</h5>
+            <p class="card-text">{{ __('app.card_categories_available') }}</p>
+            <a href="{{ route('category.index') }}" class="btn btn-success">{{ __('app.view_categories') }}</a>
         </div>
     </div>
 
     <div class="card m-2" style="width: 380px; height: 542px;">
         <img class="card-img-top img-fluid" src="{{ asset('/img/cards/guide.png') }}">
         <div class="card-body">
-            <h5 class="card-title">Guides</h5>
-            <p class="card-text">How to water my plants? Which plants are better to me? All those questions answered here</p>
-            <a href="{{ route('guide.index') }}" class="btn btn-success">View Guides</a>
+            <h5 class="card-title">{{ __('app.guides') }}</h5>
+            <p class="card-text">{{ __('app.card_guides_available') }}</p>
+            <a href="{{ route('guide.index') }}" class="btn btn-success">{{ __('app.view_guides') }}</a>
         </div>
     </div>
 </div>

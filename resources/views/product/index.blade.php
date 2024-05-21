@@ -1,5 +1,3 @@
-<!-- Made by: Jhonnathan Stiven Ocampo Díaz -->
-
 @extends('layouts.app')
 @section('title', $viewData["title"])
 @section('subtitle', $viewData["subtitle"])
@@ -12,11 +10,11 @@
                         <h5 class="card-title">{{ $product['name'] }}</h5>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Description: {{ $product['description'] }}</p>
-                        <p class="card-text">Category: {{ $product['category'] }}</p>
-                        <p class="card-text">Price: ${{ $product['price'] }}</p>
-                        <p class="card-text">Stock: {{ $product['stock'] }}</p>
-                        <a href="{{ $product['link'] }}" class="btn btn-primary">Product Link</a>
+                        <p class="card-text">{{ __('app.colon_formatted_product_description', ['description' => $product['description']]) }}</p>
+                        <p class="card-text">{{ __('app.colon_formatted_product_category', ['category' => $product['category']]) }}</p>
+                        <p class="card-text">{{ __('app.colon_formatted_product_price', ['price' => $product['price']]) }}</p>
+                        <p class="card-text">{{ __('app.colon_formatted_product_stock', ['stock' => $product['stock']]) }}</p>
+                        <a href="{{ $product['link'] }}" class="btn btn-primary">{{ __('app.product_link') }}</a>
                     </div>
                 </div>
             </div>

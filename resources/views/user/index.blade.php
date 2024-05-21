@@ -1,5 +1,3 @@
-<!-- Made by: Santiago Neusa Ruiz -->
-
 @extends('layouts.app')
 @section('title', $viewData["subtitle"])
 @section('subtitle', $viewData["subtitle"])
@@ -11,31 +9,41 @@
         </div>
         <div class="col-md-6">
             <div class="card-body">
-                <h5 class="card-title">Name: {{ $viewData['user']->getName() }}</h5>
-                <p class="card-text">Balance: ${{ $viewData['user']->getBalance() }}</p>
-                <p class="card-text">Email: {{ $viewData['user']->getEmail() }}</p>
-                <p class="card-text">Since: {{ $viewData['user']->getCreatedAt() }}</p>
+                <h5 class="card-title">{{ __('app.colon_formatted_user_name', ['id' => $viewData['user']->getName()]) }}</h5>
+                <p class="card-text">{{ __('app.colon_formatted_user_balance', ['balance' => $viewData['user']->getBalance()]) }}</p>
+                <p class="card-text">{{ __('app.colon_formatted_user_email', ['email' => $viewData['user']->getEmail()]) }}</p>
+                <p class="card-text">{{ __('app.colon_formatted_user_since', ['date' => $viewData['user']->getCreatedAt()]) }}</p>
             </div>
         </div>
     </div>
 </div>
-    
+
+<div class="container text-center mt-5 mb-5">
+    <h3 class="mb-2">{{ __('app.download_report') }}</h3>
+    <div>
+        <a href="{{ route('user.reports', ['fileType' => 'xlsx']) }}" download>
+            <button class="btn btn-success">{{ __('app.xlsx_report') }}</button>
+        </a>
+        <a href="{{ route('user.reports', ['fileType' => 'json']) }}" download>
+            <button class="btn btn-success">{{ __('app.json_report') }}</button>
+        </a>
+    </div>
+</div>
+
 @forelse ($viewData["orders"] as $order)
 <div class="card mb-4">
-    <div class="card-header">
-        Order #{{ $order->getId() }}
-    </div>
+    <div class="card-header">{{ __('app.hash_formatted_order_id', ['id' => $order->getId()]) }}</div>
     <div class="card-body">
-        <b>Date:</b> {{ $order->getCreatedAt() }}<br />
-        <b>Total:</b> ${{ $order->getTotal() }}<br />
+        {{ __('app.colon_formatted_order_date', ['date' => $order->getCreatedAt()]) }}<br />
+        {{ __('app.colon_formatted_order_total', ['total' => $order->getTotal()]) }}<br />
     </div>
     <table class="table table-bordered table-striped text-center mt-3">
         <thead>
             <tr>
-                <th scope="col">Item ID</th>
-                <th scope="col">Product Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
+                <th scope="col">{{ __('app.table_header_product_item_id') }}</th>
+                <th scope="col">{{ __('app.table_header_product_name') }}</th>
+                <th scope="col">{{ __('app.table_header_product_price') }}</th>
+                <th scope="col">{{ __('app.table_header_product_quantity') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -55,9 +63,7 @@
     </table>
 </div>
 @empty
-<div class="alert alert-danger" role="alert">
-    Seems to be that you have not purchased anything in our store.
-</div>
+<div class="alert alert-danger" role="alert">{{ __('app.not_purchase') }}</div>
 @endforelse
 
 @endsection

@@ -1,5 +1,3 @@
-<!-- Made by: Santiago Neusa Ruiz -->
-
 <!doctype html>
 <html lang="en">
 

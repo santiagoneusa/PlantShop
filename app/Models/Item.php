@@ -1,12 +1,9 @@
 <?php
 
-// Made by: Santiago Neusa Ruiz
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
 
 class Item extends Model
@@ -18,11 +15,11 @@ class Item extends Model
      * $this->attributes['price'] - int - contains
      * $this->attributes['created_at'] - timestamp - contains the order creation date
      * $this->attributes['updated_at'] - timestamp - contains the order update date
-
-     * $this->attributes['plant_id'] - string - contains as a foreign key the id of the plant associated
+     *
      * $this->plant - Plant - contains the associated Plant
-     * $this->attributes['order_id'] - string - contains as a foreign key the id of the order that contains the item
+     * $this->attributes['plant_id'] - string - contains as a foreign key the id of the plant associated
      * $this->order - Order - contains the associated Order
+     * $this->attributes['order_id'] - string - contains as a foreign key the id of the order that contains the item
      */
     public static function validate(request $request): void
     {
@@ -37,6 +34,11 @@ class Item extends Model
     public function getId(): int
     {
         return $this->attributes['id'];
+    }
+
+    public function setId(int $id): void
+    {
+        $this->attributes['id'] = $id;
     }
 
     public function getQuantity(): int
@@ -64,9 +66,19 @@ class Item extends Model
         return $this->attributes['created_at'];
     }
 
+    public function setCreatedAt($createdAt): void
+    {
+        $this->attributes['created_at'] = $createdAt;
+    }
+
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function setUpdatedAt($updatedAt): void
+    {
+        $this->attributes['updated_at'] = $updatedAt;
     }
 
     public function plant(): BelongsTo
@@ -79,6 +91,11 @@ class Item extends Model
         return $this->plant;
     }
 
+    public function setPlant(Plant $plant): void
+    {
+        $this->plant = $plant;
+    }
+
     public function getPlantId(): int
     {
         return $this->attributes['plant_id'];
@@ -89,14 +106,19 @@ class Item extends Model
         $this->attributes['plant_id'] = $plantId;
     }
 
-    public function order(): HasMany
+    public function order(): BelongsTo
     {
-        return $this->HasMany(Order::class);
+        return $this->belongsTo(Order::class);
     }
 
     public function getOrder(): Order
     {
         return $this->order;
+    }
+
+    public function setOrder(Order $order): void
+    {
+        $this->order = $order;
     }
 
     public function getOrderId(): int

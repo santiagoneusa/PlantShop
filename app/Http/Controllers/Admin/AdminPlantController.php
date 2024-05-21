@@ -1,7 +1,5 @@
 <?php
 
-// Made by: Santiago Neusa Ruiz
-
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -20,7 +18,7 @@ class AdminPlantController extends Controller
         $plants = Plant::all();
 
         $viewData = [];
-        $viewData['title'] = 'Manage Plants - Garden of Eden';
+        $viewData['title'] = __('controller.plants.manage');
         $viewData['plants'] = $plants;
 
         return view('admin.plant.index')->with('viewData', $viewData);
@@ -30,7 +28,7 @@ class AdminPlantController extends Controller
     {
         $plant = Plant::findOrFail($id);
         $viewData = [];
-        $viewData['title'] = $plant->getName().' - Garden of Eden';
+        $viewData['title'] = __('controller.colon_formatted.title', ['title' => $plant->getName()]);
         $viewData['plant'] = $plant;
         $viewData['category_name'] = $plant->getCategory()->getName();
 
@@ -68,7 +66,7 @@ class AdminPlantController extends Controller
             $plant->save();
         }
 
-        Session::flash('success', 'Plant '.$plant->getId().' created successfully.');
+        Session::flash('success', __('controller.plants.created_successfully', ['plant' => $plant->getId()]));
 
         return redirect()->route('admin.plant.index');
     }
@@ -78,15 +76,15 @@ class AdminPlantController extends Controller
         Storage::disk('public')->delete(Plant::findOrFail($id)->getImage());
         Plant::destroy($id);
 
-        Session::flash('success', 'Plant deleted successfully.');
+        Session::flash('success', __('controller.plants.created_successfully'));
 
         $plants = Plant::all();
 
         $viewData = [];
-        $viewData['title'] = 'Manage Plants - Garden of Eden';
+        $viewData['title'] = __('controller.plants.manage');
         $viewData['plants'] = $plants;
 
-        Session::flash('danger', 'Plant deleted successfully.');
+        Session::flash('danger', __('controller.plants.deleted_successfully'));
 
         return redirect()->route('admin.plant.index')->with('viewData', $viewData);
     }
@@ -131,7 +129,7 @@ class AdminPlantController extends Controller
 
         $plant->save();
 
-        Session::flash('message', 'Plant edited successfully.');
+        Session::flash('message', __('controller.plants.editted_successfully'));
 
         return redirect()->route('admin.plant.index');
     }

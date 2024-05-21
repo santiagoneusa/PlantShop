@@ -7,7 +7,7 @@
 
 <div class="card mb-3">
   <div class="card-body text-center">
-    <h4>Do you want to know more about how to care for your plants? We leave you a list of books that could be useful for this. Cheer up and look for more ways to take care of your plants</h4>
+    <h4>{{ __('app.card_book_description') }}</h4>
   </div>
 </div>
 
@@ -20,9 +20,9 @@
                     <div class="card-body text-center">
                         <h5>{{ $book['title'] }}</h5>
                         <p>
-                            <strong>Author:</strong> {{ implode(', ', $book['author_name'] ?? ['N/A']) }}<br>
-                            <strong>Year:</strong> {{ $book['publish_year'][0] ?? 'N/A' }}<br>
-                            <strong>Language:</strong> {{ implode(', ', $book['language'] ?? ['N/A']) }}
+                            <strong>{{ __('app.card_book_author') }}</strong>{{ implode(', ', $book['author_name'] ?? ['N/A']) }}<br>
+                            <strong>{{ __('app.card_book_year') }}</strong>{{ $book['publish_year'][0] ?? 'N/A' }}<br>
+                            <strong>{{ __('app.card_book_language') }}</strong>{{ implode(', ', $book['language'] ?? ['N/A']) }}
                         </p>
                         <br>
                     </div>
@@ -30,7 +30,7 @@
             </div>
             @endforeach
         @else
-            <p>No books found.</p>
+            <p>{{ __('app.no_books_found') }}</p>
         @endif
     </div>
     <div class="justify-content-center pagination">

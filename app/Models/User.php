@@ -1,7 +1,5 @@
 <?php
 
-// Made by: Santiago Neusa Ruiz
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;
@@ -23,7 +21,7 @@ class User extends Authenticatable
      * $this->attributes['remember_token'] - string - contains the user password
      * $this->attributes['created_at'] - timestamp - contains the user creation date
      * $this->attributes['updated_at'] - timestamp - contains the user update date
-
+     *
      * $this-> orders - Order[] - contains the associated orders
      * $this-> reviews - Review[] - contains the associated reviews
      */
@@ -46,6 +44,11 @@ class User extends Authenticatable
     public function getId(): int
     {
         return $this->attributes['id'];
+    }
+
+    public function setId(int $id): void
+    {
+        $this->attributes['id'] = $id;
     }
 
     public function getName(): string
@@ -98,19 +101,34 @@ class User extends Authenticatable
         return $this->attributes['created_at'];
     }
 
+    public function setCreatedAt($createdAt): void
+    {
+        $this->attributes['created_at'] = $createdAt;
+    }
+
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
     }
 
+    public function setUpdatedAt($updatedAt): void
+    {
+        $this->attributes['updated_at'] = $updatedAt;
+    }
+
     public function orders(): HasMany
     {
-        return $this->hasMany(Item::class);
+        return $this->hasMany(Order::class);
     }
 
     public function getOrders(): Collection
     {
-        return $this->items;
+        return $this->orders;
+    }
+
+    public function setOrders(Collection $orders): void
+    {
+        $this->orders = $orders;
     }
 
     public function reviews(): HasMany
@@ -121,5 +139,10 @@ class User extends Authenticatable
     public function getReviews(): Collection
     {
         return $this->reviews;
+    }
+
+    public function setReviews(Collection $reviews): void
+    {
+        $this->reviews = $reviews;
     }
 }

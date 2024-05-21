@@ -1,7 +1,5 @@
 <?php
 
-// Made by: Jhonnathan Stiven Ocampo Díaz
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -18,7 +16,7 @@ class Review extends Model
      * $this->attributes['status'] - string - contains the status of the review (unchecked, approved, rejected)
      * $this->attributes['created_at'] - timestamp - timestamp indicating review creation
      * $this->attributes['updated_at'] - timestamp - timestamp indicating last review update
-
+     *
      * $this->attributes['plant_id'] - int - contains the ID of the plant to which the review belongs
      * $this->plant - Plant - contains the ID of the plant to which the review belongs
      * $this->attributes['user_id'] - int - contains the ID of the plant to which the review belongs
@@ -44,6 +42,11 @@ class Review extends Model
     public function getId(): int
     {
         return $this->attributes['id'];
+    }
+
+    public function setId(int $id): void
+    {
+        $this->attributes['id'] = $id;
     }
 
     public function getContent(): string
@@ -81,19 +84,19 @@ class Review extends Model
         return $this->attributes['created_at'];
     }
 
+    public function setCreatedAt($createdAt): void
+    {
+        $this->attributes['created_at'] = $createdAt;
+    }
+
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
     }
 
-    public function setUserId(int $userId): void
+    public function setUpdatedAt($updatedAt): void
     {
-        $this->attributes['user_id'] = $userId;
-    }
-
-    public function setPlantId(int $plantId): void
-    {
-        $this->attributes['plant_id'] = $plantId;
+        $this->attributes['updated_at'] = $updatedAt;
     }
 
     public function plant(): BelongsTo
@@ -106,9 +109,19 @@ class Review extends Model
         return $this->plant;
     }
 
+    public function setPlant(Plant $plant): void
+    {
+        $this->plant = $plant;
+    }
+
     public function getPlantId(): int
     {
         return $this->attributes['plant_id'];
+    }
+
+    public function setPlantId(int $plantId): void
+    {
+        $this->attributes['plant_id'] = $plantId;
     }
 
     public function user(): BelongsTo
@@ -121,8 +134,18 @@ class Review extends Model
         return $this->user;
     }
 
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
+    }
+
     public function getUserId(): int
     {
         return $this->attributes['user_id'];
+    }
+
+    public function setUserId(int $userId): void
+    {
+        $this->attributes['user_id'] = $userId;
     }
 }

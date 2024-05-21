@@ -1,5 +1,3 @@
-<!-- Made by: Jhonnathan Stiven Ocampo Díaz -->
-
 @extends('layouts.app')
 @section('title', $viewData["title"])
 @section('subtitle', $viewData["subtitle"])
@@ -18,21 +16,21 @@
 
     <form action="{{ route('plant.search') }}" method="GET" class="mb-3">
         <div class="input-group">
-            <input type="text" name="search" class="form-control" placeholder="Search plants...">
-            <button type="submit" class="btn btn-success">Search</button>
+            <input type="text" name="search" class="form-control" placeholder="{{ __('app.search_plants') }}">
+            <button type="submit" class="btn btn-success">{{ __('app.button_search') }}</button>
         </div>
     </form>
 
     <form action="{{ route('plant.index') }}" method="GET" class="mb-3">
         <div class="input-group">
             <select name="sort_by" class="form-select">
-                <option selected>Select an option to filter the plants</option>
-                <option value="newest">Newest to oldest</option>
-                <option value="oldest">Oldest to newest</option>
-                <option value="price_high">Price: higher to lower</option>
-                <option value="price_low">Price: lower to higher</option>
+                <option selected>{{ __('app.select_plants_filter') }}</option>
+                <option value="newest">{{ __('app.select_newest_to_oldest') }}</option>
+                <option value="oldest">{{ __('app.select_oldest_to_newest') }}</option>
+                <option value="price_high">{{ __('app.select_price_lower_to_higher') }}</option>
+                <option value="price_low">{{ __('app.select_price_higher_to_lower') }}</option>
             </select>
-            <button type="submit" class="btn btn-success">Apply Filter</button>
+            <button type="submit" class="btn btn-success">{{ __('app.apply_filter') }}</button>
         </div>
     </form>
 
@@ -44,7 +42,7 @@
                 <div class="card-body text-center">
                     <h5>Product id: {{ $plant->getId() }}</h4>
                     <h6>{{ $plant->getName() }}</h5>
-                    <a href="{{ route('plant.show', ['id'=> $plant->getId()]) }}" class="btn bg-primary text-white">More details</a>
+                    <a href="{{ route('plant.show', ['id'=> $plant->getId()]) }}" class="btn bg-primary text-white">{{ __('app.more_details') }}</a>
                 </div>
             </div>
         </div>

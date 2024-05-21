@@ -13,11 +13,11 @@ class ProductApiController extends Controller
     {
         $viewData['products'] = $productApi->getProducts();
         $viewData['categories'] = Category::all();
-        $viewData['title'] = 'Eden - Online Store';
-        $viewData['subtitle'] = 'Dev sport - allied store';
+        $viewData['title'] = __('controller.titles.online_store');
+        $viewData['subtitle'] = __('controller.titles.allied_store');
         $viewData['breadcrumbs'] = [
-            ['title' => 'Home', 'url' => route('home.index')],
-            ['title' => 'Products', 'url' => route('product.index')],
+            ['title' => __('controller.home'), 'url' => route('home.index')],
+            ['title' => __('controller.products'), 'url' => route('product.index')],
         ];
 
         return view('product.index')->with('viewData', $viewData);

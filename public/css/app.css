@@ -50,3 +50,9 @@ a {
   color: #333;
   font-size: 18px; 
 }
+
+.language-flag {
+  width: 20px;
+  height: auto;
+  margin-right: 5px;
+}

@@ -1,7 +1,5 @@
 <?php
 
-// Made by: Jhonnathan Stiven Ocampo Díaz
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;
@@ -25,9 +23,9 @@ class Plant extends Model
      * $this->attributes['stock'] - int - contains the remain stock units of the plant
      * $this->attributes['created_at'] - timestamp - timestamp indicating plant creation
      * $this->attributes['updated_at'] - timestamp - timestamp indicating last plant update
-
-     * $this->attributes['category_id'] - int - contains the ID of the category to which the plant belongs
+     *
      * $this->category - Category - contains the associated category
+     * $this->attributes['category_id'] - int - contains the ID of the category to which the plant belongs
      * $this->items - Item[] - contains the associated items
      * $this->reviews- Review[] - contains the associated reviews
      */
@@ -64,6 +62,11 @@ class Plant extends Model
     public function getId(): int
     {
         return $this->attributes['id'];
+    }
+
+    public function setId(int $id): void
+    {
+        $this->attributes['id'] = $id;
     }
 
     public function getName(): string
@@ -121,9 +124,19 @@ class Plant extends Model
         return $this->attributes['created_at'];
     }
 
+    public function setCreatedAt($createdAt): void
+    {
+        $this->attributes['created_at'] = $createdAt;
+    }
+
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function setUpdatedAt($updatedAt): void
+    {
+        $this->attributes['updated_at'] = $updatedAt;
     }
 
     public function category(): BelongsTo
@@ -136,6 +149,11 @@ class Plant extends Model
         return $this->category;
     }
 
+    public function setCategory(Category $category): void
+    {
+        $this->category = $category;
+    }
+
     public function getCategoryId(): int
     {
         return $this->attributes['category_id'];
@@ -144,6 +162,21 @@ class Plant extends Model
     public function setCategoryId(string $categoryId): void
     {
         $this->attributes['category_id'] = $categoryId;
+    }
+
+    public function items(): HasMany
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+
+    public function setItems(Collection $items): void
+    {
+        $this->items = $items;
     }
 
     public function reviews(): HasMany
@@ -156,13 +189,8 @@ class Plant extends Model
         return $this->reviews;
     }
 
-    public function items(): HasMany
+    public function setReviews(Collection $reviews): void
     {
-        return $this->hasMany(Item::class);
-    }
-
-    public function getItems(): Collection
-    {
-        return $this->items;
+        $this->reviews = $reviews;
     }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('admin')->group(function () {
-    Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name('admin.home.index');
+    Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name('admin.index');
 
     Route::get('/admin/plants', 'App\Http\Controllers\Admin\AdminPlantController@index')->name('admin.plant.index');
     Route::get('/admin/plants/create', 'App\Http\Controllers\Admin\AdminPlantController@create')->name('admin.plant.create');
@@ -13,11 +13,11 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/plants/{id}/update', 'App\Http\Controllers\Admin\AdminPlantController@update')->name('admin.plant.update');
     Route::get('/admin/plants/{id}', 'App\Http\Controllers\Admin\AdminPlantController@show')->name('admin.plant.show');
 
+    Route::post('/admin/guides/{id}/edit', 'App\Http\Controllers\Admin\AdminGuideController@edit')->name('admin.guide.edit');
     Route::get('/admin/guides', 'App\Http\Controllers\Admin\AdminGuideController@index')->name('admin.guide.index');
     Route::get('/admin/guides/create', 'App\Http\Controllers\Admin\AdminGuideController@create')->name('admin.guide.create');
     Route::post('/admin/guides/save', 'App\Http\Controllers\Admin\AdminGuideController@save')->name('admin.guide.save');
     Route::delete('/admin/guides/{id}/delete', 'App\Http\Controllers\Admin\AdminGuideController@delete')->name('admin.guide.delete');
-    Route::post('/admin/guides/{id}/edit', 'App\Http\Controllers\Admin\AdminGuideController@edit')->name('admin.guide.edit');
     Route::get('/admin/guides/{id}/update', 'App\Http\Controllers\Admin\AdminGuideController@update')->name('admin.guide.update');
     Route::get('/admin/guides/{id}', 'App\Http\Controllers\Admin\AdminGuideController@show')->name('admin.guide.show');
 });

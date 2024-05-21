@@ -1,5 +1,3 @@
-<!-- Made by: Santiago Neusa Ruiz -->
-
 <footer class="text-center text-white" style="background-color: #25a55f">
 
     <div class="container">
@@ -7,19 +5,19 @@
             <div class="row text-center d-flex justify-content-center pt-5">
                 <div class="col-md-2">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!" class="text-white">Home</a>
+                        <a href="{{ route('home.index') }}" class="text-white">{{ __('app.home') }}</a>
                     </h6>
                 </div>
 
                 <div class="col-md-2">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!" class="text-white">Products</a>
+                        <a href="{{ route('plant.index') }}" class="text-white">{{ __('app.plants') }}</a>
                     </h6>
                 </div>
 
                 <div class="col-md-2">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!" class="text-white">Guides</a>
+                        <a href="{{ route('guide.index') }}" class="text-white">{{ __('app.guides') }}</a>
                     </h6>
                 </div>
         </section>
@@ -29,15 +27,13 @@
         <section class="mb-5">
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-8">
-                    <h1>Garden of Eden</h1>
+                    <h1>{{ __('controller.titles.garden_of_eden') }}</h1>
                 </div>
             </div>
         </section>
 
     </div>
 
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-        © 2024 Copyright: Jhonnathan Ocampo y Santiago Neusa
-    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">{{ __('admin.copyright') }}{{ __('admin.names') }}</div>
 
 </footer>

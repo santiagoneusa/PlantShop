@@ -1,7 +1,5 @@
 <?php
 
-// Made by: Jhonnathan Stiven Ocampo Díaz
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;
@@ -21,7 +19,7 @@ class Category extends Model
      * $this->attributes['image'] - text - contains the category image cover
      * $this->attributes['created_at'] - timestamp - timestamp indicating category creation
      * $this->attributes['updated_at'] - timestamp - timestamp indicating last category update
-
+     *
      * $this->plants - Plant[] - contains the associated plants
      */
     protected $fillable = ['name', 'description'];
@@ -29,6 +27,11 @@ class Category extends Model
     public function getId(): int
     {
         return $this->attributes['id'];
+    }
+
+    public function setId(int $id): void
+    {
+        $this->attributes['id'] = $id;
     }
 
     public function getName(): string
@@ -61,9 +64,14 @@ class Category extends Model
         $this->attributes['image'] = $image;
     }
 
-    public function getCreated_at(): string
+    public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
+    }
+
+    public function setCreatedAt($createdAt): void
+    {
+        $this->attributes['created_at'] = $createdAt;
     }
 
     public function getUpdatedAt(): string
@@ -71,13 +79,23 @@ class Category extends Model
         return $this->attributes['updated_at'];
     }
 
+    public function setUpdatedAt($updated_at): void
+    {
+        $this->attributes['updated_at'] = $updated_at;
+    }
+
     public function plants(): HasMany
     {
         return $this->hasMany(Plant::class);
     }
 
-    public function getReviews(): Collection
+    public function getPlants(): Collection
     {
-        return $this->reviews;
+        return $this->plants;
+    }
+
+    public function setPlants(Collection $plants): void
+    {
+        $this->plants = $plants;
     }
 }

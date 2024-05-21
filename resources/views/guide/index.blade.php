@@ -1,5 +1,3 @@
-<!-- Made by: Jhonnathan Stiven Ocampo Díaz -->
-
 @extends('layouts.app')
 @section('title', $viewData["title"])
 @section('subtitle', $viewData["subtitle"])
@@ -13,7 +11,7 @@
                 <h5>{{ $guide->getTitle() }}</h4>
                 <p>{{ Str::limit($guide->getContent(), 100) }}</p>
                 <br>
-                <a href="{{ route('guide.show', ['id'=> $guide->getId()]) }}" class="btn bg-primary text-white">More details</a>
+                <a href="{{ route('guide.show', ['id'=> $guide->getId()]) }}" class="btn bg-primary text-white">{{ __('app.more_details') }}</a>
             </div>
         </div>
     </div>

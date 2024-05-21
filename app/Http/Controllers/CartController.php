@@ -20,16 +20,16 @@ class CartController extends Controller
     {
         $total = 0;
         $plantsInCart = [];
-        $plantsInSession = $request->session()->get('plants');
 
+        $plantsInSession = $request->session()->get('plants');
         if ($plantsInSession) {
             $plantsInCart = Plant::findMany(array_keys($plantsInSession));
             $total = Plant::sumPricesByQuantities($plantsInCart, $plantsInSession);
         }
 
         $viewData = [];
-        $viewData['title'] = 'Shopping Cart - Eden of Eden';
-        $viewData['subtitle'] = 'Shopping Cart';
+        $viewData['title'] = __('controller.shopping_cart');
+        $viewData['subtitle'] = __('controller.shopping_cart');
         $viewData['total'] = $total;
         $viewData['plants'] = $plantsInCart;
         $viewData['categories'] = Category::all();
@@ -41,8 +41,8 @@ class CartController extends Controller
             $viewData['notEnoughBalance'] = false;
         }
         $viewData['breadcrumbs'] = [
-            ['title' => 'Home', 'url' => route('home.index')],
-            ['title' => 'Shopping Cart', 'url' => route('cart.index')],
+            ['title' => __('controller.home'), 'url' => route('home.index')],
+            ['title' => __('controller.shopping_cart'), 'url' => route('cart.index')],
         ];
 
         return view('cart.index')->with('viewData', $viewData);
@@ -107,13 +107,13 @@ class CartController extends Controller
             $request->session()->forget('plants');
 
             $viewData = [];
-            $viewData['title'] = 'Purchase - Online Store';
-            $viewData['subtitle'] = 'Purchase Status';
+            $viewData['title'] = __('controller.titles.purchase');
+            $viewData['subtitle'] = __('controller.purchase_status');
             $viewData['order'] = $order;
             $viewData['categories'] = Category::all();
             $viewData['breadcrumbs'] = [
-                ['title' => 'Home', 'url' => route('home.index')],
-                ['title' => 'Shopping Cart', 'url' => route('cart.index')],
+                ['title' => __('controller.home'), 'url' => route('home.index')],
+                ['title' => __('controller.shopping_cart'), 'url' => route('cart.index')],
             ];
 
             return view('cart.purchase')->with('viewData', $viewData);

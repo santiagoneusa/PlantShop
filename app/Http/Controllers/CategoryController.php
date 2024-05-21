@@ -1,7 +1,5 @@
 <?php
 
-// Made by: Jhonnathan Stiven Ocampo Díaz
-
 namespace App\Http\Controllers;
 
 use App\Models\Category;
@@ -13,12 +11,12 @@ class CategoryController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['title'] = 'Categories - Garden of Eden';
-        $viewData['subtitle'] = 'Categories';
+        $viewData['title'] = __('controller.titles.categories');
+        $viewData['subtitle'] = __('controller.categories');
         $viewData['categories'] = Category::all();
         $viewData['breadcrumbs'] = [
-            ['title' => 'Home', 'url' => route('home.index')],
-            ['title' => 'Categories', 'url' => route('category.index')],
+            ['title' => __('controller.home'), 'url' => route('home.index')],
+            ['title' => __('controller.categories'), 'url' => route('category.index')],
         ];
 
         return view('category.index')->with('viewData', $viewData);
@@ -30,13 +28,13 @@ class CategoryController extends Controller
         $plants = Plant::where('category_id', '=', $id)->get();
 
         $viewData = [];
-        $viewData['title'] = 'Category: '.$category->getName().' - Garden of Eden';
-        $viewData['subtitle'] = $category->getName().' Plants';
+        $viewData['title'] = __('controller.colon_formatted_category', ['category' => $category->getName()]);
+        $viewData['subtitle'] = __('controller.colon_formatted.category_plants', ['category' => $category->getName()]);
         $viewData['plants'] = $plants;
         $viewData['categories'] = Category::all();
         $viewData['breadcrumbs'] = [
-            ['title' => 'Home', 'url' => route('home.index')],
-            ['title' => 'Categories', 'url' => route('category.index')],
+            ['title' => __('controller.home'), 'url' => route('home.index')],
+            ['title' => __('controller.categories'), 'url' => route('category.index')],
             ['title' => $category->getName(), 'url' => route('category.show', ['id' => $category->getId()])],
         ];
 
