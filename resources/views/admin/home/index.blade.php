@@ -12,8 +12,8 @@
         <div class="card h-100">
             <img class="card-img-top img-fluid" src="{{ asset('/img/cards/plant.jpg') }}">
             <div class="card-body">
-                <h5 class="card-title">{{ __('admin.card_title_plants') }}</h5>
-                <p class="card-text">{{ __('admin.card_text_plants') }}</p>
+                <h5 class="card-title">{{ __('admin.plants') }}</h5>
+                <p class="card-text">{{ __('admin.default_card_text_plants') }}</p>
                 <a href="{{ route('admin.plant.index') }}" class="btn btn-primary">{{ __('admin.manage_plants') }}</a>
             </div>
         </div>
@@ -23,8 +23,8 @@
         <div class="card h-100">
             <img class="card-img-top img-fluid" src="{{ asset('/img/cards/guide.png') }}">
             <div class="card-body">
-                <h5 class="card-title">{{ __('admin.card_title_guides') }}</h5>
-                <p class="card-text">{{ __('admin.card_text_guides') }}</p>
+                <h5 class="card-title">{{ __('admin.guides') }}</h5>
+                <p class="card-text">{{ __('admin.default_card_text_guides') }}</p>
                 <a href="{{ route('admin.guide.index') }}" class="btn btn-primary">{{ __('admin.manage_guides') }}</a>
             </div>
         </div>

@@ -33,7 +33,7 @@
             <div class="mb-3">
                 <input type="file" name="image" value="{{ old('image') }}" class="form-control">
             </div>
-            <button type="submit" class="btn btn-primary ms-3">{{ __('admin.button_create_guide') }}</button>
+            <button type="submit" class="btn btn-primary ms-3">{{ __('admin.button_guide_create') }}</button>
         </form>
     </div>
 </div>

@@ -35,12 +35,12 @@
             <div class="mb-3">
                 <input type="file" name="image" class="form-control">
             </div>
-            <button type="submit" class="btn btn-primary ms-3">{{ __('admin.button_update_guide') }}</button>
+            <button type="submit" class="btn btn-primary ms-3">{{ __('admin.button_guide_update') }}</button>
         </form>
         <div class="mb-3">
             <form action="{{ route('admin.guide.index') }}" method="get">
                 @csrf
-                <button class="btn btn-danger ms-3 mt-2">{{ __('admin.button_cancel_guide') }}</button>
+                <button class="btn btn-danger ms-3 mt-2">{{ __('admin.button_guide_cancel') }}</button>
             </form>
         </div>
     </div>

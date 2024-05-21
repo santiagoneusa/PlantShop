@@ -33,14 +33,14 @@
                     <td>
                         <form action="{{ route('admin.guide.edit', ['id' => $guide->getId()]) }}" method="get" enctype="multipart/form-data">
                             @csrf
-                            <button type="submit" class="btn btn-primary"><span class="material-symbols-outlined">{{ __('admin.button_edit_guide') }}</span></button>
+                            <button type="submit" class="btn btn-primary"><span class="material-symbols-outlined">{{ __('admin.button_guide_edit') }}</span></button>
                         </form>
                     </td>
                     <td><a href="{{ route('admin.guide.delete', ['id' => $guide->getId()]) }}"></a>
                         <form action="{{ route('admin.guide.delete', $guide->getId())}}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger"><span class="material-symbols-outlined">{{ __('admin.button_delete_guide') }}</span></button>
+                            <button class="btn btn-danger"><span class="material-symbols-outlined">{{ __('admin.button_guide_delete') }}</span></button>
                         </form>
                     </td>
                 </tr>
