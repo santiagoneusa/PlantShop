@@ -70,4 +70,8 @@ return [
     'copyright' => '© 2024 Copyright - ',
     'names' => 'Jhonnathan Ocampo y Santiago Neusa',
 
+    'language' => 'Language',
+    'english' => 'English',
+    'spanish' => 'Spanish',
+
 ];

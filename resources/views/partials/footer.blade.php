@@ -5,19 +5,19 @@
             <div class="row text-center d-flex justify-content-center pt-5">
                 <div class="col-md-2">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!" class="text-white">Home</a>
+                        <a href="#!" class="text-white">{{ __('app.home') }}</a>
                     </h6>
                 </div>
 
                 <div class="col-md-2">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!" class="text-white">Products</a>
+                        <a href="#!" class="text-white">{{ __('app.plants') }}</a>
                     </h6>
                 </div>
 
                 <div class="col-md-2">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!" class="text-white">Guides</a>
+                        <a href="#!" class="text-white">{{ __('app.guides') }}</a>
                     </h6>
                 </div>
         </section>
@@ -34,8 +34,6 @@
 
     </div>
 
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-        © 2024 Copyright: Jhonnathan Ocampo y Santiago Neusa
-    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">{{ __('admin.copyright') }}{{ __('admin.names') }}</div>
 
 </footer>

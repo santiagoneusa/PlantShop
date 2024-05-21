@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class HomeController extends Controller
 {
@@ -20,5 +21,12 @@ class HomeController extends Controller
         ];
         
         return view('home.index')->with('viewData', $viewData);
+    }
+
+    public function locale(string $locale): RedirectResponse
+    {
+        session(['locale' => $locale]);
+
+        return redirect()->back()->withCookie('locale', $locale);
     }
 }
