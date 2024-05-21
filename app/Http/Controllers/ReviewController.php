@@ -21,7 +21,7 @@ class ReviewController extends Controller
         $review->setContent($request->input('content'));
         $review->setStars($request->input('stars'));
         $review->setPlantId($request->input('plant_id'));
-        $review->setUserId($user->id);
+        $review->setUserId($user->getId());
         $review->save();
 
         Session::flash('success', 'Comment created successfully.');

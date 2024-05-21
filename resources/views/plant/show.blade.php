@@ -54,12 +54,12 @@
         
         <form method="POST" action="{{ route('review.save') }}">
           @csrf
-          <input type="hidden" name="plant_id" value="{{ $viewData["plant"]->getId() }}">
+          <input type="hidden" name="plant_id" value="{{ $viewData['plant']->getId() }}">
           <div class="form-group">
-            <label for="content">Add Comment</label>
-            <textarea class="form-control" name="content" rows="3"></textarea>
-            <input type="number" class="form-control mb-2 mt-2" name="stars" placeholder="How would you rate this product on a scale of one to five?">
-          <br>
+              <label for="content">Add Comment</label>
+              <textarea class="form-control" name="content" rows="3">{{ old('content') }}</textarea>
+              <input type="number" class="form-control mb-2 mt-2" name="stars" placeholder="How would you rate this product on a scale of one to five?" value="{{ old('stars') }}">
+              <br>
           </div>
           <button type="submit" class="btn btn-primary">Send</button>
         </form>
