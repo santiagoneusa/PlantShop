@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
 
 class Item extends Model
@@ -79,7 +78,7 @@ class Item extends Model
 
     public function setUpdatedAt($updatedAt): void
     {
-        $this->attributes['updated_at'] = $updatedAt; 
+        $this->attributes['updated_at'] = $updatedAt;
     }
 
     public function plant(): BelongsTo
@@ -95,7 +94,7 @@ class Item extends Model
     public function setPlant(Plant $plant): void
     {
         $this->plant = $plant;
-    }   
+    }
 
     public function getPlantId(): int
     {

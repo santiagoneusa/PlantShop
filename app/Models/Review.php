@@ -98,7 +98,7 @@ class Review extends Model
     {
         $this->attributes['updated_at'] = $updatedAt;
     }
-    
+
     public function plant(): BelongsTo
     {
         return $this->belongsTo(Plant::class);

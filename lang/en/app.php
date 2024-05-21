@@ -10,9 +10,9 @@ return [
     'card_book_autor' => 'Author: ',
     'card_book_year' => 'Year: ',
     'card_book_language' => 'Language: ',
-    
+
     'no_books_found' => 'No books found.',
-    
+
     // Cart
 
     'plants_in_cart' => 'Plants in cart',
@@ -29,9 +29,9 @@ return [
     'table_header_cart_name' => 'Name',
     'table_header_cart_price' => 'Price',
     'table_header_cart_quantity' => 'Quantity',
-    
+
     // Category
-    
+
     'category' => 'Category',
     'categories' => 'Categories',
     'view_categories' => 'View Categories',
@@ -48,7 +48,7 @@ return [
 
     'guides' => 'Guides',
     'view_guides' => 'View Guides',
-    
+
     'card_guides_available' => 'How to water my plants? Which plants are better to me? All those questions answered here',
     'colon_formatted_guide_description' => 'Description: :description',
 
@@ -59,13 +59,13 @@ return [
     'allied_store' => 'Allied Store',
     'search' => 'Search',
     'search_plants' => 'Search plants...',
-    
+
     // Plant
 
     'plants' => 'Plants',
     'view_plants' => 'View Plants',
     'card_plants_available' => 'Visualize all plants available',
-        
+
     'select_plants_filter' => 'Select an option to filter the plants',
     'select_newest_to_oldest' => 'Newest to oldest',
     'select_oldest_to_newest' => 'Oldest to newest',
@@ -105,7 +105,7 @@ return [
     'colon_formatted_user_balance' => 'Balance: $:balance',
     'colon_formatted_user_email' => 'Email: :email',
     'colon_formatted_user_since' => 'Since: :date',
-    
+
     'not_purchase' => 'Seems to be that you have not purchased anything in our store.',
 
     // Order

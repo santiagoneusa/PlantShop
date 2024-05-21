@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
-use App\Models\Item;
 
 class Plant extends Model
 {
@@ -135,12 +134,10 @@ class Plant extends Model
         return $this->attributes['updated_at'];
     }
 
-
     public function setUpdatedAt($updatedAt): void
     {
         $this->attributes['updated_at'] = $updatedAt;
     }
-
 
     public function category(): BelongsTo
     {
@@ -166,7 +163,7 @@ class Plant extends Model
     {
         $this->attributes['category_id'] = $categoryId;
     }
-    
+
     public function items(): HasMany
     {
         return $this->hasMany(Item::class);

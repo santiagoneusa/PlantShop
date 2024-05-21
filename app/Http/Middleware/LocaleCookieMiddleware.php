@@ -10,8 +10,9 @@ class LocaleCookieMiddleware
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if($request->hasCookie('locale'))
+        if ($request->hasCookie('locale')) {
             app()->setLocale($request->cookie('locale'));
+        }
 
         return $next($request);
     }

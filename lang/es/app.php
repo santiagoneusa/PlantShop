@@ -10,9 +10,9 @@ return [
     'card_book_autor' => 'Autor: ',
     'card_book_year' => 'Año: ',
     'card_book_language' => 'Idioma: ',
-    
+
     'no_books_found' => 'No se encontraron libros.',
-    
+
     // Carrito
 
     'plants_in_cart' => 'Plantas en el carrito',
@@ -29,9 +29,9 @@ return [
     'table_header_cart_name' => 'Nombre',
     'table_header_cart_price' => 'Precio',
     'table_header_cart_quantity' => 'Cantidad',
-    
+
     // Categoría
-    
+
     'category' => 'Categoría',
     'categories' => 'Categorías',
     'view_categories' => 'Ver Categorías',
@@ -48,7 +48,7 @@ return [
 
     'guides' => 'Guías',
     'view_guides' => 'Ver Guías',
-    
+
     'card_guides_available' => '¿Cómo regar mis plantas? ¿Cuáles plantas son mejores para mí? Todas esas preguntas respondidas aquí',
     'colon_formatted_guide_description' => 'Descripción: :description',
 
@@ -59,13 +59,13 @@ return [
     'allied_store' => 'Tienda Aliada',
     'search' => 'Buscar',
     'search_plants' => 'Buscar plantas...',
-    
+
     // Planta
 
     'plants' => 'Plantas',
     'view_plants' => 'Ver Plantas',
     'card_plants_available' => 'Visualiza todas las plantas disponibles',
-        
+
     'select_plants_filter' => 'Selecciona una opción para filtrar las plantas',
     'select_newest_to_oldest' => 'De más nuevo a más antiguo',
     'select_oldest_to_newest' => 'De más antiguo a más nuevo',
@@ -105,7 +105,7 @@ return [
     'colon_formatted_user_balance' => 'Saldo: $:balance',
     'colon_formatted_user_email' => 'Correo electrónico: :email',
     'colon_formatted_user_since' => 'Desde: :date',
-    
+
     'not_purchase' => 'Parece que no has comprado nada en nuestra tienda.',
 
     // Pedido

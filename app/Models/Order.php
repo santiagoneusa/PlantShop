@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
-use SebastianBergmann\Type\VoidType;
 
 class Order extends Model
 {
@@ -92,7 +91,6 @@ class Order extends Model
         return $this->attributes['updated_at'];
     }
 
-
     public function setUpdatedAt($UpdatedAt): void
     {
         $this->attributes['created_at'] = $UpdatedAt;
@@ -137,5 +135,4 @@ class Order extends Model
     {
         $this->items = $items;
     }
-
 }

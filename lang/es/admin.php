@@ -7,14 +7,14 @@ return [
     'admin_panel' => 'Panel de Administración',
     'admin' => 'Administrador',
     'go_to_store' => 'Ir a la Tienda',
-    
+
     'home' => 'Inicio',
     'plants' => 'Plantas',
     'guides' => 'Guías',
-    
+
     'default_card_text_plants' => 'Crear, eliminar o editar las plantas de la base de datos',
     'default_card_text_guides' => 'Crear, eliminar o editar las guías de la base de datos',
-    
+
     'manage_guides' => 'Administrar Guías',
     'manage_plants' => 'Administrar Plantas',
 
@@ -46,13 +46,13 @@ return [
     'table_header_plant_stock' => 'Inventario',
     'table_header_plant_edit' => 'Editar',
     'table_header_plant_delete' => 'Eliminar',
-    
+
     'button_plant_create' => 'Crear',
     'button_plant_update' => 'Actualizar',
     'button_plant_edit' => 'Editar',
     'button_plant_cancel' => 'Cancelar',
     'button_plant_delete' => 'Eliminar',
-    
+
     'hyphen_formatted_plant_title' => '":title" - Información',
     'colon_formatted_plant_edditing' => 'Editando :plant',
     'colon_formatted_plant_current_category' => 'Valor actual: :category',
@@ -62,7 +62,7 @@ return [
     'colon_formatted_plant_price' => 'Precio: $:price',
     'colon_formatted_plant_stock' => 'Inventario restante: :stock unidades',
     'colon_formatted_plant_category' => 'Categoría: :category',
-    
+
     'select_plant_category' => 'Seleccionar Categoría',
 
     // Partials

@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Order;
-use App\Models\Review;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;

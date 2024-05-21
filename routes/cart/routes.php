@@ -7,5 +7,5 @@ Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name('
 Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
+    Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name('cart.purchase');
 });
