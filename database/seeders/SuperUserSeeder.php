@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Order;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -10,7 +11,13 @@ class SuperUserSeeder extends Seeder
 {
     public function run(): void
     {
-        User::where('email', 'superusuario@gmail.com')->delete();
+        $user = User::where('email', 'superusuario@gmail.com')->first();
+
+        if ($user) {
+            Order::where('user_id', $user->id)->delete();
+
+            $user->delete();
+        }
 
         User::create([
             'name' => 'Admin',
